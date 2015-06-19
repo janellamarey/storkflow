@@ -1,0 +1,327 @@
+
+<?php $sViewFilesUrl = $this->url( array( 'controller' => 'legislation' , 'action' => 'view' , 'id' => $this->id ) ); ?>
+
+<tr id="n-<?php echo $this->escape( $this->id ); ?>">
+    <td width="60%">
+        <div class="bl-title">
+            <h2><a href="<?php echo $sViewFilesUrl; ?>"><?php echo $this->escape( $this->name ); ?></a></h2>
+        </div>
+        <div class="links">
+            <ul>
+                <li>
+                    <a href="#" class="action-button" id="dl-<?php echo $this->id; ?>">
+                        Download
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </td>
+</tr>
+
+<script type="text/javascript">
+
+    $( document ).ready( function() {
+        
+        ordinances = [];
+        ordinances['dl-<?php echo $this->id; ?>'] = {
+            name: <?php echo json_encode( $this->name ); ?>,
+            logo: '<?php echo $this->logouri ?>',
+            content: <?php echo json_encode( $this->summary ); ?>
+        };
+
+        var councilors = [ ], councilors1 = [ ], councilors2 = [ ], superuser = [], superadmin = [];
+<?php
+foreach ( $this->councilors as $councilor )
+{
+    ?>
+    var temp = { };
+    temp['name'] = <?php echo json_encode( $councilor[ 'name' ] ); ?>;
+    <?php
+    if ( array_key_exists( 'datauri' , $councilor ) )
+    {
+        ?>
+                temp['datauri'] = '<?php echo $councilor[ 'datauri' ]; ?>';
+        <?php
+    }
+    else
+    {
+        ?>
+                temp['datauri'] = '';
+        <?php
+    }
+    ?>
+
+    <?php
+    if ( array_key_exists( 'datauriwidth' , $councilor ) )
+    {
+        ?>
+                temp['datauriwidth'] = '<?php echo $councilor[ 'datauriwidth' ]; ?>';
+        <?php
+    }
+    else
+    {
+        ?>
+                temp['datauriwidth'] = 0;
+        <?php
+    }
+    ?>
+
+    <?php
+    if ( array_key_exists( 'datauriheight' , $councilor ) )
+    {
+        ?>
+                temp['datauriheight'] = '<?php echo $councilor[ 'datauriheight' ]; ?>';
+        <?php
+    }
+    else
+    {
+        ?>
+                temp['datauriheight'] = 0;
+        <?php
+    }
+    ?>
+        councilors.push( temp );
+    <?php
+}
+?>
+        
+<?php
+foreach ( $this->councilors1 as $councilor )
+{
+    ?>
+    var temp = { };
+    temp['name'] = <?php echo json_encode( $councilor[ 'name' ] ); ?>;
+    <?php
+    if ( array_key_exists( 'datauri' , $councilor ) )
+    {
+        ?>
+                temp['datauri'] = '<?php echo $councilor[ 'datauri' ]; ?>';
+        <?php
+    }
+    else
+    {
+        ?>
+                temp['datauri'] = '';
+        <?php
+    }
+    ?>
+
+    <?php
+    if ( array_key_exists( 'datauriwidth' , $councilor ) )
+    {
+        ?>
+                temp['datauriwidth'] = '<?php echo $councilor[ 'datauriwidth' ]; ?>';
+        <?php
+    }
+    else
+    {
+        ?>
+                temp['datauriwidth'] = 0;
+        <?php
+    }
+    ?>
+
+    <?php
+    if ( array_key_exists( 'datauriheight' , $councilor ) )
+    {
+        ?>
+                temp['datauriheight'] = '<?php echo $councilor[ 'datauriheight' ]; ?>';
+        <?php
+    }
+    else
+    {
+        ?>
+                temp['datauriheight'] = 0;
+        <?php
+    }
+    ?>
+        councilors1.push( temp );
+    <?php
+}
+?>
+
+<?php
+foreach ( $this->councilors2 as $councilor )
+{
+    ?>
+    var temp = { };
+    temp['name'] = <?php echo json_encode( $councilor[ 'name' ] ); ?>;
+    <?php
+    if ( array_key_exists( 'datauri' , $councilor ) )
+    {
+        ?>
+                temp['datauri'] = '<?php echo $councilor[ 'datauri' ]; ?>';
+        <?php
+    }
+    else
+    {
+        ?>
+                temp['datauri'] = '';
+        <?php
+    }
+    ?>
+
+    <?php
+    if ( array_key_exists( 'datauriwidth' , $councilor ) )
+    {
+        ?>
+                temp['datauriwidth'] = '<?php echo $councilor[ 'datauriwidth' ]; ?>';
+        <?php
+    }
+    else
+    {
+        ?>
+                temp['datauriwidth'] = 0;
+        <?php
+    }
+    ?>
+
+    <?php
+    if ( array_key_exists( 'datauriheight' , $councilor ) )
+    {
+        ?>
+                temp['datauriheight'] = '<?php echo $councilor[ 'datauriheight' ]; ?>';
+        <?php
+    }
+    else
+    {
+        ?>
+                temp['datauriheight'] = 0;
+        <?php
+    }
+    ?>
+        councilors2.push( temp );
+    <?php
+}
+?>
+        
+<?php
+foreach ( $this->superuser as $superuser )
+{
+    ?>
+    var temp = { };
+    temp['name'] = <?php echo json_encode( $superuser[ 'name' ] ); ?>;
+    <?php
+    if ( array_key_exists( 'datauri' , $superuser ) )
+    {
+        ?>
+                temp['datauri'] = '<?php echo $superuser[ 'datauri' ]; ?>';
+        <?php
+    }
+    else
+    {
+        ?>
+                temp['datauri'] = '';
+        <?php
+    }
+    ?>
+
+    <?php
+    if ( array_key_exists( 'datauriwidth' , $superuser ) )
+    {
+        ?>
+                temp['datauriwidth'] = '<?php echo $superuser[ 'datauriwidth' ]; ?>';
+        <?php
+    }
+    else
+    {
+        ?>
+                temp['datauriwidth'] = 0;
+        <?php
+    }
+    ?>
+
+    <?php
+    if ( array_key_exists( 'datauriheight' , $superuser ) )
+    {
+        ?>
+                temp['datauriheight'] = '<?php echo $superuser[ 'datauriheight' ]; ?>';
+        <?php
+    }
+    else
+    {
+        ?>
+                temp['datauriheight'] = 0;
+        <?php
+    }
+    ?>
+        superuser.push( temp );
+    <?php
+}
+?>    
+<?php
+foreach ( $this->superadmin as $superadmin )
+{
+    ?>
+    var temp = { };
+    temp['name'] = <?php echo json_encode( $superadmin[ 'name' ] ); ?>;
+    <?php
+    if ( array_key_exists( 'datauri' , $superadmin ) )
+    {
+        ?>
+                temp['datauri'] = '<?php echo $superadmin[ 'datauri' ]; ?>';
+        <?php
+    }
+    else
+    {
+        ?>
+                temp['datauri'] = '';
+        <?php
+    }
+    ?>
+
+    <?php
+    if ( array_key_exists( 'datauriwidth' , $superadmin ) )
+    {
+        ?>
+                temp['datauriwidth'] = '<?php echo $superadmin[ 'datauriwidth' ]; ?>';
+        <?php
+    }
+    else
+    {
+        ?>
+                temp['datauriwidth'] = 0;
+        <?php
+    }
+    ?>
+
+    <?php
+    if ( array_key_exists( 'datauriheight' , $superadmin ) )
+    {
+        ?>
+                temp['datauriheight'] = '<?php echo $superadmin[ 'datauriheight' ]; ?>';
+        <?php
+    }
+    else
+    {
+        ?>
+                temp['datauriheight'] = 0;
+        <?php
+    }
+    ?>
+        superadmin.push( temp );
+    <?php
+}
+?>
+  
+
+        ordinances['dl-<?php echo $this->id; ?>']['councilors'] = councilors;
+        ordinances['dl-<?php echo $this->id; ?>']['councilors1'] = councilors1;
+        ordinances['dl-<?php echo $this->id; ?>']['councilors2'] = councilors2;
+        ordinances['dl-<?php echo $this->id; ?>']['admin'] = superuser;
+        ordinances['dl-<?php echo $this->id; ?>']['superuser'] = superadmin;
+        ordinances['dl-<?php echo $this->id; ?>']['superadmin'] = [{
+                                                                        'name': 'Strike Revilla',
+                                                                        'datauri' : '',
+                                                                        'datauriwidth' : '',
+                                                                        'datauriheight' : ''
+                                                                    }];
+        
+        $( '#dl-<?php echo $this->id; ?>' ).on( 'click', ordinances['dl-<?php echo $this->id; ?>'], function( eventData ) {
+            var doc = new OrdinancePDF( eventData.data );
+            doc.save( '<?php echo $this->escape( $this->name ); ?>.pdf' );
+            
+        } );
+
+    } );
+</script>

@@ -1,0 +1,22 @@
+<script type="text/javascript">
+    $( document ).ready( function() {
+        var images = <?php echo json_encode( $this->images ) ?>;
+        for ( i = 0; i < images.length; i++ )
+        {
+            var div = $( "<div/>", { class: "image-row-column" } );
+            var a = $( '<a/>', { 'class': 'grouped_elements', rel: 'group', href: images[i]['path'] } );
+            var img = $( '<img/>', { src: images[i]['path'] } ).width( '95%' ).css( { marginRight: "10px" } );
+            div.append( a.append( img ) );
+
+            if ( images[i]['caption'] !== undefined )
+            {
+                div.append( $( '<div>' + images[i]['caption'] + '</div>' ).css( 'text-align', 'center' ) );
+            }
+
+            $( '.image-row' ).append( div );
+        }
+        $( '.image-row' ).append( $( '<div/>' ).css( 'clear', 'both' ) );
+
+        $( "a.grouped_elements" ).fancybox();
+    } );
+</script>

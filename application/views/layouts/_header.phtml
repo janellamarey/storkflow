@@ -1,0 +1,50 @@
+<div id="header">
+
+    <div id="header-wrap">
+        <div id="h_left">
+            <img id="logo-img" alt="Bacoor City Government" src="<?php echo $this->baseUrl( 'img/logo.png' ); ?>" width="90%"/>
+        </div>
+        <div id="h_right">
+
+            <?php
+            if ( $this->user[ 'id' ] !== 0 )
+            {
+                echo $this->partial( "_welcomeuser.phtml" , $this->user );
+            }
+            else
+            {
+                echo $this->partial( "_welcomeguest.phtml" );
+            }
+            ?>
+
+            <?php echo $this->partial( "_search.phtml" ); ?>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $( window ).on( "load resize", function () {
+
+        var adjust = function ()
+        {
+            var userDash = $( ".user-dash" );
+            var hLeft = $( "#h_left" );
+            var hRight = $( "#h_right" );
+            var current = parseInt( userDash.css( "paddingTop" ), 10 );
+
+            if ( hLeft.height() <= hRight.height() )
+            {
+                var diff = hRight.height() - hLeft.height();
+                userDash.css( { "paddingTop": (current - diff) + "px" } );
+            }
+            else
+            {
+                var diff = hLeft.height() - hRight.height();
+                userDash.css( { "paddingTop": (current + diff) + "px" } );
+            }
+        };
+
+        adjust();
+    } ).resize();
+</script>

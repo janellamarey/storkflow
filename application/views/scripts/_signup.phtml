@@ -1,0 +1,21 @@
+<div class="signup-dash">
+    <div class="signupform">
+        <form method="GET" id="signupform" action="<?php echo $this->url; ?>">
+            <div class="signup-input"><input type="radio" name="reg" checked="true" value="role4" class="signup-radio"/><span class="signup-radio-text">For Bacoor Residents</span></div>
+            <div class="signup-input"><input type="radio" name="reg" value="role5" class="signup-radio"/><span class="signup-radio-text">For Bacoor Councilors</span></div>
+            <div class="signup-input signup-label   ">Name:</div>
+            <div class="signup-input"><input type="text" value="Enter Item or keyword" name="username" id="username" class="s" onfocus="if ( this.value == 'Enter Item or keyword' ) {
+                        this.value = '';
+                    }" onblur="if ( this.value == '' ) {
+                                this.value = 'Enter Item or keyword';
+                            }" /></div>
+            <div class="signup-input signup-label">Email:</div>
+            <div class="signup-input"><input type="text" value="Enter Item or keyword" name="emailadd" id="emailadd" class="s" onfocus="if ( this.value == 'Enter Item or keyword' ) {
+                        this.value = '';
+                    }" onblur="if ( this.value == '' ) {
+                                this.value = 'Enter Item or keyword';
+                            }" /></div>
+            <div class="signup-input"><input type="submit" class="signup_btn" value="Sign Up"/></div>
+        </form>
+    </div>
+</div>

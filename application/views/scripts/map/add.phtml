@@ -1,0 +1,62 @@
+<div id="content">
+    <div id="content-wrap">
+
+        <div id="title-bar">
+            <h1><?php echo $this->escape( $this->title ) ?></h1>
+            <?php echo $this->formmessage; ?>
+            <ul>
+                <?php
+                foreach ( $this->formresponse as $message ):
+                    ?>
+                    <li><?php echo $this->escape( $message ); ?></li>
+                    <?php
+                endforeach;
+                ?>
+            </ul>
+        </div>
+
+        <div id="body-bar">
+            <?php
+            if ( !$this->hasMap )
+            {
+            ?>
+                <form accept-charset="utf-8" enctype="multipart/form-data" method="POST" action="">
+                    <div id="map-form">
+                        <table>                       
+                        <tr>
+                            <td>
+                                Upload file to add map:
+                            </td>                            
+                            <td>
+                                <p><input name="map" type="file"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <input id="submit-butt" name="submit-butt" type="submit" value="Submit">
+                            </td> 
+                        </tr>
+                        <table>                    
+                    </div>
+                </form>
+            <?php
+            }
+            else
+            {
+            ?>
+                <div class="map block-list">
+                    <p> You have now a map.
+                    <a href=""><img src="<?php echo $this->baseUrl( 'img/map/'.$this->hazardMap->name ); ?>"/></a>
+                </div>
+                <div>
+                    You can <a href="<?php echo $this->url(array('controller'=>'map', 'action'=>'edit'), null, true);?>" class="action-button">Edit</a> the map.
+                </div>
+            <?php
+            }
+            ?>
+        </div>
+    </div>
+</div>
+
+

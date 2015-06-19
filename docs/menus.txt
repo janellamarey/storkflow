@@ -1,0 +1,7 @@
+superadmin
+superuser
+admin
+voter
+councilor
+guest
+

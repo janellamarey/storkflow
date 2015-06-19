@@ -1,0 +1,153 @@
+#content-wrap
+{
+    margin: 0 auto;
+    width: 90%;
+}
+
+#content-wrap h1, #content-wrap #title-bar
+{   
+    /*margin: 0.8em 0 0.8em;*/
+}
+
+#content-wrap #article-title
+{   
+    /*margin: 1.8em 0 1.8em;*/
+    line-height: 1.2;
+}
+
+#content-wrap #body-bar, #content-wrap #title-bar
+{
+    font: 13px/1.5em Georgia,serif;
+    vertical-align: top;
+}
+
+#content-wrap #body-bar textarea, #content-wrap #body-bar input[type='text']
+{
+    border: 1px #FFEBEB solid;
+    background: #FFEBEB;
+    font: 13px/1.5em Georgia,serif;
+    width: 100%;
+}
+
+#content-wrap #body-bar input[type='text']
+{
+    height: 25px;
+}
+
+#content-wrap #body-bar input[type='file']
+{
+    font: 13px/1.5em Georgia,serif;
+}
+
+.action-button, #submit-butt
+{
+    background: none repeat scroll 0 0 #FF0000;
+    border-radius: 3px;
+    color: #FFFFFF;
+    font-family: Arial,Verdana;
+    font-size: 12px;
+    padding: 2px 7px;
+}
+
+#submit-butt
+{
+    border: none;
+    cursor: pointer;
+}
+
+#submit-butt:hover
+{
+    background: none repeat scroll 0 0 #336699
+}
+
+.block-list td
+{
+    color: #000;
+    vertical-align: bottom;
+}
+
+.block-list p, .block-list table
+{
+    font: 15px Georgia, serif;
+    line-height: 1.5em;
+    width:100%;
+}
+
+.approvals span
+{
+    padding: 0 10px 0 0;
+}
+
+.block-list h3
+{
+    //padding: 0 20px;
+}
+
+.block-list ul
+{
+    /*list-style: none;*/
+}
+
+.block-list ul li
+{
+    //padding: 7px;
+}
+
+.block-list tr
+{
+    border-bottom: 1px solid red;
+    padding: 0;
+    margin: 0;
+}
+
+.block-list .bl-title
+{
+    margin: 10px 0;
+}
+
+.block-list .bl-summary, .block-list .bl-attached-files, .block-list .bl-signed
+{
+    margin: 5px 0;
+}
+
+.block-list .bl-summary
+{
+    text-align: justify;
+}
+
+.block-list .bl-attached-files ul
+{
+    list-style: none;
+    font-size: 14px;
+    padding: 0;
+    margin:0;
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+hr.style-eight 
+{
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
+}
+hr.style-eight:after 
+{
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: white;
+}
+
+hr.style-one{
+    color: gray;
+}
+

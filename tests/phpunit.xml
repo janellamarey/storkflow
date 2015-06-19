@@ -1,0 +1,23 @@
+<phpunit bootstrap="./TestConfiguration.php">
+    <php>
+        <env name="APPLICATION_ENV" value="test"/>
+    </php>        
+    <testsuite name="All Test Suite">
+        <directory>./</directory>
+    </testsuite>
+    
+    <logging>
+        <log highlowerbound="80" lowupperbound="50" highlight="true" yui="true" charset="UTF-8"
+        target="./log/report" type="coverage-html"></log>
+    </logging>
+    
+    <filter>
+        <whitelist>
+            <directory suffix=".php">../library/</directory>
+            <directory suffix=".php">../application/</directory>
+            <exclude>
+                <directory suffix=".phtml">../application/</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>

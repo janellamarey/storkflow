@@ -1,0 +1,16 @@
+<div class="cssmenu <?php echo $this->useblue;?>">
+    <div class="cssmenu-wrap">
+        <ul>
+            <?php 
+                if($this->usecore)
+                {
+                    echo $this->partialLoop('_menuItemNonReg.phtml', $this->menu);
+                }
+                else
+                {
+                    echo $this->partialLoop('_menuItem.phtml', $this->menu);
+                }
+            ?>
+        </ul>
+    </div>
+</div>

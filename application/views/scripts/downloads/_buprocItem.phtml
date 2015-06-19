@@ -1,0 +1,84 @@
+
+<?php $viewURL = $this->url( array( 'controller' => 'legislation' , 'action' => 'view' , 'id' => $this->id ) ); ?>
+<?php $editURL = $this->url( array( 'controller' => 'legislation' , 'action' => 'editbuproc' , 'id' => $this->id ) ); ?>
+
+<tr id="n-<?php echo $this->escape( $this->id ); ?>">
+    <td width="60%">
+        <div class="bl-title">
+            <h2><?php echo $this->escape( $this->name ); ?></h2>
+        </div>
+        <div class="bl-attached-files">
+            <ul>
+                <?php
+                if ( !is_null( $this->files ) && !empty( $this->files ) )
+                {
+                    foreach ( $this->files as $file )
+                    {
+                        ?>
+                        <li>
+
+                            <a id="li-<?php echo $this->escape( $file[ 'id' ] ); ?>" href="<?php echo $this->escape( $file[ 'url' ] ) ?>">
+                                <?php echo $this->escape( $file[ 'filename' ] ); ?>
+                            </a>
+
+                        </li>
+                        <?php
+                    }
+                }
+                ?>
+            </ul>
+        </div>
+        <div class="links">
+            <ul>
+                <?php
+                if ( $this->showEditButton )
+                {
+                    ?>
+                    <li>
+                        <a href="<?php echo $editURL; ?>" class="action-button" id="edit-<?php echo $this->id; ?>">
+                            Edit
+                        </a>
+                    </li>
+                    <?php
+                }
+                ?>
+                <?php
+                if ( $this->showDeleteButton )
+                {
+                    ?>
+                    <li>
+                        <a href="#" class="action-button" id="del-<?php echo $this->id; ?>">
+                            Delete
+                        </a>
+                    </li>
+                    <?php
+                }
+                ?>
+            </ul>
+        </div>
+    </td>
+</tr>
+
+<script type="text/javascript">
+
+    $( document ).ready( function () {
+
+<?php
+if ( $this->showDeleteButton )
+{
+    ?>
+            var deletefunc = function () {
+                new PostDeleteTableRow( '<?php echo $this->baseUrl(); ?>', 'legislation', 'deletebuproc', '<?php echo $this->id ?>', 'buprocs' );
+            };
+
+            $( "#del-<?php echo $this->id ?>" ).on( "click", function ( eventData )
+            {
+                new Confirm( 'Confirm', 'Are you sure you want to delete this legislation?', 'Yes', deletefunc );
+                eventData.preventDefault();
+            } );
+    <?php
+}
+?>
+
+    } );
+</script>

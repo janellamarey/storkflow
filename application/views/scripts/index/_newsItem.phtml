@@ -1,0 +1,9 @@
+<?php $sViewNewsUrl = $this->url( array( 'controller' => 'news' , 'action' => 'view' , 'id' => $this->id ) ); ?>
+<li>
+    <div>
+        <h4><a href="<?php echo $this->escape( $sViewNewsUrl ); ?>"><?php echo $this->escape( $this->title ); ?></a></h4>
+        <p><?php echo $this->escape( $this->body ); ?>
+            <a href="<?php echo $this->escape( $sViewNewsUrl ); ?>">READ MORE</a>
+    </div>
+</li>
+

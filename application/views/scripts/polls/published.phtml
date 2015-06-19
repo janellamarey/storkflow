@@ -1,0 +1,63 @@
+<div class="colmask threecol">
+    <div class="content-wrap">
+        <div class="colmid">
+            <div class="colleft">
+                <div class="col1">
+                    <div id="title-category-bar">
+                        <h1>ANO SA TINGIN MO?</h1>
+                    </div>
+                    <div>
+                        <table class="block-list" id="polls">
+
+                            <?php
+                            echo $this->partialLoop( 'polls/_publishedPollItem.phtml' , $this->polls );
+                            ?>
+
+                        </table>
+                    </div>
+                </div>
+                <div class="col2">
+                    <div id="visit">
+                        <a id="visit_link" href="">
+                            <img id="banner-img" alt="Bacoor City Government" src="<?php echo $this->baseUrl( 'img/bacoor.png' ); ?>" width="100%"/>
+                        </a>
+                    </div>
+                    <div id="ordinances-header">
+                        <div id="ordinances-header-content">
+                            City Ordinances
+                        </div>
+                    </div>
+                    <div id="ordinances-list">
+                        <ul>
+                            <?php
+                            echo $this->partialLoop( 'index/_ordinanceItem.phtml' , $this->ordinances );
+                            ?>
+                        </ul>
+                    </div>
+                    <!-- Column 2 end -->
+                </div>
+                <div class="col3">
+                    <!-- Column 3 start -->
+                    <div id="ads">
+                        <a href="">
+                            <img src=<?php echo $this->baseUrl( 'img/vote.png' ); ?> alt="Vote!" width="100%"/>
+                        </a>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $( document ).ready( function() {
+        
+        $( '#visit_link' ).on( 'click', { url: "http://www.cavite.gov.ph/home/index.php/cities-and-municipalities/district-ii/bacoor-city" },
+        function( eventObject ) {
+            window.open( eventObject.data.url );
+            return false;
+        } );
+
+    } );
+
+</script>

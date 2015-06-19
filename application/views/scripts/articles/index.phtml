@@ -1,0 +1,52 @@
+<div id="content">
+    <h1>About Us Content</h1>
+    <a href="<?php echo $this->about_us_url_edit;?>" class="orange_btn">EDIT</a>
+    <div>
+        <?php echo $this->about_us_content;?>
+    </div>
+    
+    <h1>Contact Us Content</h1>
+    <a href="<?php echo $this->contact_us_url_edit;?>" class="orange_btn">EDIT</a>
+    <div>
+        <?php echo $this->contact_us_content;?>
+    </div>
+    
+    <h1>News Content</h1>
+    <a href="<?php echo $this->news_url_add;?>" class="orange_btn">ADD</a>
+    <div>
+        <table id="news">
+            <?php
+                if(count($this->news_content))
+                {
+            ?>      <tr>
+                        <th width="10%">Title</th>
+                        <th width="40%">Content</th>
+                        <th width="10%">Date Added</th>
+                        <th width="10%">Created By</th>
+                        <th width="10%">Date Last Modified</th>
+                        <th width="10%">Last Modified By</th>
+                        <th width="10%">&nbsp;</th>
+                    </tr>
+                    <?php
+                        echo $this->partialLoop('articles/_newsItem.phtml', $this->news_content);
+                    ?>
+            <?php
+                }
+                else
+                {
+            ?>
+                    <tr>
+                        <th colspan="3">There are no news currently.</th>
+                    </tr>
+            <?php
+                }
+            ?>
+        </table>
+    </div>
+    
+    <h1>Geohazard Map</h1>
+    <a href="<?php echo $this->map_url;?>" class="orange_btn">UPLOAD</a>
+    <a href="<?php echo $this->map_url_view;?>" class="orange_btn">VIEW</a>
+
+    
+</div>

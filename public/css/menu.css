@@ -1,0 +1,131 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,300);
+.cssmenu {
+    height: 40px;
+    background: #fe0000;
+    clear:both;
+    width: 100%;
+}
+
+.cssmenu-wrap
+{
+    margin: 0 auto;
+    width: 90%;
+}
+
+.cssmenu ul {
+    clear:left;
+    width:100%;
+    list-style:none;
+    padding:0;
+}
+
+.cssmenu ul li {
+    display: inline;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.cssmenu ul li a {
+    color: #fff;
+    display: block;
+    font-family: georgia;
+    font-size: 12px;
+    float: left;
+    height: 12px;
+    line-height: 1.3em;
+    padding: 14px 10px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+
+}
+
+.cssmenu ul li a:hover {
+    background:#660099;
+    color:#fff;
+}
+
+.cssmenu ul li a.active,
+.cssmenu ul li a:hover {
+    color:#fff;
+    background:#660099;
+}
+
+.blue ul li a.active,
+.blue ul li a:hover {
+    color:#fff;
+    background:#FE0000;
+}
+.cssmenu ul li a span {
+    display: block;
+}
+
+.cssmenu ul li 
+{
+    display: inline-block;
+    position: relative;
+}
+
+.cssmenu ul li ul 
+{
+    display: none;
+    position: absolute;
+    margin: 0px;
+    padding: 0;
+    list-style: none;
+    top: 40px;
+    z-index: 100;
+    background: gray;
+}
+
+.cssmenu ul li:hover ul 
+{
+    display: block;
+}
+
+.cssmenu ul li ul li a 
+{
+    width: 130px;
+    color: #fff;
+    background: #ff0000;
+    text-align: left;
+    float: none;
+}
+
+.cssmenu ul li ul li:after 
+{
+    clear: both;
+}
+
+.cssmenu ul li ul li a.active,
+.cssmenu ul li ul li a:hover {
+    background: #660099;
+}
+
+.blue {
+    background: #660099;
+}
+
+.register-li
+{
+    display:inline !important;
+}
+
+#register
+{
+    border: medium none;
+    font: 12px georgia;
+    background: #13007d;
+    padding: 3px 16px 3px !important;
+    float: right !important;
+    border: none !important;
+    height: auto !important;
+    right: 2%;
+}
+    
+#reg
+{
+    font: 15px georgia;
+    color: #fff200;
+}

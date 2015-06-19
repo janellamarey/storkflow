@@ -1,0 +1,78 @@
+<li class="
+    <?php 
+        if(!empty($this->submenu))
+        {
+            echo "has-sub";
+        }
+                
+        if($this->last)
+        {
+            echo " last";
+        }
+        
+        if($this->isregister)
+        {
+            echo " register-li";
+        }
+    ?>"
+>
+    <?php 
+        if(!empty($this->submenu))
+        {
+    ?>
+            <a href="<?php echo $this->url ?>" class="<?php         
+                if($this->active)
+                {
+                    echo " active";
+                }
+            ?>"><span>
+                <?php echo $this->escape($this->title); ?></span></a>
+            <ul>        
+                <?php
+                    foreach($this->submenu as $submenu):
+                ?>
+                        <li><a href="<?php echo $submenu['url'];?>"><span><?php echo $this->escape($submenu['title']); ?></span></a></li>
+                <?php
+                    endforeach;
+                ?>
+
+            </ul>
+    <?php
+        }
+        else
+        {
+            
+    ?>
+            <?php 
+                if( !$this->isregister )
+                {  
+                
+            ?>
+                    <a href="<?php echo $this->url ?>" class="<?php         
+                        if($this->active)
+                        {
+                            echo " active";
+                        }                
+                    ?>" 
+                    >
+                        <?php 
+                            if($this->noescape)
+                            {
+                                echo $this->title; 
+                            }
+                            else
+                            {
+                                echo $this->escape($this->title); 
+                            }                    
+                        ?>
+                        </a>
+            <?php
+                }
+            ?>
+    <?php
+            
+        }
+    ?>
+    
+    
+</li>

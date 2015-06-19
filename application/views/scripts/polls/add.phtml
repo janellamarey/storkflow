@@ -1,0 +1,86 @@
+<div id="content">
+    <div id="content-wrap">
+        
+        <div id="title-bar">
+            <h1><?php echo $this->escape($this->title)?></h1>
+            <p><a href="<?php echo $this->url(array('controller'=>'polls', 'action'=>'unpublished'), null, true);?>" class="action-button">View unpublished polls</a>
+            <?php echo $this->formmessage;?>
+            <ul>
+            <?php
+                foreach($this->formresponse as $message):
+            ?>
+                    <li><?php echo $this->escape($message);?></li>
+            <?php
+                endforeach;
+            ?>
+            </ul>
+        </div>
+        
+        <div id="body-bar">
+            <form accept-charset="utf-8" method="POST" action="<?php echo $this->escape($this->url);?>">
+                <div id=poll-form">
+                    <table>
+                        <tr>
+                            <td>
+                                Question:
+                            </td>                            
+                            <td>
+                                <input id="poll-question" type="text" name="poll-question"/> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Option 1:
+                            </td>                            
+                            <td>
+                                <textarea id="poll-option0" name="poll-option0" rows="3" cols="140"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Option 2:
+                            </td>                            
+                            <td>
+                                <textarea id="poll-option1" name="poll-option1" rows="3" cols="140"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Option 3:
+                            </td>                            
+                            <td>
+                                <textarea id="poll-option2" name="poll-option2" rows="3" cols="140"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Option 4:
+                            </td>                            
+                            <td>
+                                <textarea id="poll-option3" name="poll-option3" rows="3" cols="140"></textarea>
+                            </td>
+                        </tr>
+                                                                        
+                        <tr>
+                            <td>
+                                <input id="submit-butt" name="submit-butt" type="submit" value="Submit">
+                            </td> 
+                        </tr>
+                    <table>
+                    
+                </div>
+            </form>
+            
+        </div>
+        
+    </div>
+</div>
+
+<script type="text/javascript">
+    $( document ).ready(function() {
+        new Populate(<?php echo json_encode($this->post);?>);
+    });        
+</script>   
+
+
+        

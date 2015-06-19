@@ -1,0 +1,252 @@
+<div class="colmask threecol">
+    <div class="content-wrap">
+        <div class="colmid">
+            <div class="colleft">
+                <div class="col1">
+                    <div id="title-category-bar">
+                        <h1>NEWS</h1>
+                    </div>
+                    <div id="title-bar">
+                        <?php
+                        if ( $this->add )
+                        {
+                            ?>
+                            <a href="<?php echo $this->url( array( 'controller' => 'news' , 'action' => 'add' ) , null , true ); ?>" class="action-button">Add new</a>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                    <div>
+                        <table id="news" class="block-list">
+
+                            <?php
+                            if ( count( $this->news ) )
+                            {
+                                echo $this->partialLoop( 'news/_newsItem.phtml' , $this->news );
+                            }
+                            ?>
+
+                        </table>
+                    </div>
+                    <div id="title-category-bar">
+                        <h1>EVENTS</h1>
+                    </div>
+                    <div id="title-bar">
+                        <?php
+                        if ( $this->add )
+                        {
+                            ?>
+                            <a href="<?php echo $this->url( array( 'controller' => 'news' , 'action' => 'add' ) , null , true ); ?>" class="action-button">Add new</a>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                    <div>
+                        <table id="events" class="block-list">
+
+                            <?php
+                            if ( count( $this->events ) )
+                            {
+                                echo $this->partialLoop( 'news/_eventsItem.phtml' , $this->events );
+                            }
+                            ?>
+
+                        </table>
+                    </div>
+                </div>
+                <div class="col2">
+                    <div id="visit">
+                        <a id="visit_link" href="">
+                            <img id="banner-img" alt="Bacoor City Government" src="<?php echo $this->baseUrl( 'img/bacoor.png' ); ?>" width="100%"/>
+                        </a>
+                    </div>
+                    <div id="ordinances-header">
+                        <div id="ordinances-header-content">
+                            City Ordinances
+                        </div>
+                    </div>
+                    <div id="ordinances-list">
+                        <ul>
+                            <?php
+                            echo $this->partialLoop( 'index/_ordinanceItem.phtml' , $this->ordinances );
+                            ?>
+                        </ul>
+                    </div>
+                    <!-- Column 2 end -->
+                </div>
+                <div class="col3">
+                    <!-- Column 3 start -->
+                    <div id="ads">
+                        <a href="">
+                            <img src=<?php echo $this->baseUrl( 'img/vote.png' ); ?> alt="Vote!" width="100%"/>
+                        </a>
+                    </div>
+                    <div id="map-header">
+                        <div id="map-header-content">
+                            Polls
+                        </div>
+                    </div>
+                    <div id="map">
+                        <div id="poll-form" class="poll-form">
+
+
+                            <?php
+                            if ( !is_null( $this->poll ) && !empty( $this->poll ) )
+                            {
+                                ?>
+                                <div id="anosatinginmo" class="bold">
+                                    ANO SA TINGIN MO?
+                                </div>
+                                <div id="poll-question-<?php echo $this->poll[ 'q_id' ]; ?>" class="poll-question">
+                                    <?php echo $this->escape( $this->poll[ 'question' ] ); ?>                          
+                                </div>
+
+                                <?php
+                                if ( $this->vote )
+                                {
+                                    ?>
+                                    <div id="poll-options-<?php echo $this->poll[ 'q_id' ]; ?>" class="poll-options">
+                                        <ul>
+                                            <?php
+                                            $i = 0;
+                                            foreach ( $this->poll[ 'options' ] as $option )
+                                            {
+                                                ?>
+                                                <li>
+                                                    <?php
+                                                    if ( $i == 0 )
+                                                    {
+                                                        ?>
+                                                        <input type="radio" name="poll-radio" checked="true" value="<?php echo $this->escape( $option[ 'opt_id' ] ); ?>" class="signup-radio"/>
+                                                        <?php
+                                                    }
+                                                    else
+                                                    {
+                                                        ?>
+                                                        <input type="radio" name="poll-radio" value="<?php echo $this->escape( $option[ 'opt_id' ] ); ?>" class="signup-radio"/>
+                                                        <?php
+                                                    }
+                                                    ?>
+
+                                                    <?php echo $this->escape( $option[ 'option' ] ); ?>
+                                                </li>
+                                                <?php
+                                                $i++;
+                                            }
+                                            ?>
+                                        </ul>
+                                    </div>
+                                    <?php
+                                }
+                                else
+                                {
+                                    ?>
+
+                                    <div id="poll-options-<?php echo $this->poll[ 'q_id' ]; ?>" class="poll-options">
+                                        <ul>
+                                            <?php
+                                            $i = 0;
+                                            foreach ( $this->poll[ 'options' ] as $option )
+                                            {
+                                                ?>
+                                                <li>                                                    
+                                                    <?php echo $this->escape( ($i + 1) . '. ' . $option[ 'option' ] ); ?>
+                                                </li>
+                                                <?php
+                                                $i++;
+                                            }
+                                            ?>
+                                        </ul>
+                                    </div>                                       
+                                    <?php
+                                }
+                                ?>
+
+
+                                <div class="links">
+
+                                    <ul>
+                                        <?php
+                                        if ( !$this->vote )
+                                        {
+                                            ?>
+                                            <li>Log in to vote.</li>
+                                            <?php
+                                        }
+                                        else
+                                        {
+                                            ?>
+                                            <li id="poll-button-changer"></li>
+                                            <?php
+                                        }
+                                        ?>
+                                        <li><span><a class="action-button" href="<?php echo $this->baseUrl( 'polls/published' ); ?>">Show all</a></span></li>
+                                    </ul>
+                                </div>   
+                                <?php
+                            }
+                            else
+                            {
+                                ?>
+                                <div class="links">
+
+                                    <ul>
+                                        <li>Thanks for voting on all polls!</li>
+                                        <li><span><a class="action-button" href="<?php echo $this->baseUrl( 'polls/published' ); ?>">Show all</a></span></li>
+                                    </ul>
+                                </div>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $( document ).ready( function() {
+
+        $( '#visit_link' ).on( 'click', { url: "http://www.cavite.gov.ph/home/index.php/cities-and-municipalities/district-ii/bacoor-city" },
+        function( eventObject ) {
+            window.open( eventObject.data.url );
+            return false;
+        } );
+
+<?php
+if ( !is_null( $this->poll ) && !empty( $this->poll ) )
+{
+    if ( $this->vote )
+    {
+        ?>
+                $( '#poll-button-changer' ).empty().append( $( '<span/>' ).append( $( '<a/>', {
+                    html: "Vote",
+                    href: "",
+                    "class": "action-button"
+                } ) ) );
+
+                $( '#poll-button-changer' ).find( 'a' ).on( 'click', {
+                    url: '<?php echo $this->baseUrl(); ?>',
+                    controller: 'polls',
+                    action: 'vote',
+                    questionId: '<?php echo $this->poll[ 'q_id' ] ?>',
+                    radioGroupName: 'poll-radio',
+                    containerName: 'poll-options',
+                    buttonContainerName: 'poll-button-changer'
+                }, function( event ) {
+                    event.preventDefault();
+                    new Vote( event.data.url, event.data.controller, event.data.action,
+                            event.data.questionId, event.data.radioGroupName,
+                            event.data.containerName, event.data.buttonContainerName );
+                } );
+        <?php
+    }
+}
+?>
+
+
+    } );
+
+</script>

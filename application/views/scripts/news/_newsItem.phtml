@@ -1,0 +1,58 @@
+<?php $sViewFilesUrl = $this->url( array( 'controller' => 'news' , 'action' => 'view' , 'id' => $this->id ) ); ?>
+<?php $sEditUrl = $this->url( array( 'controller' => 'news' , 'action' => 'edit' , 'id' => $this->id ) ); ?>
+
+<tr id="n-<?php echo $this->escape( $this->id ); ?>">
+    <td>
+
+        <div class="bl-title">
+            <h2><a href="<?php echo $sViewFilesUrl; ?>"><?php echo $this->escape( $this->title ); ?></a></h2>
+            <p><?php echo $this->escape( $this->date_created )." by ".$this->escape( $this->user_created ); ?>
+        </div>
+        <div class="links">
+            <ul>
+                <?php
+                if ( $this->edit )
+                {
+                    ?>
+                    <li>
+                        <a href="<?php echo $sEditUrl; ?>" class="action-button" id="edit-butt-<?php echo $this->id ?>">
+                            Edit
+                        </a>
+                    </li>  
+                    <?php
+                }
+                ?>
+                <?php
+                if ( $this->delete )
+                {
+                    ?>
+                    <li>
+                        <a href="" class="action-button" id="del-butt-<?php echo $this->id ?>">
+                            Delete
+                        </a>
+                    </li>
+                    <?php
+                }
+                ?>
+
+            </ul>         
+        </div>
+
+    </td>
+</tr>
+<script type="text/javascript">
+    $( document ).ready( function() {
+
+        var deletefunc = function() {
+            new Delete( '<?php echo $this->baseUrl(); ?>', 'news', 'delete', '<?php echo $this->id ?>', 'news' );
+        };
+
+        $( "#del-butt-<?php echo $this->id ?>" ).on( "click", function( eventData )
+        {
+            new Confirm( 'Confirm', 'Are you sure you want to delete the news?', 'Yes', deletefunc );
+            eventData.preventDefault();
+        } );
+
+    } );
+
+</script>

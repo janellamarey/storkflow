@@ -1,0 +1,41 @@
+<div id="content">
+    <div id="content-wrap">
+        <div id="title-category-bar">
+            <h1>Edit Privilege Data</h1>
+        </div>
+        <?php
+        if ( !is_null( $this->message ) && !empty( $this->message ) )
+        {
+            ?>
+            <div id="flashmessage" class="flashmessage">
+                <ul>
+                    <li><?= $this->message; ?></li>
+                </ul>
+            </div>
+            <?php
+        }
+        ?>
+        <div id="title-bar">
+            <h2><?php echo $this->escape( $this->title ); ?> </h2>            
+        </div>
+        <div id="edit-user">
+            <?php echo $this->form; ?>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $( document ).ready( function() {
+
+        var saveEdit = function() {
+            $( "#saveEdit" ).submit();
+        };
+
+        $( "#Save" ).on( 'click', function( eventData )
+        {
+            new Confirm( 'Confirm', 'Are you sure you want to save the user details?', 'Yes', saveEdit );
+            eventData.preventDefault();
+        } );
+
+    } );
+</script> 

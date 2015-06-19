@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for C:/web/citycouncil/application/models</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../../css/nv.d3.css" rel="stylesheet">
+  <link href="../../../../css/style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="../../../../js/html5shiv.js"></script>
+  <script src="../../../../js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="../../../../index.html">C:</a></li>
+        <li><a href="../../../index.html">web</a></li>
+        <li><a href="../../index.html">citycouncil</a></li>
+        <li><a href="../index.html">application</a></li>
+        <li><a href="web/citycouncil/application/models.html">models</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th><div align="left">Class</div></th>
+         <th><div align="right">Coverage</div></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="web/citycouncil/application/models/DB/Base.php.html#3">DB_Base</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/SiteConstants.php.html#3">SiteConstants</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Errors.php.html#2">Errors</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/DB/Users.php.html#5">DB_Users</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/DB/UserRoles.php.html#5">DB_UserRoles</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Images.php.html#14">Images</a></td><td><div align="right">6%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#22">Users</a></td><td><div align="right">6%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Uploader.php.html#6">Uploader</a></td><td><div align="right">8%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#9">Ordinances</a></td><td><div align="right">14%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/SearchIndexer.php.html#3">SearchIndexer</a></td><td><div align="right">17%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#8">Polls</a></td><td><div align="right">26%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/SysRoleMappings.php.html#3">SysRoleMappings</a></td><td><div align="right">50%</div></td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th><div align="left">Class</div></th>
+         <th><div align="right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></div></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#22">Users</a></td><td><div align="right">2861</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Uploader.php.html#6">Uploader</a></td><td><div align="right">1414</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#9">Ordinances</a></td><td><div align="right">1128</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#8">Polls</a></td><td><div align="right">938</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Images.php.html#14">Images</a></td><td><div align="right">719</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/DB/Base.php.html#3">DB_Base</a></td><td><div align="right">380</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/SearchIndexer.php.html#3">SearchIndexer</a></td><td><div align="right">93</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Errors.php.html#2">Errors</a></td><td><div align="right">56</div></td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th><div align="left">Method</div></th>
+         <th><div align="right">Coverage</div></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="web/citycouncil/application/models/SearchIndexer.php.html#37">SearchIndexer::getDocument</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/SearchIndexer.php.html#50">SearchIndexer::_addToIndex</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/SearchIndexer.php.html#22">SearchIndexer::observeTableRow</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#509">Users::toArray</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#519">Users::getStructuredArray</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/SiteConstants.php.html#53">SiteConstants::createName</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/SiteConstants.php.html#58">SiteConstants::convertToSrc</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Uploader.php.html#108">Uploader::uploadSignature</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Uploader.php.html#162">Uploader::uploadMap</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Uploader.php.html#46">Uploader::upload</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#474">Users::getUserInfoWithSignature</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/SysRoleMappings.php.html#20">SysRoleMappings::getMenu</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#361">Polls::feature</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#351">Polls::getRandomPublishedNonfeatureQuestion</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#237">Polls::addPoll</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#242">Polls::edit</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#562">Users::all</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/DB/Base.php.html#5">DB_Base::insertData</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#190">Polls::getVotes</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#247">Polls::delete</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#264">Polls::toArray</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#543">Users::delete</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#332">Polls::publish</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#284">Polls::getStructuredArray</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#274">Polls::toSingleArray</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Uploader.php.html#212">Uploader::createThumbnail</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#177">Users::updateAccountData</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#368">Users::getActiveEmailAddresses</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#373">Users::getActiveUsers</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#363">Users::getRoleData</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#358">Users::getAccountDataFromUserId</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#353">Users::getAccountData</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#378">Users::getUserRoles</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#383">Users::getCouncil</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#408">Users::getNewUsers</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#413">Users::getRegisteredUsersExcept</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#403">Users::getUserInfo</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#393">Users::getSuperusers</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#388">Users::getCouncilors</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#348">Users::getPersonalDataFromEmail</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#343">Users::getPersonalData</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#252">Users::addNewAccountData</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#274">Users::addSignature</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#232">Users::addNewPersonalData</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#217">Users::addNewUser</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#191">Users::updatePersonalData</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#293">Users::makeFolder</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#301">Users::insertSignatureToDB</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#338">Users::getRoles</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#330">Users::updatePasswordChangeEmailRecurrence</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#321">Users::updateStatusData</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#312">Users::updatePasswordData</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#125">Polls::getOptions</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#109">Polls::getQuestion</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Images.php.html#68">Images::computeDimensions</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Images.php.html#87">Images::fastimagecopyresampled</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Images.php.html#59">Images::releaseImageMemory</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Images.php.html#42">Images::makePNGThumbnail</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Images.php.html#27">Images::makeJPEGThumbnail</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Images.php.html#120">Images::getDataURI</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Images.php.html#131">Images::getMime</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#34">Ordinances::addApproval</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Images.php.html#188">Images::getImages</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Images.php.html#166">Images::getScaledSize</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Images.php.html#151">Images::getSize</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Errors.php.html#23">Errors::checkError</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Errors.php.html#18">Errors::setValidator</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/DB/Base.php.html#79">DB_Base::getRow</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/DB/Base.php.html#84">DB_Base::getRowObject</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/DB/Base.php.html#47">DB_Base::updateColumns</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/DB/Base.php.html#33">DB_Base::updateColumn</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/DB/Base.php.html#19">DB_Base::updateData</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/DB/Base.php.html#90">DB_Base::toArray</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/DB/UserRoles.php.html#9">DB_UserRoles::getRowObjectFromUserId</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Errors.php.html#13">Errors::getErrors</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Errors.php.html#8">Errors::addError</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Errors.php.html#4">Errors::__construct</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/DB/Users.php.html#10">DB_Users::getRowObjectFromEmail</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#39">Ordinances::publish</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#51">Ordinances::createDirectory</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#391">Ordinances::getCouncilorsByDistrict</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#404">Ordinances::hasKey</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#346">Ordinances::formatOrdinances</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#336">Ordinances::formatOrdinanceIds</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#325">Ordinances::delete</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#413">Ordinances::formatOrdinanceUsers</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#431">Ordinances::checkIfAlreadySigned</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#69">Polls::listPolls</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#85">Polls::listOptions</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#46">Polls::addVote</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#41">Polls::addPollAnswer</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#36">Polls::addPollQuestion</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#318">Ordinances::update</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#313">Ordinances::getOrdinance</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#123">Ordinances::getApprovedOrdinancesFromAtLeastOneUser</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#99">Ordinances::getApprovedOrdinancesFromUsers</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#76">Ordinances::getApprovedOrdinances</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#59">Ordinances::getApprovedOrdinance</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#443">Users::getCouncilorsInfo</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#178">Ordinances::getOrdinanceApprovalsFromOrdinanceId</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#286">Ordinances::getApprovals</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#264">Ordinances::getFiles</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#241">Ordinances::getFilesFromOrdinanceId</a></td><td><div align="right">0%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#146">Ordinances::getOrdinanceApprovals</a></td><td><div align="right">11%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#23">Ordinances::add</a></td><td><div align="right">25%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#203">Ordinances::getOrdinances</a></td><td><div align="right">68%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#210">Polls::getSelectedQuestionId</a></td><td><div align="right">75%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#341">Polls::getFeaturedQuestion</a></td><td><div align="right">80%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#370">Polls::checkIfAlreadyVoted</a></td><td><div align="right">80%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/SearchIndexer.php.html#8">SearchIndexer::setIndexDirectory</a></td><td><div align="right">80%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Uploader.php.html#27">Uploader::__construct</a></td><td><div align="right">84%</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#225">Polls::getFeaturedPoll</a></td><td><div align="right">85%</div></td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th><div align="left">Method</div></th>
+         <th><div align="right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></div></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="web/citycouncil/application/models/Uploader.php.html#46">Uploader::upload</a></td><td><div align="right">156</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Uploader.php.html#108">Uploader::uploadSignature</a></td><td><div align="right">132</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Uploader.php.html#162">Uploader::uploadMap</a></td><td><div align="right">132</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#413">Users::getRegisteredUsersExcept</a></td><td><div align="right">56</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Images.php.html#87">Images::fastimagecopyresampled</a></td><td><div align="right">56</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/DB/Base.php.html#47">DB_Base::updateColumns</a></td><td><div align="right">56</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#284">Polls::getStructuredArray</a></td><td><div align="right">42</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#474">Users::getUserInfoWithSignature</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Images.php.html#131">Images::getMime</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/SearchIndexer.php.html#22">SearchIndexer::observeTableRow</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Uploader.php.html#212">Uploader::createThumbnail</a></td><td><div align="right">30</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#431">Ordinances::checkIfAlreadySigned</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#346">Ordinances::formatOrdinances</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#393">Users::getSuperusers</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#443">Users::getCouncilorsInfo</a></td><td><div align="right">20</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#217">Users::addNewUser</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Errors.php.html#23">Errors::checkError</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/DB/Base.php.html#33">DB_Base::updateColumn</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/DB/Base.php.html#19">DB_Base::updateData</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/DB/Base.php.html#5">DB_Base::insertData</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#391">Ordinances::getCouncilorsByDistrict</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Images.php.html#151">Images::getSize</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Images.php.html#59">Images::releaseImageMemory</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#274">Users::addSignature</a></td><td><div align="right">12</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/SearchIndexer.php.html#37">SearchIndexer::getDocument</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/SearchIndexer.php.html#50">SearchIndexer::_addToIndex</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#293">Users::makeFolder</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#509">Users::toArray</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#519">Users::getStructuredArray</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#301">Users::insertSignatureToDB</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#361">Polls::feature</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#252">Users::addNewAccountData</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Users.php.html#232">Users::addNewPersonalData</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#264">Polls::toArray</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#51">Ordinances::createDirectory</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#76">Ordinances::getApprovedOrdinances</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#336">Ordinances::formatOrdinanceIds</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#39">Ordinances::publish</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Images.php.html#188">Images::getImages</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Images.php.html#68">Images::computeDimensions</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Images.php.html#120">Images::getDataURI</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Images.php.html#166">Images::getScaledSize</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#404">Ordinances::hasKey</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#413">Ordinances::formatOrdinanceUsers</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#332">Polls::publish</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#351">Polls::getRandomPublishedNonfeatureQuestion</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#274">Polls::toSingleArray</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#247">Polls::delete</a></td><td><div align="right">6</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#225">Polls::getFeaturedPoll</a></td><td><div align="right">5</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#146">Ordinances::getOrdinanceApprovals</a></td><td><div align="right">4</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Ordinances.php.html#203">Ordinances::getOrdinances</a></td><td><div align="right">4</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#341">Polls::getFeaturedQuestion</a></td><td><div align="right">4</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#370">Polls::checkIfAlreadyVoted</a></td><td><div align="right">4</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Polls.php.html#210">Polls::getSelectedQuestionId</a></td><td><div align="right">3</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/Uploader.php.html#27">Uploader::__construct</a></td><td><div align="right">3</div></td></tr>
+       <tr><td><a href="web/citycouncil/application/models/SearchIndexer.php.html#8">SearchIndexer::setIndexDirectory</a></td><td><div align="right">2</div></td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 2.0.5</a> using <a href="http://php.net/" target="_top">PHP 5.5.9</a> and <a href="http://phpunit.de/">PHPUnit 3.7.21</a> at Sun Oct 5 19:14:31 PHT 2014.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../../../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../../../js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../../../../js/holder.js" type="text/javascript"></script>
+  <script src="../../../../js/d3.min.js" type="text/javascript"></script>
+  <script src="../../../../js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([5,3,2,1,0,0,1,0,0,0,0,8], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([103,0,1,1,0,0,0,1,1,5,0,8], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.scatter.onlyCircles(false);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,19,"<a href=\"web\/citycouncil\/application\/models\/DB\/Base.php.html#3\">DB_Base<\/a>"],[100,0,"<a href=\"web\/citycouncil\/application\/models\/DB\/Ordinances.php.html#5\">Db_Ordinances<\/a>"],[100,0,"<a href=\"web\/citycouncil\/application\/models\/DB\/OrdinancesFiles.php.html#5\">Db_OrdinancesFiles<\/a>"],[100,0,"<a href=\"web\/citycouncil\/application\/models\/DB\/OrdinancesUsers.php.html#5\">Db_OrdinancesUsers<\/a>"],[100,0,"<a href=\"web\/citycouncil\/application\/models\/DB\/PollAnswers.php.html#5\">DB_PollAnswers<\/a>"],[100,0,"<a href=\"web\/citycouncil\/application\/models\/DB\/PollQuestions.php.html#5\">DB_PollQuestions<\/a>"],[100,0,"<a href=\"web\/citycouncil\/application\/models\/DB\/PollUsers.php.html#5\">DB_PollUsers<\/a>"],[100,0,"<a href=\"web\/citycouncil\/application\/models\/DB\/Polls.php.html#5\">DB_Polls<\/a>"],[100,0,"<a href=\"web\/citycouncil\/application\/models\/DB\/Roles.php.html#5\">DB_Roles<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/DB\/UserRoles.php.html#5\">DB_UserRoles<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/DB\/Users.php.html#5\">DB_Users<\/a>"],[0,7,"<a href=\"web\/citycouncil\/application\/models\/Errors.php.html#2\">Errors<\/a>"],[6.3636363636364,29,"<a href=\"web\/citycouncil\/application\/models\/Images.php.html#14\">Images<\/a>"],[14.906832298137,42,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#9\">Ordinances<\/a>"],[26.086956521739,47,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#8\">Polls<\/a>"],[17.241379310345,12,"<a href=\"web\/citycouncil\/application\/models\/SearchIndexer.php.html#3\">SearchIndexer<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/SiteConstants.php.html#3\">SiteConstants<\/a>"],[50,2,"<a href=\"web\/citycouncil\/application\/models\/SysRoleMappings.php.html#3\">SysRoleMappings<\/a>"],[8.029197080292,42,"<a href=\"web\/citycouncil\/application\/models\/Uploader.php.html#6\">Uploader<\/a>"],[6.9767441860465,59,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#22\">Users<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.scatter.onlyCircles(false);
+    chart.tooltipContent(function(key, y, e, graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,3,"<a href=\"web\/citycouncil\/application\/models\/DB\/Base.php.html#5\">DB_Base::insertData<\/a>"],[0,3,"<a href=\"web\/citycouncil\/application\/models\/DB\/Base.php.html#19\">DB_Base::updateData<\/a>"],[0,3,"<a href=\"web\/citycouncil\/application\/models\/DB\/Base.php.html#33\">DB_Base::updateColumn<\/a>"],[0,7,"<a href=\"web\/citycouncil\/application\/models\/DB\/Base.php.html#47\">DB_Base::updateColumns<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/DB\/Base.php.html#79\">DB_Base::getRow<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/DB\/Base.php.html#84\">DB_Base::getRowObject<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/DB\/Base.php.html#90\">DB_Base::toArray<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/DB\/UserRoles.php.html#9\">DB_UserRoles::getRowObjectFromUserId<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/DB\/Users.php.html#10\">DB_Users::getRowObjectFromEmail<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Errors.php.html#4\">Errors::__construct<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Errors.php.html#8\">Errors::addError<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Errors.php.html#13\">Errors::getErrors<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Errors.php.html#18\">Errors::setValidator<\/a>"],[0,3,"<a href=\"web\/citycouncil\/application\/models\/Errors.php.html#23\">Errors::checkError<\/a>"],[100,1,"<a href=\"web\/citycouncil\/application\/models\/Images.php.html#17\">Images::__construct<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Images.php.html#27\">Images::makeJPEGThumbnail<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Images.php.html#42\">Images::makePNGThumbnail<\/a>"],[0,3,"<a href=\"web\/citycouncil\/application\/models\/Images.php.html#59\">Images::releaseImageMemory<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Images.php.html#68\">Images::computeDimensions<\/a>"],[0,7,"<a href=\"web\/citycouncil\/application\/models\/Images.php.html#87\">Images::fastimagecopyresampled<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Images.php.html#120\">Images::getDataURI<\/a>"],[0,5,"<a href=\"web\/citycouncil\/application\/models\/Images.php.html#131\">Images::getMime<\/a>"],[0,3,"<a href=\"web\/citycouncil\/application\/models\/Images.php.html#151\">Images::getSize<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Images.php.html#166\">Images::getScaledSize<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Images.php.html#188\">Images::getImages<\/a>"],[100,1,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#12\">Ordinances::__construct<\/a>"],[25,1,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#23\">Ordinances::add<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#34\">Ordinances::addApproval<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#39\">Ordinances::publish<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#51\">Ordinances::createDirectory<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#59\">Ordinances::getApprovedOrdinance<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#76\">Ordinances::getApprovedOrdinances<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#99\">Ordinances::getApprovedOrdinancesFromUsers<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#123\">Ordinances::getApprovedOrdinancesFromAtLeastOneUser<\/a>"],[11.111111111111,2,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#146\">Ordinances::getOrdinanceApprovals<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#178\">Ordinances::getOrdinanceApprovalsFromOrdinanceId<\/a>"],[68.421052631579,4,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#203\">Ordinances::getOrdinances<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#241\">Ordinances::getFilesFromOrdinanceId<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#264\">Ordinances::getFiles<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#286\">Ordinances::getApprovals<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#313\">Ordinances::getOrdinance<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#318\">Ordinances::update<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#325\">Ordinances::delete<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#336\">Ordinances::formatOrdinanceIds<\/a>"],[0,4,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#346\">Ordinances::formatOrdinances<\/a>"],[0,3,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#391\">Ordinances::getCouncilorsByDistrict<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#404\">Ordinances::hasKey<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#413\">Ordinances::formatOrdinanceUsers<\/a>"],[0,4,"<a href=\"web\/citycouncil\/application\/models\/Ordinances.php.html#431\">Ordinances::checkIfAlreadySigned<\/a>"],[100,1,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#27\">Polls::__construct<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#36\">Polls::addPollQuestion<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#41\">Polls::addPollAnswer<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#46\">Polls::addVote<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#69\">Polls::listPolls<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#85\">Polls::listOptions<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#109\">Polls::getQuestion<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#125\">Polls::getOptions<\/a>"],[100,1,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#148\">Polls::getPublishedQuestion<\/a>"],[100,1,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#165\">Polls::getPublishedOptions<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#190\">Polls::getVotes<\/a>"],[75,3,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#210\">Polls::getSelectedQuestionId<\/a>"],[85.714285714286,5,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#225\">Polls::getFeaturedPoll<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#237\">Polls::addPoll<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#242\">Polls::edit<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#247\">Polls::delete<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#264\">Polls::toArray<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#274\">Polls::toSingleArray<\/a>"],[0,6,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#284\">Polls::getStructuredArray<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#332\">Polls::publish<\/a>"],[80,4,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#341\">Polls::getFeaturedQuestion<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#351\">Polls::getRandomPublishedNonfeatureQuestion<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#361\">Polls::feature<\/a>"],[80,4,"<a href=\"web\/citycouncil\/application\/models\/Polls.php.html#370\">Polls::checkIfAlreadyVoted<\/a>"],[80,2,"<a href=\"web\/citycouncil\/application\/models\/SearchIndexer.php.html#8\">SearchIndexer::setIndexDirectory<\/a>"],[100,1,"<a href=\"web\/citycouncil\/application\/models\/SearchIndexer.php.html#17\">SearchIndexer::getIndexDirectory<\/a>"],[0,5,"<a href=\"web\/citycouncil\/application\/models\/SearchIndexer.php.html#22\">SearchIndexer::observeTableRow<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/SearchIndexer.php.html#37\">SearchIndexer::getDocument<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/SearchIndexer.php.html#50\">SearchIndexer::_addToIndex<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/SiteConstants.php.html#53\">SiteConstants::createName<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/SiteConstants.php.html#58\">SiteConstants::convertToSrc<\/a>"],[100,1,"<a href=\"web\/citycouncil\/application\/models\/SysRoleMappings.php.html#7\">SysRoleMappings::getMappings<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/SysRoleMappings.php.html#20\">SysRoleMappings::getMenu<\/a>"],[84.615384615385,3,"<a href=\"web\/citycouncil\/application\/models\/Uploader.php.html#27\">Uploader::__construct<\/a>"],[0,12,"<a href=\"web\/citycouncil\/application\/models\/Uploader.php.html#46\">Uploader::upload<\/a>"],[0,11,"<a href=\"web\/citycouncil\/application\/models\/Uploader.php.html#108\">Uploader::uploadSignature<\/a>"],[0,11,"<a href=\"web\/citycouncil\/application\/models\/Uploader.php.html#162\">Uploader::uploadMap<\/a>"],[0,5,"<a href=\"web\/citycouncil\/application\/models\/Uploader.php.html#212\">Uploader::createThumbnail<\/a>"],[100,1,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#157\">Users::__construct<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#177\">Users::updateAccountData<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#191\">Users::updatePersonalData<\/a>"],[0,3,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#217\">Users::addNewUser<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#232\">Users::addNewPersonalData<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#252\">Users::addNewAccountData<\/a>"],[0,3,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#274\">Users::addSignature<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#293\">Users::makeFolder<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#301\">Users::insertSignatureToDB<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#312\">Users::updatePasswordData<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#321\">Users::updateStatusData<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#330\">Users::updatePasswordChangeEmailRecurrence<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#338\">Users::getRoles<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#343\">Users::getPersonalData<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#348\">Users::getPersonalDataFromEmail<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#353\">Users::getAccountData<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#358\">Users::getAccountDataFromUserId<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#363\">Users::getRoleData<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#368\">Users::getActiveEmailAddresses<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#373\">Users::getActiveUsers<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#378\">Users::getUserRoles<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#383\">Users::getCouncil<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#388\">Users::getCouncilors<\/a>"],[0,4,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#393\">Users::getSuperusers<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#403\">Users::getUserInfo<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#408\">Users::getNewUsers<\/a>"],[0,7,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#413\">Users::getRegisteredUsersExcept<\/a>"],[0,4,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#443\">Users::getCouncilorsInfo<\/a>"],[0,5,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#474\">Users::getUserInfoWithSignature<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#509\">Users::toArray<\/a>"],[0,2,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#519\">Users::getStructuredArray<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#543\">Users::delete<\/a>"],[0,1,"<a href=\"web\/citycouncil\/application\/models\/Users.php.html#562\">Users::all<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

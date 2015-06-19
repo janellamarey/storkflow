@@ -1,0 +1,178 @@
+<div id="content">
+    <div id="content-wrap">
+        <div id="title-category-bar">
+            <h1>Personal Data</h1>            
+        </div>
+        <div id="title-bar">
+            <h2><?php echo $this->escape( $this->title ); ?> </h2>            
+        </div>
+        <div>
+            <h3>Personal Information</h3>
+            <?php
+            if ( $this->canEditPersonal )
+            {
+                ?>
+                <a class="action-button" href="<?php echo $this->url( array( 'controller' => 'users' , 'action' => 'editpersonal' , 'id' => $this->user->id ) , null , true ); ?>">
+                    Edit
+                </a>
+                <?php
+            }
+            ?>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><?php echo $this->escape( SiteConstants::createName( $this->user->firstname , $this->user->lastname , $this->user->mi , $this->user->designation ) );
+            ?></td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td><?php echo $this->escape( $this->user->address ); ?></td>
+                </tr>
+                <tr>
+                    <td>Contact Numbers:</td>
+                    <td><?php echo $this->escape( $this->user->contacts ); ?></td>
+                </tr>
+                <tr>
+                    <td>Email address:</td>
+                    <td><?php echo $this->escape( $this->user->email_add ); ?></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <h3>Account Information</h3>
+            <?php
+            if ( $this->canEditPersonal )
+            {
+                ?>
+                <a class="action-button" href="<?php
+                echo $this->url( array( 'controller' => 'users' ,
+                        'action' => 'editaccount' , 'id' => $this->user_acc->id , 'sys_user_id' => $this->user->id ) , null , true );
+                ?>">
+                    Edit
+                </a>
+                <?php
+            }
+            ?>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>Username:</td>
+                    <td><?php echo $this->escape( $this->user_acc->username ); ?></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div>
+            <h3>Privilege Information</h3>
+            <?php
+            if ( $this->canEditPersonal )
+            {
+                ?>
+                <a class="action-button" href="<?php
+                echo $this->url( array( 'controller' => 'users' ,
+                        'action' => 'editprivilege' , 'id' => $this->user_acc->id , 'sys_user_id' => $this->user->id ) , null , true );
+                ?>">
+                    Edit
+                </a>
+                <?php
+            }
+            ?>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>Privileges:</td>
+                    <td><?php echo $this->escape( $this->user_role->name ); ?></td>
+                </tr>
+            </table>
+        </div>
+
+        <?php
+        if ( $this->hassignature )
+        {
+            ?>
+            <h2>Signature</h2>
+            <a class="action-button" href="<?php echo $this->url( array( 'controller' => 'users' , 'action' => 'addsignature' ) , null , true ); ?>">
+                Edit
+            </a>
+            <div>     
+                <table>
+                    <tr>
+                        <td>
+                            Signature (small):
+                        </td>
+                        <td>
+                            <?php
+                            if ( !is_null( $this->user->signature ) && !empty( $this->user->signature ) )
+                            {
+                                ?>
+                                <img src="<?php echo $this->baseUrl( '/img/signatures/' . $this->user->id . '/small/' . $this->user->signature ); ?>" alt="signature" />                                    
+
+                                <?php
+                            }
+                            else
+                            {
+                                ?>
+                                No signature at the moment. Please upload.
+                                <?php
+                            }
+                            ?> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Signature (tiny):
+                        </td>
+                        <td>
+                            <?php
+                            if ( !is_null( $this->user->signature ) && !empty( $this->user->signature ) )
+                            {
+                                ?>
+
+                                <img src="<?php echo $this->baseUrl( '/img/signatures/' . $this->user->id . '/tiny/' . $this->user->signature ); ?>" alt="signature" />                                    
+                                <?php
+                            }
+                            else
+                            {
+                                ?>
+                                No signature at the moment. Please upload.
+                                <?php
+                            }
+                            ?> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Signature (very tiny):
+                        </td>
+                        <td>
+                            <?php
+                            if ( !is_null( $this->user->signature ) && !empty( $this->user->signature ) )
+                            {
+                                ?>
+
+                                <img src="<?php echo $this->baseUrl( '/img/signatures/' . $this->user->id . '/verytiny/' . $this->user->signature ); ?>" alt="signature" />                                    
+                                <?php
+                            }
+                            else
+                            {
+                                ?>
+                                No signature at the moment. Please upload.
+                                <?php
+                            }
+                            ?> 
+                        </td>
+                    </tr>
+
+                </table>                
+            </div>
+            <?php
+        }
+        ?>
+
+
+    </div>   
+</div>

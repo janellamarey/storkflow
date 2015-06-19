@@ -1,0 +1,38 @@
+<div id="content">
+    <div id="content-wrap">
+        <h1>Change password</h1>
+
+        <?php
+        if ( !is_null( $this->message ) && !empty( $this->message ) )
+        {
+            ?>
+            <div id="flashmessage" class="flashmessage">
+                <ul>
+                    <li><?= $this->message; ?></li>
+                </ul>
+            </div>
+            <?php
+        }
+        ?>
+
+        <div id="change-password">
+            <?php echo $this->form; ?>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $( document ).ready( function() {
+
+        var saveChange = function() {
+            $( "#saveChange" ).submit();
+        };
+
+        $( "#Save" ).on( 'click', function( eventData )
+        {
+            new Confirm( 'Confirm', 'Are you sure you want to save the new password details?', 'Yes', saveChange );
+            eventData.preventDefault();
+        } );
+
+    } );
+</script> 

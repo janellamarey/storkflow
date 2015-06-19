@@ -1,0 +1,19 @@
+<div class="banner-colmask banner-leftmenu">
+    <div class="banner-colleft">
+        <div class="banner-col1">               
+            <?php
+            if ( $this->isLoggedIn )
+            {
+                echo $this->partial( "_placeholder.phtml" );
+            }
+            else
+            {
+                echo $this->partial( "_signup.phtml" , array( "url" => $this->registrationURL ) );
+            }
+            ?>
+        </div>
+        <div class="banner-col2">
+            <?php echo $this->partial( "_slider.phtml" ); ?>
+        </div>
+    </div>
+</div>

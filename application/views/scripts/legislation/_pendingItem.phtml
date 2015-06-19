@@ -1,0 +1,126 @@
+<?php $sViewFilesUrl = $this->url( array( 'controller' => 'legislation' , 'action' => 'view' , 'id' => $this->id ) ); ?>
+<?php $sEditUrl = $this->url( array( 'controller' => 'legislation' , 'action' => 'edit' , 'id' => $this->id ) ); ?>
+
+<tr id="n-<?php echo $this->escape( $this->id ); ?>">
+    <td width="60%">
+        <div class="bl-title">
+            <h2>
+                <a href="<?php echo $sViewFilesUrl; ?>"><?php echo $this->escape( $this->name ); ?></a>
+            </h2>
+            <p><?php echo $this->escape( ucwords( strtolower( $this->type ) ) ); ?> No.: <?php echo $this->escape( $this->id ); ?>
+            <p>Created by:  <?php echo $this->escape( $this->user_created ) . " on " . $this->escape( $this->date_created ) ?>
+            <p id="approval-<?php echo $this->escape( $this->id ); ?>"><?php echo $this->escape( $this->approvalsText ); ?>
+        </div>
+        <div class="links">
+            <ul>
+                <?php
+                if ( $this->showEditButton )
+                {
+                    ?>
+                    <li>
+                        <a href="<?php echo $sEditUrl; ?>" class="action-button">
+                            Edit
+                        </a>
+                    </li>
+                    <?php
+                }
+                if ( $this->showDeleteButton )
+                {
+                    ?>
+                    <li id="delete-butt-<?php echo $this->id ?>">
+                        <a href="" class="action-button">
+                            Delete
+                        </a>
+                    </li>
+                    <?php
+                }
+                if ( $this->showPublishButton )
+                {
+                    ?>
+                    <li id="approve-butt-<?php echo $this->id ?>">
+                        <a href="" class="action-button">
+                            Approve and Publish
+                        </a> 
+                    </li>
+                    <?php
+                }
+                else if ( $this->showApproveButton )
+                {
+                    ?>
+                    <li id="approve-butt-<?php echo $this->id ?>">
+                        <a href="" class="action-button">
+                            Approve
+                        </a> 
+                    </li>
+                    <?php
+                }
+                ?>
+            </ul>
+            <div id="appr-mess-<?php echo $this->id; ?>">
+                <?php
+                if ( $this->alreadyApproved )
+                {
+                    ?>                    
+                    <h4>You have already signed this ordinance.</h4>
+                    <?php
+                }
+                ?>
+            </div>
+        </div>
+
+    </td>
+</tr>
+<script type="text/javascript">
+    $( document ).ready( function () {
+
+<?php
+if ( $this->showApproveButton )
+{
+    ?>
+            var approve = function () {
+                new ApproveInList( '<?php echo $this->baseUrl(); ?>', 'legislation', 'approveitem', '<?php echo $this->id ?>' );
+            };
+
+            $( "#approve-butt-<?php echo $this->id ?>" ).on( "click", function ( eventData )
+            {
+                new Confirm( 'Confirm', 'Are you sure you want to approve the legislation?', 'Yes', approve );
+                eventData.preventDefault();
+            } );
+    <?php
+}
+?>
+<?php
+if ( $this->showPublishButton )
+{
+    ?>
+            var publish = function () {
+                new PublishInList( '<?php echo $this->baseUrl(); ?>', 'legislation', 'newpublishitem', '<?php echo $this->id ?>' );
+            };
+
+            $( "#approve-butt-<?php echo $this->id ?>" ).on( "click", function ( eventData )
+            {
+                new Confirm( 'Confirm', 'Are you sure you want to approve and publish the legislation?', 'Yes', publish );
+                eventData.preventDefault();
+            } );
+    <?php
+}
+?>
+<?php
+if ( $this->showDeleteButton )
+{
+    ?>
+            var deletefunc = function () {
+                new Delete( '<?php echo $this->baseUrl(); ?>', 'ordinances', 'delete', '<?php echo $this->id ?>', 'ordinances' );
+            };
+
+            $( "#delete-butt-<?php echo $this->id ?>" ).on( "click", function ( eventData )
+            {
+                new Confirm( 'Confirm', 'Are you sure you want to delete this legislation?', 'Yes', deletefunc );
+                eventData.preventDefault();
+            } );
+    <?php
+}
+?>
+
+    } );
+</script>

@@ -1,0 +1,1178 @@
+body {
+    margin:0;
+    padding:0;
+    border-top:15px solid #13007D;			/* This removes the border around the viewport in old versions of IE */
+    width:100%;
+    background:#fff;
+    min-width:600px;		/* Minimum width of layout - remove line if not required */
+    /* The min-width property does not work in old versions of Internet Explorer */
+    font-size:90%;
+    font-family: Arial;
+    font-size: 12px;
+}
+a {
+    color:#660099;
+    text-decoration: none;
+}
+
+a img{
+    border:0;
+}
+
+a:hover {
+    color:#345;
+    text-decoration:none;
+}
+h1, h3 {
+    margin:.8em 0 .2em 0;
+    padding:0;
+    font-family: Georgia;
+}
+
+h2 {
+    margin:.8em 0 .8em 0;
+    padding:0;
+    font-family: Georgia;
+}
+
+p {
+    margin:.8em 0 .8em 0;
+    padding:0;
+}
+img {
+}
+
+/* Header styles */
+#header {
+    clear:both;
+    float:left;
+    width:100%;
+}
+
+#header p,
+#header h1,
+#header h2 {
+    padding:.4em 15px 0 15px;
+    margin:0;
+}
+#header ul {
+    clear:left;
+    float:left;
+    width:100%;
+    list-style:none;
+    margin:10px 0 0 0;
+    padding:0;
+}
+#header ul li {
+    display:inline;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+#header ul li a {
+    display:block;
+    float:left;
+    margin:0 0 0 1px;
+    padding:3px 10px;
+    text-align:center;
+    background:#eee;
+    color:#000;
+    text-decoration:none;
+    position:relative;
+    left:15px;
+    line-height:1.3em;
+}
+#header ul li a:hover {
+    background:#660099;
+    color:#fff;
+}
+#header ul li a.active,
+#header ul li a.active:hover {
+    color:#fff;
+    background:#000;
+    font-weight:bold;
+}
+#header ul li a span {
+    display:block;
+}
+
+/* 'widths' sub menu */
+#layoutdims {
+    clear:both;
+    background:#eee;
+    border-top:4px solid #000;
+    margin:0;
+    padding:6px 15px !important;
+    text-align:right;
+}
+/* column container */
+.colmask {
+    position:relative;	/* This fixes the IE7 overflow hidden bug */
+    clear:both;
+    float:left;
+    width:100%;			/* width of whole page */
+    overflow:hidden;		/* This chops off any overhanging divs */
+}
+/* common column settings */
+.colright,
+.colmid,
+.colleft {
+    float:left;
+    width:100%;			/* width of page */
+    position:relative;
+}
+.col1,
+.col2,
+.col3 {
+    float:left;
+    position:relative;
+    padding:0 0 1em 0;	/* no left and right padding on columns, we just make them narrower instead 
+                                    only padding top and bottom is included here, make it whatever value you need */
+    overflow:hidden;
+}
+/* 3 Column settings */
+.threecol {
+    /*	background:#eee;*/		/* right column background colour */
+}
+.threecol .colmid {
+    right:25%;			/* width of the right column */
+}
+.threecol .colleft {
+    right:50%;			/* width of the middle column */
+}
+.threecol .col1 {
+    width:62%;			/* width of center column content (column width minus padding on either side) */
+    left:93%;			/* 100% plus left padding of center column */
+}
+.threecol .col2 {
+    width:17%;			/* Width of left column content (column width minus padding on either side) */
+    left:13%;			/* width of (right column) plus (center column left and right padding) plus (left column left padding) */
+}
+.threecol .col3 {
+    width:19%;			/* Width of right column content (column width minus padding on either side) */
+    left:77%;			/* Please make note of the brackets here:
+                                    (100% - left column width) plus (center column left and right padding) plus (left column left and right padding) plus (right column left padding) */
+}
+
+
+/** custom css */
+#header-wrap
+{
+    width: 90%;
+    margin: 0 auto;
+}
+
+/** custom css */
+#banner-wrap
+{
+    width: 90%;
+    margin: 0 auto;
+}
+
+#logo-img
+{
+    margin: 0;
+    display:block;
+}
+
+#banner-img
+{
+    margin-bottom: 20px;
+
+}
+
+#h_left
+{
+    float: left;
+    width: 70%;
+}
+
+#h_right
+{
+    float: right;
+    width: 30%;
+}
+
+#b_left
+{
+    float: left;
+    width: 80%;
+    margin-left: 5px;
+}
+
+#b_right
+{
+    float: left;
+    padding: 50px 0 0 50px;
+}
+
+.register
+{
+    float: right !important;
+}
+
+.content-wrap
+{
+    margin: 0 auto;
+    width: 90%;
+}
+
+.newsfeed
+{
+    background: url("../img/gradient2.jpg") repeat-x;
+    border: 1px solid #999999;
+    -webkit-border-radius: 8px;
+    -webkit-border-top-left-radius: 0;
+    -moz-border-radius: 8px;
+    -moz-border-radius-topleft: 0;
+    border-radius: 8px;
+    border-top-left-radius: 0;
+}
+
+.newsfeed ul
+{
+    list-style: none;
+    padding: 0 10px;
+    margin: 0;
+}
+
+#article-title, .bl-title h2
+{
+    text-decoration: underline;
+    font: 24px Georgia, serif;
+    font-style: italic;
+    color: #000066;
+}
+
+.newsfeed ul li h4
+{
+    text-decoration: underline;
+    font: 16px Georgia, serif;
+    font-style: italic;
+    color: #000066;
+}
+
+.newsfeed ul li p
+{
+    font: 12px Georgia, serif;
+    color: #000;
+}
+
+.newsfeed-header
+{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.newsfeed-header-content
+{
+    background: none repeat scroll 0 0 #999999;
+    color: #FFFFFF;
+    font: 14px Georgia,serif;
+    padding: 5px 8px;
+    width: 20%;
+}
+
+/**login signup buttons**/
+.user-dash a.orange_btn
+{
+    background:#FF0000;
+}
+
+.user-dash a.black_btn
+{
+    background:url(../img/grad_signup.png) repeat-x center center;
+}
+
+.user-dash a.black_btn, .search-dash a.search_btn
+{
+    background:url(../img/grad_signup.png) repeat-x center center;
+}
+
+.user-dash
+{
+    font-family: Arial, Verdana;
+    font-size: 12px;
+    color: #666666;
+    float: right;
+    margin: 0;
+}
+
+.user-dash a
+{
+    font-family: Arial, Verdana;
+    font-size: 13px;
+    color: #FFFFFF;
+    padding: 7px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.user-dash a:hover
+{
+    color: black;
+}
+
+/**search **/
+.search-dash
+{
+    float: right;
+    margin: 0;
+    padding: 10px 0px;
+}
+
+.searchform
+{
+    overflow: hidden;
+}
+
+.searchform .q
+{
+    color: #999999;
+    font: 15px Arial,Helvetica,sans-serif;
+    padding: 2px 10px 3px 8px;
+    width: 150px;
+    border: 1px solid #E0E2E1;
+    height: 20px;
+}
+
+.search-dash .search_btn
+{
+    background:url(../img/grad_signup.png) repeat-x center center;
+    border: none;
+    font-family: Arial, Verdana;
+    font-size: 13px;
+    color: #FFFFFF;
+    padding: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+}
+
+.search-dash .search_arrow_btn
+{
+    background:url(../img/right-arrow.png) no-repeat center center;
+    border: none;
+}
+
+.search-dash .search_arrow_btn:hover
+{
+    cursor: pointer;
+}
+.search-dash .search_btn:hover
+{
+    color: black;
+    cursor: pointer;
+}
+
+/**select language**/
+.select-lang
+{
+    font-family: Georgia,Arial, Verdana;
+    font-size: 16px;
+    color: #666666;
+    float: right;
+    margin: 0;
+}
+
+.selectable
+{
+    border: 1px solid #E0E2E1;
+    color: #0000FF;
+    font-family: georgia;
+    font-size: 18px;
+    padding: 5px;
+    vertical-align: middle;
+}
+
+/**main menu**/
+#menu
+{
+    height: 40px;
+    background: #fe0000;
+    clear: both;
+    width: 100%;
+}
+
+
+
+#menu-wrap
+{
+    margin: 0 auto;
+    width: 90%;
+}
+
+#menu ul {
+    clear:left;
+    width:100%;
+    list-style:none;
+    padding:0;
+}
+#menu ul li {
+    display:inline;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+#menu ul li a {
+    color: #fff;
+    display: block;
+    float: left;
+    font-family: georgia;
+    font-size: 12px;
+    height: 12px;
+    line-height: 1.3em;
+    border-left: 1px solid #cccccc;
+    padding: 14px 10px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+}
+#menu ul li a:hover {
+    background:#660099;
+    color:#fff;
+}
+#menu ul li a.active,
+#menu ul li a.active:hover {
+    color:#fff;
+    background:#000;
+    font-weight:bold;
+}
+#menu ul li a span {
+    display:block;
+}
+
+/**bottom menu**/
+#bottom-menu
+{
+    height: 40px;
+    background: #03028f;
+    clear: both;
+    width: 100%;
+}
+
+#bottom-menu-wrap
+{
+    margin: 0 auto;
+    width: 90%;
+}
+
+#bottom-menu ul {
+    clear:left;
+    width:100%;
+    list-style:none;
+    padding:0;
+}
+#bottom-menu ul li {
+    display:inline;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+#bottom-menu ul li a {
+    color: #fff;
+    display: block;
+    float: left;
+    font-family: georgia;
+    font-size: 12px;
+    height: 12px;
+    line-height: 1.3em;
+    border-left: 1px solid #cccccc;
+    padding: 14px 10px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+}
+#bottom-menu ul li a:hover {
+    background:#660099;
+    color:#fff;
+}
+#bottom-menu ul li a.active,
+#bottom-menu ul li a.active:hover {
+    color:#fff;
+    background:#000;
+    font-weight:bold;
+}
+#bottom-menu ul li a span {
+    display:block;
+}
+
+/**bottom menu**/
+#admin-menu
+{
+    height: 40px;   
+    background: gray;
+    clear: both;
+    width: 100%;
+}
+
+#admin-menu-wrap
+{
+    margin: 0 auto;
+    width: 90%;
+}
+
+#admin-menu ul {
+    clear:left;
+    width:100%;
+    list-style:none;
+    padding:0;
+}
+#admin-menu ul li {
+    display:inline;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+#admin-menu ul li a {
+    color: #fff;
+    display: block;
+    float: left;
+    font-family: georgia;
+    font-size: 12px;
+    height: 12px;
+    line-height: 1.3em;
+    border-left: 1px solid #cccccc;
+    padding: 14px 10px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+}
+#admin-menu ul li a:hover {
+    background:#660099;
+    color:#fff;
+}
+#admin-menu ul li a.active,
+#admin-menu ul li a.active:hover {
+    color:#fff;
+    background:#000;
+    font-weight:bold;
+}
+#admin-menu ul li a span {
+    display:block;
+}
+
+
+/**ordinances**/
+#ordinances-list
+{
+    background: url("../img/gradient.jpg") repeat-y;
+    padding-bottom: 10px;
+    -webkit-border-radius: 10px;
+    -webkit-border-top-left-radius: 0;
+    -moz-border-radius: 10px;
+    -moz-border-radius-topleft: 0;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+}
+
+#ordinances-list ul
+{
+    list-style: none;
+    padding: 2px 15px 0;
+    margin: 0;
+}
+
+#ordinances-list ul li
+{
+    border-bottom: 1px solid #666666;
+}
+
+#ordinances-list ul li.last-item
+{
+    border-bottom: none;
+}
+
+#ordinances-list ul li h3
+{
+    font: 14px Georgia, serif;
+    font-weight: bold;
+}
+
+#ordinances-list ul li h3 a
+{
+    color: #0c0c70;
+}
+
+#ordinances-list ul li h3 a:hover
+{
+    color: #336699;
+    background: none;
+}
+
+#ordinances-header
+{
+    width: 100%;
+}
+
+#ordinances-header-content
+{
+    background: none repeat scroll 0 0 #660099;
+    border-top: 1px solid yellow;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    color: #FFFFFF;
+    font: 14px Georgia,serif;
+    padding: 5px 8px;
+    width: 60%;
+}
+
+/**ads**/
+#ads img
+{
+    display:block;
+}
+
+/**map**/
+
+#map-header, #poll-header, #votes-header
+{
+    width: 100%;
+    padding-top: 10px;
+}
+
+#map-header-content, #poll-header-content, #votes-header-content
+{
+    background: none repeat scroll 0 0 #660099;
+    border-top: 1px solid yellow;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    color: #FFFFFF;
+    font: 14px Georgia,serif;
+    padding: 5px 8px;
+    width: 15%;
+}
+
+#map, #poll, #votes
+{
+    border: 1px solid  #000066;
+    -webkit-border-radius: 8px;
+    -webkit-border-top-left-radius: 0;
+    -moz-border-radius: 8px;
+    -moz-border-radius-topleft: 0;
+    border-radius: 8px;
+    border-top-left-radius: 0;
+    height: auto;
+    padding: 10px;
+}
+
+#map img
+{
+    margin: none;
+    padding: 10px 0px;
+}
+
+#map #zoom
+{
+    padding: 0px 0px 0px 79%;
+}
+
+/**footer**/
+
+#footer {
+    clear:both;
+    float:left;
+    width:100%;
+    background: #660099;
+    padding: 25px 0px;
+}
+#footer p {
+    margin:0;
+}
+
+#footer-wrap
+{
+    margin: 0 auto;
+    width: 90%;
+}
+
+#footer-top
+{
+    clear: both;
+    color: white;
+}
+
+.footer-col
+{
+    float: left;
+}
+
+.grid1
+{
+    width: 16%;
+}
+.grid2
+{
+    width: 16%;
+}
+.grid3
+{
+    width: 30%;
+}
+.grid4
+{
+    width: 16%;
+}
+.grid5
+{
+    width: 30%;
+}
+
+#footer-bottom
+{
+    clear: both;
+    background: black;
+    color: white;
+    font: 11px Georgia, serif;
+}
+
+#footer-bottom-wrap
+{
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.footer-col h3
+{
+    color: #FFF200;
+    font: 14px Georgia
+}
+
+.widget ul a
+{
+    background: none;
+    color: #FFFFFF;
+}
+
+.widget ul a:hover
+{
+    background: none;
+    color: #FFF200;
+}
+
+.links
+{
+    margin: 10px 0;
+}
+
+.links ul
+{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.links ul li
+{
+    display: inline;
+    padding: 5px 5px 0 0;
+}
+
+.display-pic
+{
+    margin: 5px 0;
+}
+
+.widget ul
+{
+    list-style: none;
+    padding: 0;
+}
+
+.widget
+{
+    font: 13px Georgia, serif;
+}
+
+/**signup**/
+.signup
+{
+    color: #ffffff;
+    font: 20px Georgia, serif;
+    background: #660099;
+    padding: 10px 15px;
+}
+
+.signup-dash
+{
+    margin: 0;
+    padding: 30px 0px;
+    font: 15px Arial,Helvetica,sans-serif;
+}
+
+.signup-radio-text
+{
+    font: 15px Georgia, serif;
+    color: blue;
+    padding: 5px 0;
+}
+
+.signup-radio
+{
+    border: none;
+    margin: 0 3px 0 0;
+    -webkit-border-radius: 0px;
+}
+
+
+.signupform
+{
+    overflow: hidden;
+}
+
+.signupform .s
+{
+    color: #999999;
+    font: 15px Arial,Helvetica,sans-serif;
+    padding: 2px 0;
+    text-align: center;
+    width: 99%;
+    border: 1px solid #E0E2E1;
+    height: 20px;
+}
+
+.signup-input
+{
+    padding: 4px 0;
+}
+
+.signup-label
+{
+    font: 12px Georgia;
+    color: #666666
+}
+
+.signup_btn
+{
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background: #660099;
+    font: 16px Georgia, serif;
+    float: left;
+    color: #fff;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.signup-input input[type="text"],.signup-label
+{
+    margin: 0;
+}
+
+.signup-input input[type="submit"]
+{
+    float: right;
+    margin-top: 10px;
+}
+
+
+
+
+/*login css*/
+#login
+{
+    font-size: 12px;
+}
+.simpleForm
+{
+    font: 12px Georgia;
+}
+
+.simpleForm ul
+{
+    padding: 0;
+}
+
+.simpleForm ul li
+{
+    list-style: none;
+}
+
+.simpleForm ul li a
+{
+    color: #660099;
+}
+
+.simpleForm ul li
+{
+    color: #666666;
+    padding: 0 0 5px;
+}
+
+.simpleForm ul li h1
+{
+    color: #000000;
+}
+
+.simpleForm ul li input[type="text"], 
+.simpleForm ul li input[type="password"]
+{
+    border: 1px solid #E0E2E1;
+    color: black;
+    height: 20px;
+    padding: 2px 10px 3px 8px;
+    width: 200px;
+}
+
+.simpleForm ul li textarea
+{
+    border: 1px solid #E0E2E1;
+    color: #000000;
+    height: 300px;
+    padding: 5px;
+    width: 100%;
+    font: 10pt Arial;
+}
+
+.simpleForm ul li #message
+{
+    border: 1px solid #E0E2E1;
+    color: #000000;
+    height: 150px;
+    padding: 5px;
+    width: 97.5%;
+    margin: 0;
+    font: 10pt Arial;
+}
+
+.simpleForm ul li select
+{
+    border: 1px solid #E0E2E1;
+    color: black;
+    height: 25px;
+    width: 222px;
+}
+
+.simpleForm #name, .simpleForm #title
+{
+    border: 1px solid #E0E2E1;
+    color: black;
+    height: 20px;
+    padding: 5px;
+    width: 100%;
+}
+
+.simpleForm ul li ul
+{
+    padding: 5px 0 0 0;
+    margin: 0;
+}
+
+.simpleForm ul li ul li
+{
+    padding:0;
+    color: #fe0000;
+}
+
+.flashmessage ul
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#Login, #Reset, #Save, #Send
+{
+    background: none repeat scroll 0 0 #FF0000;
+    border: medium none;
+    border-radius: 8px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font: 14px Georgia,serif;
+    padding: 7px;
+}
+
+#Login:hover,#Reset:hover
+{
+    color: #000000;
+}
+
+table
+{
+    margin: 5px 0; 
+}
+table td
+{
+    color: #000000;
+    padding: 5px 0px;
+    font: 12px Georgia;
+
+}
+
+.important{
+    background: #ff0000;
+    padding: 2px;
+    color: white;
+}
+
+.poll-options ul
+{
+    list-style: none;
+    padding: 0;
+    margin: 5px 0;
+}
+
+.poll-options, .poll-question
+{
+    padding: 10px 0;
+}
+
+.percentbar 
+{ 
+    background:#CCCCCC;
+    height:20px;
+}
+
+.percentbar div 
+{ 
+    background: #660099; 
+    height: 20px; 
+    color: white;
+}
+
+#title-category-bar h1
+{
+    color: #660099;
+    font-family: Arial;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#sanggunian
+{
+    margin: 25px 0 25px 0px;
+    color: #660099;
+}
+
+#contact-form
+{
+    color: #000000;
+}
+
+#icol-left
+{
+    width: 50%;
+    float: left;
+}
+
+#icol-left
+{
+    width: 50%;
+    float: left;
+}
+
+.image-row
+{
+    width: 100%;
+    margin: 10px 0 0 8px;
+}
+
+.image-row-column
+{
+    width: 33.3%;
+    float: left;
+}
+
+.image-row-column img
+{
+}
+
+.grouped_lists
+{
+    display: inline;
+    float : left;
+    margin: 10px 10px 10px 0;
+}
+
+.caption-item
+{
+    margin: 10px;
+}
+
+.wrapword
+{
+    white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    white-space: pre-wrap;       /* css-3 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    word-break: break-all;
+    white-space: normal;
+    text-align: center;
+}
+
+.contact-div
+{
+    clear:both;
+}
+
+.contact-div ul li
+{
+    color: #000000 !important;
+}
+
+.contact-div-first-col
+{
+    float:left;
+    width: 35%;
+}
+
+.contact-div-second-col
+{
+    float:right;
+}
+
+.contact-div-messagerow
+{
+    float: left;
+    width: 60%;
+}
+
+.contact-div-fieldsrow
+{
+    width: 60%;
+}
+
+/* column container */
+.banner-colmask {
+    position:relative;	/* This fixes the IE7 overflow hidden bug */
+    clear:both;
+    float:left;
+    width:100%;			/* width of whole page */
+    overflow:hidden;		/* This chops off any overhanging divs */
+}
+/* common column settings */
+.banner-colleft,
+.banner-colmid,
+.banner-colright{
+    float:left;
+    width:100%;
+    position:relative;
+}
+.banner-col1,
+.banner-col2,
+.banner-col3{
+    float:left;
+    position:relative;
+    overflow:hidden;
+}
+/* 2 Column (left menu) settings */
+.banner-leftmenu {
+    background:#fff;		/* right column background colour */
+}
+.banner-leftmenu .banner-colleft {
+    right:22%;			/* right column width */
+}
+.banner-leftmenu .banner-col1 {
+    width:12%;			/* right column content width */
+    left:102%;			/* 100% plus left column left padding */
+}
+.banner-leftmenu .banner-col2 {
+    width:71%;			/* left column content width (column width minus left and right padding) */
+    left:15%;			/* (right column left and right padding) plus (left column left padding) */
+}

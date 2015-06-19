@@ -1,0 +1,13 @@
+<div class="search-dash">
+    <div class="searchform">
+        <form method="get" id="searchform" action="<?php echo $this->baseUrl( 'search/index' ); ?>">
+            <input type="submit" class="search_btn" value="SEARCH"/>
+            <input type="text" value="Enter Item or keyword" name="q" id="q" class="q" onfocus="if ( this.value == 'Enter Item or keyword' ) {
+                    this.value = '';
+                }" onblur="if ( this.value == '' ) {
+                            this.value = 'Enter Item or keyword';
+                        }" />
+            <input type="submit" class="search_arrow_btn" value=""/>
+        </form>
+    </div>
+</div>

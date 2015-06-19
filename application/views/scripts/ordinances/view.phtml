@@ -1,0 +1,108 @@
+<div id="content">
+    <div id="content-wrap">
+        <div id="title-bar">
+            <h1 id="article-title"><?php echo $this->escape( $this->ordinance->name ) ?></h1>
+            <a href="<?php echo $this->url( array( 'controller' => 'ordinances' , 'action' => 'edit' ) , null , true ); ?>" class="action-button">Edit</a>
+        </div>
+        <div>
+            <table class="block-list" id="ordinance">
+                <tr id="n-<?php echo $this->escape( $this->ordinance->id ); ?>">
+                    <td width="60%">
+                        <div class="bl-summary">
+                            <p><span class="bold">Summary:</span>
+                            <p><?php echo $this->escape( $this->ordinance->summary ); ?>
+                        </div>
+                        <div class="bl-attached-files">
+                            <p><span class="bold">Attached files:</span>
+                            <table id="files-<?php echo $this->ordinance->id; ?>">
+                                <?php
+                                if ( !is_null( $this->files ) && !empty( $this->files ) )
+                                {
+                                    foreach ( $this->files as $file )
+                                    {
+                                        ?>
+                                        <tr id="f-<?php echo $this->escape( $file[ 'f_id' ] ); ?>">
+                                            <td><a href="<?php echo $this->url( array( 'controller' => 'ordinances' , 'action' => 'download' , 'id' => $file[ 'f_id' ] ) ) ?>"><?php echo $file[ 'f_name' ] ?></a></td>
+                                            <td><a href="" class="action-button"
+                                                   onclick="new Delete('<?php echo $this->baseUrl(); ?>', 'ordinances', 'deletefile', '<?php echo $file[ 'f_id' ] ?>', 'files-<?php echo $this->ordinance->id; ?>');
+                                                           return false;">
+                                                    x
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                    }
+                                }
+                                else
+                                {
+                                    ?>
+                                    <tr><td><p>There are no attached files at moment for this ordinance.</td></tr>
+                                    <?php
+                                }
+                                ?>
+                            </table>
+                        </div>
+                        <div class="bl-signed">
+                            <p><span class="bold">Signed by:</span>
+                            <table id="approvals-<?php echo $this->ordinance->id; ?>">
+                                <?php
+                                if ( !is_null( $this->approvals ) && !empty( $this->approvals ) )
+                                {
+                                    foreach ( $this->approvals as $approval )
+                                    {
+                                        ?>
+                                        <tr id="n-<?php echo $this->escape( $approval[ 'id' ] ); ?>">
+                                            <td><?php echo $this->escape( $approval[ 'firstname' ] . ' ' . $approval[ 'lastname' ] ); ?></td>
+                                            <td>
+                                                <img src="<?php echo $this->baseUrl( 'img/signatures/' . $approval[ 'user_id' ] . '/tiny/' . $approval[ 'signature' ] ); ?>" alt="Signature" />
+                                            </td>                            
+                                        </tr>
+                                        <?php
+                                    }
+                                }
+                                else
+                                {
+                                    ?>
+                                    <tr><td><p>There are no approvals for this ordinance.</td></tr>
+                                    <?php
+                                }
+                                ?>
+                            </table>
+                        </div>
+                        <div class="links">
+                            <ul>
+                                <?php
+                                if ( $this->canApprove && !$this->doneApproving )
+                                {
+                                    ?>
+                                    <li id="approve-butt-<?php echo $this->ordinance->id ?>">
+                                        <a href="" class="action-button"
+                                           onclick="new Approve('<?php echo $this->baseUrl(); ?>', 'ordinances', 'approve', '<?php echo $this->ordinance->id ?>');
+                                                   return false;">
+                                            Approve
+                                        </a> 
+                                    </li>
+                                    <?php
+                                }
+                                ?>
+                            </ul>
+                            <div id="appr-mess-<?php echo $this->ordinance->id; ?>">
+                                <?php
+                                if ( $this->doneApproving )
+                                {
+                                    ?>                    
+                                    <h4>You have already signed this ordinance.</h4>
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+
+    </div>   
+</div>
+
