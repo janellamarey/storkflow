@@ -26,7 +26,7 @@ class Custom_Controller_Plugin_ViewSetup extends Zend_Controller_Plugin_Abstract
         $view->headMeta()->setName( 'keywords' , 'bacoor government' );
         $view->headMeta()->setName( 'robots' , 'index, follow' );
 
-        $view->headTitle( 'Bacoor City Council' );
+        $view->headTitle( 'Storkflow' );
 
         //set current user
         $aclHelper = Zend_Controller_Action_HelperBroker::getStaticHelper( 'aclHelper' );

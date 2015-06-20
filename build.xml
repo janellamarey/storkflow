@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="storkflow" default="build">
+    
+    <property name="project.release" value="release/" />
+    <property name="project.release.checkout" value="release/checkout/" />
+    <property name="project.release.export" value="release/export/" />
+    <property name="project.release.export.public" value="release/export/public/" />
+    <property name="project.release.export.app" value="release/export/application/" />
+
+    <property name="repository.svn" value="C:/Program Files/SlikSvn/bin/svn.exe" />
+    <property name="repository.url.library.jaycees" value="file:///D:/Repositories/Web Development/project_jaycees_prod/library/Jaycees" />
+    <property name="repository.url.public" value="file:///D:/Repositories/Web Development/project_jaycees_prod/public" />
+    <property name="repository.url.app" value="file:///D:/Repositories/Web Development/project_jaycees_prod/application" />
+    <property name="repository.user" value="" />
+    <property name="repository.pass" value="" />
+
+    <property name="ftp.host" value="50.23.65.194" />
+    <property name="ftp.port" value="21" />
+    <property name="ftp.username" value="jauzioco" />
+    <property name="ftp.password" value="d79KinG8i3" />
+    <property name="ftp.dir.public" value="/home/jauzioco/public_html/lomdb/" />
+    <property name="ftp.dir.application" value="/home/jauzioco/lomdb/" />
+
+    <target name="build">
+        <tstamp/>
+        <echo message="Build" />
+        <svnexport todir="${project.release}release_${TSTAMP}_${DSTAMP}/library/Jaycees" repositoryurl="${repository.url.library.jaycees}" nocache="true"
+        force="true" password="${repository.pass}" username="${repository.user}" svnpath="${repository.svn}" />
+        <svnexport todir="${project.release}release_${TSTAMP}_${DSTAMP}/public" repositoryurl="${repository.url.public}" nocache="true"
+        force="true" password="${repository.pass}" username="${repository.user}" svnpath="${repository.svn}" />
+        <svnexport todir="${project.release}release_${TSTAMP}_${DSTAMP}/application" repositoryurl="${repository.url.app}" nocache="true"
+        force="true" password="${repository.pass}" username="${repository.user}" svnpath="${repository.svn}" />
+    </target>
+ 
+    <target name="release" depends="build">
+        <ftpdeploy
+          host="${ftp.host}"
+          port="${ftp.port}"
+          username="${ftp.username}"
+          password="${ftp.password}"
+          dir="${ftp.dir.public}">
+          <fileset dir="${project.release.export.public}">
+            <include name="**"/>
+          </fileset>
+        </ftpdeploy>
+
+        <ftpdeploy
+          host="${ftp.host}"
+          port="${ftp.port}"
+          username="${ftp.username}"
+          password="${ftp.password}"
+          dir="${ftp.dir.application}">
+          <fileset dir="${project.release.export.app}">
+            <include name="**"/>
+          </fileset>
+        </ftpdeploy>
+
+        <echo msg="Released!" />
+    </target>
+</project>
+

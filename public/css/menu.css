@@ -55,7 +55,7 @@
 .blue ul li a.active,
 .blue ul li a:hover {
     color:#fff;
-    background:#FE0000;
+    background:#660099;
 }
 .cssmenu ul li a span {
     display: block;
@@ -104,7 +104,7 @@
 }
 
 .blue {
-    background: #660099;
+    background: #13007D;
 }
 
 .register-li

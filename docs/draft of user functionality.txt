@@ -1,0 +1,91 @@
+4 types of users
+admin
+apo
+scrum master
+members
+
+admin
+
+add new teams
+edit teams
+delete teams
+list teams
+
+add roles
+edit roles
+delete roles
+list all roles
+
+add users
+edit users
+delete users
+list all users
+
+add user roles
+edit user roles
+delete all user roles
+list all user roles
+
+admin, scrum master
+
+add new sprint teams
+edit sprint teams
+delete sprint teams
+list all teams per sprint
+
+add new sprints
+edit sprints
+delete sprints
+list all sprints
+
+add new teams
+edit teams
+delete teams
+list all teams
+
+scrum master
+
+add status
+edit status
+delete all statuses
+list all statuses
+
+add stories
+edit stories
+delete all stories
+list all stories
+
+add tasks
+edit tasks
+delete tasks
+list all tasks
+
+scrum master, member
+add stories_tasks
+edit stories_tasks
+delete stories_tasks
+list all stories_tasks
+
+add sprint_stories_tasks
+edit sprint stories_tasks
+delete sprint stories_tasks
+list sprint stories_tasks
+
+add sprint_stories_tasks_user_roles
+edit sprint_stories_tasks_user_roles
+delete sprint_stories_tasks_user_roles
+list sprint_stories_tasks_user_roles
+
+
+member
+
+list all sprint_teams
+list all houses_user_roles
+
+
+additional functionality
+generate burndown chart per sprint team
+generate monthly report on load
+
+
+

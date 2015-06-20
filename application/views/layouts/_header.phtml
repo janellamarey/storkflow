@@ -2,7 +2,7 @@
 
     <div id="header-wrap">
         <div id="h_left">
-            <img id="logo-img" alt="Bacoor City Government" src="<?php echo $this->baseUrl( 'img/logo.png' ); ?>" width="90%"/>
+            <img id="logo-img" alt="Storkflow" src="<?php echo $this->baseUrl( 'img/storkflow.png' ); ?>"/>
         </div>
         <div id="h_right">
 
@@ -16,9 +16,6 @@
                 echo $this->partial( "_welcomeguest.phtml" );
             }
             ?>
-
-            <?php echo $this->partial( "_search.phtml" ); ?>
-
         </div>
     </div>
 </div>
@@ -28,6 +25,7 @@
 
         var adjust = function ()
         {
+            var allowance = 15;
             var userDash = $( ".user-dash" );
             var hLeft = $( "#h_left" );
             var hRight = $( "#h_right" );
@@ -36,12 +34,12 @@
             if ( hLeft.height() <= hRight.height() )
             {
                 var diff = hRight.height() - hLeft.height();
-                userDash.css( { "paddingTop": (current - diff) + "px" } );
+                userDash.css( { "paddingTop": (current - diff) - allowance + "px" } );
             }
             else
             {
                 var diff = hLeft.height() - hRight.height();
-                userDash.css( { "paddingTop": (current + diff) + "px" } );
+                userDash.css( { "paddingTop": (current + diff) - allowance + "px" } );
             }
         };
 

@@ -31,7 +31,7 @@ class IndexController extends Zend_Controller_Action
         $sUserId = $aUserData[ 'sys_user_id' ];
         $this->view->is_logged = $sRoleId === SiteConstants::$GUESTROLE_ID ? false : true;
 
-        $sLatestNews = $this->oNews->getLatestBacoorNews();
+        $sLatestNews = array();
 
         if ( !empty( $sLatestNews ) )
         {
@@ -42,9 +42,9 @@ class IndexController extends Zend_Controller_Action
             $this->view->images = array();
         }
         
-        $this->view->bacoornews = $sLatestNews;
-        $this->view->localnews = array_merge( $this->oNews->getGMANews( 2 ) );
-        $this->view->foreignnews = array_merge( $this->oNews->getCNNNews( 2 ) );
+        $this->view->bacoornews = array();
+        $this->view->localnews = array();
+        $this->view->foreignnews = array();
 
         $this->view->registerURL = $this->view->url( array( 'controller' => 'users' , 'action' => 'register' ) );
         $this->view->ordinances = $this->oOrdinances->getOrdinances( 5 , 200 , 'PUBLISHED', 'ORDINANCE|RESOLUTION' );
