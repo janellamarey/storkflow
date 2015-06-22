@@ -139,7 +139,7 @@ class Custom_Controller_Action_Helper_AclHelper extends Zend_Controller_Action_H
         if ( !$this->_acl->isAllowed( $role , $resource , $privilege ) )
         {
             $request->setModuleName( 'default' );
-            $request->setControllerName( 'index' );
+            $request->setControllerName( 'login' );
             $request->setActionName( '' );
             $request->setDispatched( false );
         }

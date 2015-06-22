@@ -1,7 +1,4 @@
-superadmin
-superuser
 admin
-voter
-councilor
-guest
-
+apo
+scrum master
+member

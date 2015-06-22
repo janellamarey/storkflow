@@ -59,7 +59,7 @@ class Form_Login extends Zend_Form
 
         $oForgotPassNote = new Zend_Form_Element_Note( 'forgot_password' );
         $oForgotPassNote->setValue( '<a href="' . $this->getView()->serverUrl( $this->getView()
-                                ->url( array( 'action' => 'forgotpass' ) ) ) . '">Forgotten Username/Password?</a>' )
+                                ->url( array( 'controller' => 'login', 'action' => 'forgotpass' ), null, true ) ) . '">Forgotten Username/Password?</a>' )
                                 ->setDecorators( $aDefaultDecorators );
         $this->addElement( $oForgotPassNote );
                 
