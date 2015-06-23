@@ -44,6 +44,9 @@ CREATE TABLE IF NOT EXISTS `sys_email_audit` (
 
 -- Dumping data for table storkflow.sys_email_audit: ~0 rows (approximately)
 /*!40000 ALTER TABLE `sys_email_audit` DISABLE KEYS */;
+INSERT INTO `sys_email_audit` (`id`, `from`, `subject`, `message`, `recipients`, `sent_datetime`, `date_created`, `user_created`, `date_last_modified`, `user_last_modified`, `deleted`) VALUES
+	(9, 'Administrator', 'Bacoor City Council Notice: Your new password for www.bacoorcitycouncil.com', '                Dear User,\n\n                As you requested, your password has now been reset. Your new details are as follows:\n                \n                Username: admin\n                Password: 9b25fe4\n                    \n                To change your password, login to http://storkflow.xxx.com/ and in your dashboard click \'Change Password\'.\n                \n                All the best,\n                Administrator\n                www.lambsmarketing.com', 'joshauza@gmail.com', '2015-06-24 00:33:55', '2015-06-24', '', '0000-00-00', '', 0),
+	(10, 'Administrator', 'Your new password for www.storkflow.xxx.com', '                Dear User,\n\n                As you requested, your password has now been reset. Your new details are as follows:\n                \n                Username: admin\n                Password: 5f8a7de\n                    \n                To change your password, login to http://storkflow.xxx.com/ and in your dashboard click \'Change Password\'.\n                \n                All the best,\n                Administrator\n                www.lambsmarketing.com', 'joshauza@gmail.com', '2015-06-24 00:35:23', '2015-06-24', '', '0000-00-00', '', 0);
 /*!40000 ALTER TABLE `sys_email_audit` ENABLE KEYS */;
 
 
@@ -132,9 +135,13 @@ CREATE TABLE IF NOT EXISTS `sys_users` (
 -- Dumping data for table storkflow.sys_users: ~3 rows (approximately)
 /*!40000 ALTER TABLE `sys_users` DISABLE KEYS */;
 INSERT INTO `sys_users` (`id`, `firstname`, `lastname`, `mi`, `designation`, `address`, `contacts`, `email_add`, `signature`, `searchable`, `district`, `date_created`, `user_created`, `date_last_modified`, `user_last_modified`, `deleted`) VALUES
-	(1, 'Admin', 'Admin', 'J', '', 'Bacoor City', '09156473743', 'joshauza@gmail.com', 'sig.png', 1, 1, '0000-00-00', '', '2014-08-02', 'khalid', 0),
-	(2, 'SM', 'SM', 'H', 'Sr', 'Bacoor City', '09156473743', 'joshauza@gmail.com', 'sig.png?1407856938', 1, 2, '0000-00-00', '', '2014-08-12', 'khalid', 0),
-	(3, 'Member', 'Member', 'K', '', 'Manila', '09156473743', 'joshauza@gmail.com', 'sig.png', 1, 1, '0000-00-00', '', '2014-08-02', 'khalid', 0);
+	(1, 'Admin', 'Admin', 'J', '', 'Bacoor City', '', 'joshauza@gmail.com', 'sig.png', 1, 1, '0000-00-00', '', '2014-08-02', '', 0),
+	(2, 'SM', 'SM', 'H', 'Sr', 'Bacoor City', '', 'joshauza@gmail.com', 'sig.png?1407856938', 1, 1, '0000-00-00', '', '2014-08-12', '', 0),
+	(3, 'Member', 'Member', 'K', '', 'Manila', '', 'joshauza@gmail.com', 'sig.png', 1, 1, '0000-00-00', '', '2014-08-02', '', 0),
+	(4, 'Salcedo', 'Janel', 'K', '', 'Manila', '', '', 'sig.png', 1, 1, '0000-00-00', '', '2014-08-02', '', 0),
+	(5, 'Semilla', 'Jahir', 'K', '', 'Manila', '', '', 'sig.png', 1, 1, '0000-00-00', '', '2014-08-02', '', 0),
+	(6, 'Teodoro', 'April', 'K', '', 'Manila', '', '', 'sig.png', 1, 1, '0000-00-00', '', '2014-08-02', '', 0),
+	(7, 'Angeles', 'Harvey', 'K', '', 'Manila', '', '', 'sig.png', 1, 1, '0000-00-00', '', '2014-08-02', '', 0);
 /*!40000 ALTER TABLE `sys_users` ENABLE KEYS */;
 
 
@@ -158,9 +165,13 @@ CREATE TABLE IF NOT EXISTS `sys_user_roles` (
 -- Dumping data for table storkflow.sys_user_roles: ~3 rows (approximately)
 /*!40000 ALTER TABLE `sys_user_roles` DISABLE KEYS */;
 INSERT INTO `sys_user_roles` (`id`, `sys_user_id`, `sys_role_id`, `username`, `password`, `pwc`, `status`, `date_created`, `user_created`, `date_last_modified`, `user_last_modified`, `deleted`) VALUES
-	(1, 1, 1, 'admin', 'a', 0, 'REG', '0000-00-00', '', '0000-00-00', '', 0),
+	(1, 1, 1, 'admin', 'a', 0, 'REG', '0000-00-00', '', '2015-06-24', '', 0),
 	(2, 2, 2, 'sm', 'a', 0, 'REG', '0000-00-00', '', '0000-00-00', '', 0),
-	(3, 3, 3, 'member', 'a', 0, 'REG', '0000-00-00', '', '0000-00-00', '', 0);
+	(3, 3, 3, 'member', 'a', 0, 'REG', '0000-00-00', '', '0000-00-00', '', 0),
+	(4, 4, 3, 'janel', 'a', 0, 'REG', '0000-00-00', '', '0000-00-00', '', 0),
+	(5, 5, 3, 'jahir', 'a', 0, 'REG', '0000-00-00', '', '0000-00-00', '', 0),
+	(6, 6, 3, 'april', 'a', 0, 'REG', '0000-00-00', '', '0000-00-00', '', 0),
+	(7, 7, 3, 'harvey', 'a', 0, 'REG', '0000-00-00', '', '0000-00-00', '', 0);
 /*!40000 ALTER TABLE `sys_user_roles` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

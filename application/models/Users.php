@@ -154,14 +154,12 @@ class Users
 
     public function __construct()
     {
-        $this->newuser = new DB_Sysusers();
+        $this->newuser = new DB_Users();
 
         $this->oDb = Zend_Registry::get( 'db' );
         $this->oUsers = new DB_Users();
         $this->oUserRoles = new DB_UserRoles();
         $this->oRoles = new DB_Roles();
-        $this->oImages = new Images();
-        $this->oUploader = new Uploader();
 
         $this->appconfig = Zend_Registry::get( 'config' );
         $this->uploadfolder = $this->appconfig->upload->root->users;
@@ -236,7 +234,7 @@ class Users
 
     public function addNewPersonalData( $oPost )
     {
-        $users = new DB_Sysusers();
+        $users = new DB_Users();
         $user = $users->createRow();
         $user->lastname = $oPost[ 'lastname' ];
         $user->firstname = $oPost[ 'firstname' ];
