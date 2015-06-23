@@ -22,16 +22,16 @@ class Custom_Controller_Plugin_ViewSetup extends Zend_Controller_Plugin_Abstract
         $view->addHelperPath( $dir , $prefix );
 
         $view->headMeta()->appendHttpEquiv( 'Content-Type' , 'application/xhtml+xml; charset=utf-8' );
-        $view->headMeta()->setName( 'description' , 'Bacoor Website' );
-        $view->headMeta()->setName( 'keywords' , 'bacoor government' );
+        $view->headMeta()->setName( 'description' , 'Storkflow' );
+        $view->headMeta()->setName( 'keywords' , 'storkflow' );
         $view->headMeta()->setName( 'robots' , 'index, follow' );
 
         $view->headTitle( 'Storkflow' );
 
         //set current user
         $aclHelper = Zend_Controller_Action_HelperBroker::getStaticHelper( 'aclHelper' );
-        $oUserData = $aclHelper->getCurrentUserData();
-        Zend_Layout::getMvcInstance()->assign( 'user' , $oUserData );
+        $user = $aclHelper->getCurrentUserData();
+        Zend_Layout::getMvcInstance()->assign( 'user' , $user );
 
         //append main css
         $view->headLink()->appendStylesheet( $view->baseUrl() . '/css/style.css' );
@@ -76,7 +76,7 @@ class Custom_Controller_Plugin_ViewSetup extends Zend_Controller_Plugin_Abstract
         $view->headScript()->appendFile( '/js/png_support/zlib.js' );
 
         //append custom js
-        $view->headScript()->appendFile( '/js/bcc.js' );
+        $view->headScript()->appendFile( '/js/storkflow.js' );
 
         //misc links
         $aLinks = array(
@@ -87,7 +87,6 @@ class Custom_Controller_Plugin_ViewSetup extends Zend_Controller_Plugin_Abstract
         );
         Zend_Layout::getMvcInstance()->assign( 'links' , $aLinks );
 
-        $this->handleBanner( $request );
         $this->handleUserStatus( $view );
     }
 
@@ -95,50 +94,20 @@ class Custom_Controller_Plugin_ViewSetup extends Zend_Controller_Plugin_Abstract
     {
         $aclHelper = Zend_Controller_Action_HelperBroker::getStaticHelper( 'aclHelper' );
         $user = $aclHelper->getCurrentUserData();
-        Zend_Layout::getMvcInstance()->assign( 'isLoggedIn' , $user[ 'sys_role_id' ] === SiteConstants::$GUESTROLE_ID ? false : true  );
+        Zend_Layout::getMvcInstance()->assign( 'isLoggedIn' , $user[ 'sys_role_id' ] === SiteConstants::$GUEST_ID ? false : true  );
         Zend_Layout::getMvcInstance()->assign( 'registrationURL' , $view->url( array( 'controller' => 'users' , 'action' => 'register' ) ) );
     }
 
-    private function handleBanner( $request )
-    {
-        $controllerName = $request->getControllerName();
-        $actionName = $request->getActionName();
-
-        $pagesWithBanner = $controllerName === 'about' && $actionName === 'index' ||
-                $controllerName === 'contact' && $actionName === 'index' ||
-                $controllerName === 'downloads' && $actionName === 'budgets' ||
-                $controllerName === 'downloads' && $actionName === 'ordinances' ||
-                $controllerName === 'downloads' && $actionName === 'procurements' ||
-                $controllerName === 'downloads' && $actionName === 'resolutions' ||
-                $controllerName === 'index' && $actionName === 'index' ||
-                $controllerName === 'index' && $actionName === '' ||
-                $controllerName === 'legislation' && $actionName === 'index' ||
-                $controllerName === 'legislation' && $actionName === 'view' ||
-                $controllerName === 'map' && $actionName === 'index' ||
-                $controllerName === 'news' && $actionName === 'index' ||
-                $controllerName === 'polls' && $actionName === 'published' ||
-                $controllerName === 'polls' && $actionName === 'view' ||
-                $controllerName === 'search' && $actionName === 'index';
-
-        if ( $pagesWithBanner )
-        {
-            Zend_Layout::getMvcInstance()->assign( 'isBannerShown' , true );
-        }
-        else
-        {
-            Zend_Layout::getMvcInstance()->assign( 'isBannerShown' , false );
-        }
-    }
 
     public function postDispatch( Zend_Controller_Request_Abstract $request )
     {
         //set proper menu items
         $menuHelper = Zend_Controller_Action_HelperBroker::getStaticHelper( 'menuHelper' );
         $aclHelper = Zend_Controller_Action_HelperBroker::getStaticHelper( 'aclHelper' );
-        $oUserData = $aclHelper->getCurrentUserData();
-        $oMenu = $menuHelper->getMenu( $oUserData[ 'sys_role_id' ] , $this->_view );
-        $oMenuWithActive = $menuHelper->setActiveMenuItem( $oMenu );
-        Zend_Layout::getMvcInstance()->assign( 'menu' , $oMenuWithActive );
+        $user = $aclHelper->getCurrentUserData();
+        $menu = $menuHelper->getMenu( $user[ 'sys_role_id' ] , $this->_view );
+        $menuWithActive = $menuHelper->setActiveMenuItem( $menu );
+        Zend_Layout::getMvcInstance()->assign( 'menu' , $menuWithActive );
     }
 
 }

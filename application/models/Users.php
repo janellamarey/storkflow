@@ -11,12 +11,9 @@
  *
  * @author Josh
  */
-Zend_Loader::loadClass( 'DB_Sysusers' );
-
 Zend_Loader::loadClass( 'DB_Users' );
 Zend_Loader::loadClass( 'DB_UserRoles' );
 Zend_Loader::loadClass( 'DB_Roles' );
-Zend_Loader::loadClass( 'Uploader' );
 Zend_Loader::loadClass( 'SiteConstants' );
 
 class Users

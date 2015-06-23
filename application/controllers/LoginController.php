@@ -9,7 +9,7 @@ class LoginController extends Zend_Controller_Action
 
     function init()
     {
-        $this->_helper->_aclHelper->allow( SiteConstants::$GUESTROLE , array( 'index' , 'forgotpass' ) );
+        $this->_helper->_aclHelper->allow( SiteConstants::$GUEST_USER , array( 'index' , 'forgotpass' ) );
 
         $this->_auth = Zend_Auth::getInstance();
 

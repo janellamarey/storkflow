@@ -17,7 +17,6 @@ class Bootstrap
         $autoloader = Zend_Loader_Autoloader::getInstance();
         $autoloader->registerNamespace( 'Custom_' );
         $autoloader->registerNamespace( 'DB_' );
-        $autoloader->registerNamespace( 'Utils_' );
         $autoloader->registerNamespace( 'Form_' );
 
         // Load configuration

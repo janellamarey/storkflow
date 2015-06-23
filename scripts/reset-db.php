@@ -11,6 +11,6 @@ else if ( getenv( 'APPLICATION_ENV' ) == "dev" )
     $index = realpath( dirname( __FILE__ ) . '/../' ) . '/public/index.php';
 }
 include $index;
-Zend_Loader::loadClass( 'Sql' );
-$sql = new Sql();
+Zend_Loader::loadClass( 'StorkflowSql' );
+$sql = new StorkflowSql();
 $sql->reset();

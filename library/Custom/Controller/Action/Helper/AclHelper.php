@@ -73,7 +73,7 @@ class Custom_Controller_Action_Helper_AclHelper extends Zend_Controller_Action_H
             }
         }
 
-        return 6; //default to guest
+        return SiteConstants::$GUESTROLE_ID; //default to guest
     }
 
     /**
@@ -86,8 +86,8 @@ class Custom_Controller_Action_Helper_AclHelper extends Zend_Controller_Action_H
         $arrayResult = array(
                 'id' => 0 ,
                 'sys_user_id' => 0 ,
-                'sys_role_id' => 6 ,
-                'role_id' => 6 ,
+                'sys_role_id' => SiteConstants::$GUEST_ID ,
+                'role_id' => SiteConstants::$GUEST_ID ,
                 'username' => '' ,
                 'deleted' => 0 ,
         );
@@ -112,7 +112,8 @@ class Custom_Controller_Action_Helper_AclHelper extends Zend_Controller_Action_H
 
     public function preDispatch()
     {
-        $role = SiteConstants::$GUESTROLE;
+        $role = SiteConstants::$GUEST_USER;
+        
         //checks if the user is logged in
         if ( $this->_auth->hasIdentity() )
         {

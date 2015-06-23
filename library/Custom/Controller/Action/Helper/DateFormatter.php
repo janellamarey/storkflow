@@ -2,7 +2,6 @@
 class Custom_Controller_Action_Helper_DateFormatter extends Zend_Controller_Action_Helper_Abstract
 {    
 
-    //$sDate has format 10/31/2010
     public function formatUIDateToDbDate($sDate)
     {
         $aDateParts = explode('/', $sDate);
