@@ -4,14 +4,8 @@
     width: 90%;
 }
 
-#content-wrap h1, #content-wrap #title-bar
-{   
-    /*margin: 0.8em 0 0.8em;*/
-}
-
 #content-wrap #article-title
 {   
-    /*margin: 1.8em 0 1.8em;*/
     line-height: 1.2;
 }
 
@@ -41,7 +35,7 @@
 
 .action-button, #submit-butt
 {
-    background: none repeat scroll 0 0 #FF0000;
+    background: none repeat scroll 0 0 #000000;
     border-radius: 3px;
     color: #FFFFFF;
     font-family: Arial,Verdana;
@@ -76,21 +70,6 @@
 .approvals span
 {
     padding: 0 10px 0 0;
-}
-
-.block-list h3
-{
-    //padding: 0 20px;
-}
-
-.block-list ul
-{
-    /*list-style: none;*/
-}
-
-.block-list ul li
-{
-    //padding: 7px;
 }
 
 .block-list tr

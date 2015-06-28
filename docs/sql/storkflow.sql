@@ -40,9 +40,9 @@ CREATE TABLE IF NOT EXISTS `sys_email_audit` (
   `user_last_modified` varchar(50) CHARACTER SET latin1 NOT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table storkflow.sys_email_audit: ~0 rows (approximately)
+-- Dumping data for table storkflow.sys_email_audit: ~2 rows (approximately)
 /*!40000 ALTER TABLE `sys_email_audit` DISABLE KEYS */;
 INSERT INTO `sys_email_audit` (`id`, `from`, `subject`, `message`, `recipients`, `sent_datetime`, `date_created`, `user_created`, `date_last_modified`, `user_last_modified`, `deleted`) VALUES
 	(9, 'Administrator', 'Bacoor City Council Notice: Your new password for www.bacoorcitycouncil.com', '                Dear User,\n\n                As you requested, your password has now been reset. Your new details are as follows:\n                \n                Username: admin\n                Password: 9b25fe4\n                    \n                To change your password, login to http://storkflow.xxx.com/ and in your dashboard click \'Change Password\'.\n                \n                All the best,\n                Administrator\n                www.lambsmarketing.com', 'joshauza@gmail.com', '2015-06-24 00:33:55', '2015-06-24', '', '0000-00-00', '', 0),
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `sys_roles` (
   `user_last_modified` varchar(50) NOT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table storkflow.sys_roles: ~4 rows (approximately)
 /*!40000 ALTER TABLE `sys_roles` DISABLE KEYS */;
@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `sys_role_mappings` (
   `parent_id` int(10) NOT NULL,
   `child_id` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table storkflow.sys_role_mappings: ~4 rows (approximately)
 /*!40000 ALTER TABLE `sys_role_mappings` DISABLE KEYS */;
@@ -118,30 +118,28 @@ CREATE TABLE IF NOT EXISTS `sys_users` (
   `lastname` varchar(100) NOT NULL,
   `mi` char(1) NOT NULL,
   `designation` char(10) NOT NULL,
-  `address` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL DEFAULT 'Metro Manila',
   `contacts` varchar(50) NOT NULL,
   `email_add` varchar(100) NOT NULL,
-  `signature` varchar(200) NOT NULL,
   `searchable` tinyint(1) NOT NULL DEFAULT '0',
-  `district` tinyint(1) NOT NULL,
   `date_created` date NOT NULL,
   `user_created` varchar(50) NOT NULL,
   `date_last_modified` date NOT NULL,
   `user_last_modified` varchar(50) NOT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table storkflow.sys_users: ~3 rows (approximately)
+-- Dumping data for table storkflow.sys_users: ~8 rows (approximately)
 /*!40000 ALTER TABLE `sys_users` DISABLE KEYS */;
-INSERT INTO `sys_users` (`id`, `firstname`, `lastname`, `mi`, `designation`, `address`, `contacts`, `email_add`, `signature`, `searchable`, `district`, `date_created`, `user_created`, `date_last_modified`, `user_last_modified`, `deleted`) VALUES
-	(1, 'Admin', 'Admin', 'J', '', 'Bacoor City', '', 'joshauza@gmail.com', 'sig.png', 1, 1, '0000-00-00', '', '2014-08-02', '', 0),
-	(2, 'SM', 'SM', 'H', 'Sr', 'Bacoor City', '', 'joshauza@gmail.com', 'sig.png?1407856938', 1, 1, '0000-00-00', '', '2014-08-12', '', 0),
-	(3, 'Member', 'Member', 'K', '', 'Manila', '', 'joshauza@gmail.com', 'sig.png', 1, 1, '0000-00-00', '', '2014-08-02', '', 0),
-	(4, 'Salcedo', 'Janel', 'K', '', 'Manila', '', '', 'sig.png', 1, 1, '0000-00-00', '', '2014-08-02', '', 0),
-	(5, 'Semilla', 'Jahir', 'K', '', 'Manila', '', '', 'sig.png', 1, 1, '0000-00-00', '', '2014-08-02', '', 0),
-	(6, 'Teodoro', 'April', 'K', '', 'Manila', '', '', 'sig.png', 1, 1, '0000-00-00', '', '2014-08-02', '', 0),
-	(7, 'Angeles', 'Harvey', 'K', '', 'Manila', '', '', 'sig.png', 1, 1, '0000-00-00', '', '2014-08-02', '', 0);
+INSERT INTO `sys_users` (`id`, `firstname`, `lastname`, `mi`, `designation`, `address`, `contacts`, `email_add`, `searchable`, `date_created`, `user_created`, `date_last_modified`, `user_last_modified`, `deleted`) VALUES
+	(1, 'Admin', 'Admin', 'J', '', 'Bacoor City', '0918888222', 'gh@gmail.com', 1, '0000-00-00', '', '2015-06-28', 'admin', 0),
+	(2, 'SM', 'SM', 'H', 'Sr', 'Bacoor City', '0918888222', 'joshauza@gmail.com', 1, '0000-00-00', '', '2015-06-29', 'sm', 0),
+	(3, 'Member', 'Member', 'K', '', 'Manila', '', 'joshauza@gmail.com', 1, '0000-00-00', '', '2014-08-02', '', 0),
+	(4, 'Salcedo', 'Janel', 'K', '', 'Manila', '', '', 1, '0000-00-00', '', '2015-06-28', 'admin', 0),
+	(5, 'Semilla', 'Jahir', 'K', '', 'Manila', '', '', 1, '0000-00-00', '', '2015-06-28', 'admin', 0),
+	(6, 'Teodoro', 'April', 'K', '', 'Manila', '', '', 1, '0000-00-00', '', '2014-08-02', '', 0),
+	(7, 'Angeles', 'Harvey', 'K', '', 'Manila', '', '', 1, '0000-00-00', '', '2014-08-02', '', 0);
 /*!40000 ALTER TABLE `sys_users` ENABLE KEYS */;
 
 
@@ -152,7 +150,6 @@ CREATE TABLE IF NOT EXISTS `sys_user_roles` (
   `sys_role_id` int(10) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(200) NOT NULL,
-  `pwc` tinyint(10) NOT NULL DEFAULT '1',
   `status` char(10) NOT NULL DEFAULT 'NEW',
   `date_created` date NOT NULL,
   `user_created` varchar(50) NOT NULL,
@@ -160,18 +157,18 @@ CREATE TABLE IF NOT EXISTS `sys_user_roles` (
   `user_last_modified` varchar(50) NOT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table storkflow.sys_user_roles: ~3 rows (approximately)
+-- Dumping data for table storkflow.sys_user_roles: ~8 rows (approximately)
 /*!40000 ALTER TABLE `sys_user_roles` DISABLE KEYS */;
-INSERT INTO `sys_user_roles` (`id`, `sys_user_id`, `sys_role_id`, `username`, `password`, `pwc`, `status`, `date_created`, `user_created`, `date_last_modified`, `user_last_modified`, `deleted`) VALUES
-	(1, 1, 1, 'admin', 'a', 0, 'REG', '0000-00-00', '', '2015-06-24', '', 0),
-	(2, 2, 2, 'sm', 'a', 0, 'REG', '0000-00-00', '', '0000-00-00', '', 0),
-	(3, 3, 3, 'member', 'a', 0, 'REG', '0000-00-00', '', '0000-00-00', '', 0),
-	(4, 4, 3, 'janel', 'a', 0, 'REG', '0000-00-00', '', '0000-00-00', '', 0),
-	(5, 5, 3, 'jahir', 'a', 0, 'REG', '0000-00-00', '', '0000-00-00', '', 0),
-	(6, 6, 3, 'april', 'a', 0, 'REG', '0000-00-00', '', '0000-00-00', '', 0),
-	(7, 7, 3, 'harvey', 'a', 0, 'REG', '0000-00-00', '', '0000-00-00', '', 0);
+INSERT INTO `sys_user_roles` (`id`, `sys_user_id`, `sys_role_id`, `username`, `password`, `status`, `date_created`, `user_created`, `date_last_modified`, `user_last_modified`, `deleted`) VALUES
+	(1, 1, 1, 'admin', 'b', 'REG', '0000-00-00', '', '2015-06-29', 'admin', 0),
+	(2, 2, 2, 'sm', 'b', 'REG', '0000-00-00', '', '2015-06-29', 'sm', 0),
+	(3, 3, 3, 'member', 'a', 'REG', '0000-00-00', '', '0000-00-00', '', 0),
+	(4, 4, 3, 'janel', 'a', 'REG', '0000-00-00', '', '2015-06-28', 'admin', 0),
+	(5, 5, 3, 'jahir', 'a', 'REG', '0000-00-00', '', '2015-06-28', 'admin', 0),
+	(6, 6, 3, 'april', 'a', 'REG', '0000-00-00', '', '0000-00-00', '', 0),
+	(7, 7, 3, 'harvey', 'a', 'REG', '0000-00-00', '', '0000-00-00', '', 0);
 /*!40000 ALTER TABLE `sys_user_roles` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

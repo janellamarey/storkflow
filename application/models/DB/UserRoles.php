@@ -6,9 +6,10 @@ class DB_UserRoles extends DB_Base
 {
     protected $_name = 'sys_user_roles';
     
-    public function getRowObjectFromUserId( $iUserId )
+    public function getUserId( $userRoleId )
     {
-        return $this->fetchRow( 'deleted=0 AND sys_user_id=' . $iUserId );
+        $object = $this->fetchRow( 'deleted=0 AND id=' . $userRoleId );
+        return $object->sys_user_id;                
     }
     
 }

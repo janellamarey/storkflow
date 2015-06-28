@@ -1,4 +1,3 @@
 admin
-apo
 scrum master
 member

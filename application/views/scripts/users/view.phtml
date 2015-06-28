@@ -1,0 +1,61 @@
+<div id="content">
+    <div id="content-wrap">
+        
+        <div class="links">
+            <ul>
+                <?php
+                echo $this->partialLoop( 'users/_linkItem.phtml' , $this->links );
+                ?>
+            </ul>
+        </div>
+        
+        <div id="title-bar">
+            <h2><?php echo $this->escape( $this->title ); ?> </h2>            
+        </div>
+        
+        <div>
+            <h3>Personal Information</h3>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><?php echo $this->escape( SiteConstants::createName( $this->user->firstname , $this->user->lastname , $this->user->mi , $this->user->designation ) );
+            ?></td>
+                </tr>
+                <tr>
+                    <td>Contact Number:</td>
+                    <td><?php echo $this->escape( $this->user->contacts ); ?></td>
+                </tr>
+                <tr>
+                    <td>Email address:</td>
+                    <td><?php echo $this->escape( $this->user->email_add ); ?></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <h3>Account Information</h3>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>Username:</td>
+                    <td><?php echo $this->escape( $this->user_acc->username ); ?></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div>
+            <h3>Privilege Information</h3>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>Privileges:</td>
+                    <td><?php echo $this->escape( $this->user_role->name ); ?></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>   
+</div>

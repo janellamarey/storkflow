@@ -1,0 +1,19 @@
+System concept
+
+Users can be in 3 roles: admin, scrum master, member.
+
+Each user belongs to a house. A house basically means the teams belonging to same line management. Eg. House Kropek, House Kwekkwek.
+
+Each user can participate to not more than 1 team.
+
+Admin can create new teams and add story-tasks to teams.
+
+Each story-task can be assigned to a member or a scrum master.
+
+Monitoring of tasks is maintained within teams. For example,
+RN team has more than 20 story-tasks each assigned to members of the RN team. Each member of the team can input the amount of hours he/she already consumed for the task.
+
+Two metrics are important: actual hours and estimated hours.
+Each member of the team should input the actual hours promptly. Estimated hours are created during planning.
+
+One artifact is only made: a burndown chart per team.

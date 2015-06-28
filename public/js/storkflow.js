@@ -1,3 +1,178 @@
+function OutOfStock( obj )
+{
+    //object should have the following properties: url, controller, action, id, status
+    $.ajax( {
+        url: obj.url + "/" + obj.controller + "/" + obj.action + "/format/json/stockId/" + obj.stockId + "/status/" + obj.status,
+        data: {
+            stockId: obj.stockId,
+            status: obj.status
+        },
+        type: "POST",
+        dataType: "json",
+        success: function ( json ) {
+            if ( json !== undefined && json.result )
+            {
+                obj.onSuccess();
+            }
+        },
+        error: function ( xhr, status, errorThrown )
+        {
+            alert( xhr );
+            alert( errorThrown );
+        },
+        complete: function ( xhr, status )
+        {
+        }
+    } );
+}
+
+function NewDelete( obj )
+{
+    //object should have the following properties: url, controller, action, id
+    $.ajax( {
+        url: obj.url + "/" + obj.controller + "/" + obj.action + "/format/json/id/" + obj.id,
+        data: {
+            id: obj.id
+        },
+        type: "POST",
+        dataType: "json",
+        success: function ( json ) {
+            if ( json !== undefined && json.result )
+            {
+                obj.onSuccess();
+            }
+        },
+        error: function ( xhr, status, errorThrown )
+        {
+            alert( xhr );
+            alert( errorThrown );
+        },
+        complete: function ( xhr, status )
+        {
+        }
+    } );
+}
+
+function NewDeleteFile( obj )
+{
+    //object should have the following properties: url, controller, action, id, filename
+    $.ajax( {
+        url: obj.url + "/" + obj.controller + "/" + obj.action + "/format/json/filename/" + obj.filename,
+        data: {
+            filename: obj.filename
+        },
+        type: "POST",
+        dataType: "json",
+        success: function ( json ) {
+            if ( json !== undefined && json.result )
+            {
+                obj.onSuccess();
+            }
+        },
+        error: function ( xhr, status, errorThrown )
+        {
+            alert( xhr.responseText );
+        },
+        complete: function ( xhr, status )
+        {
+        }
+    } );
+}
+
+function Delete( url, controller, action, id )
+{
+    $.ajax( {
+        url: url + "/" + controller + "/" + action + "/format/json/id/" + id,
+        data: {
+            id: id
+        },
+        type: "POST",
+        dataType: "json",
+        success: function ( json ) {
+            if ( json !== undefined )
+            {
+                if ( json.result )
+                {
+                    $( "#item-" + id ).remove();
+                }
+            }
+        },
+        error: function ( xhr, status, errorThrown )
+        {
+            alert( xhr );
+            alert( errorThrown );
+        },
+        complete: function ( xhr, status )
+        {
+        }
+    } );
+}
+
+function PostThenDeleteTableRow( obj )
+{
+    var url = obj.url;
+    var controller = obj.controller;
+    var action = obj.action;
+    var id = obj.id;
+    var tableId = obj.tableId;
+
+    $.ajax( {
+        url: url + "/" + controller + "/" + action + "/format/json/id/" + id,
+        data: {
+            id: id
+        },
+        type: "POST",
+        dataType: "json",
+        success: function ( json ) {
+            if ( json !== undefined && json.result )
+            {
+                $( "table#" + tableId + " #n-" + id ).remove();
+            }
+        },
+        error: function ( xhr, status, errorThrown )
+        {
+            alert( errorThrown );
+        },
+        complete: function ( xhr, status )
+        {
+        }
+    } );
+}
+
+function SendOrder( obj )
+{
+    var url = obj.url;
+    var controller = obj.controller;
+    var action = obj.action;
+    var id = obj.id;
+
+    $.ajax( {
+        url: url + "/" + controller + "/" + action + '/format/json/' + id,
+        data: {
+            id: id
+        },
+        type: "POST",
+        dataType: "json",
+        success: function ( json ) {
+            if ( json !== undefined && json.result && json.message )
+            {
+                $( "#message" ).empty().append( json.message );
+                $( "#checkout-cart" ).remove();
+                $( "#customer-order" ).remove();
+            }
+        },
+        error: function ( xhr, status, errorThrown )
+        {
+            alert( xhr );
+            alert( errorThrown );
+        },
+        complete: function ( xhr, status )
+        {
+        }
+    } );
+}
+
+//other codes
 function Approve( url, controller, action, id )
 {
 
@@ -246,34 +421,6 @@ function ApproveUser( url, controller, action, id )
     } );
 }
 
-function PostThenDeleteTableRow( url, controller, action, id )
-{
-    $.ajax( {
-        url: url + "/" + controller + "/" + action + "/format/json/id/" + id,
-        data: {
-            id: id
-        },
-        type: "POST",
-        dataType: "json",
-        success: function ( json ) {
-            if ( json !== undefined )
-            {
-                if ( json.result && json.id === parseInt( id ) )
-                {
-                    $( "table#users #n-" + json.id ).remove();
-                }
-            }
-        },
-        error: function ( xhr, status, errorThrown )
-        {
-            alert( errorThrown );
-        },
-        complete: function ( xhr, status )
-        {
-        }
-    } );
-}
-
 function PostDeleteTableRow( url, controller, action, id, tableId )
 {
     $.ajax( {
@@ -303,7 +450,59 @@ function PostDeleteTableRow( url, controller, action, id, tableId )
     } );
 }
 
-function Delete( url, controller, action, id, tableId )
+function DeletePostFile( url, controller, action, id )
+{
+    $.ajax( {
+        url: url + "/" + controller + "/" + action + "/format/json/id/" + id,
+        data: {
+            id: id
+        },
+        type: "POST",
+        dataType: "json",
+        success: function ( json ) {
+            if ( json !== undefined && json.result === true )
+            {
+                $( "#li-" + id ).empty().remove();
+            }
+        },
+        error: function ( xhr, status, errorThrown )
+        {
+            alert( xhr.responseText );
+        },
+        complete: function ( xhr, status )
+        {
+        }
+    } );
+}
+
+function DeleteFileByPostIdAndFilename( url, controller, action, id, postid, filename )
+{
+    $.ajax( {
+        url: url + "/" + controller + "/" + action + "/format/json/filename/" + filename + "/postid/" + postid,
+        data: {
+            filename: filename,
+            postid: postid
+        },
+        type: "POST",
+        dataType: "json",
+        success: function ( json ) {
+            if ( json !== undefined && json.result === true )
+            {
+                $( "#li-" + id ).empty().remove();
+            }
+        },
+        error: function ( xhr, status, errorThrown )
+        {
+            alert( xhr.responseText );
+        },
+        complete: function ( xhr, status )
+        {
+        }
+    } );
+}
+
+
+function AddToCart( url, controller, action, id )
 {
     $.ajax( {
         url: url + "/" + controller + "/" + action + "/format/json/id/" + id,
@@ -315,39 +514,10 @@ function Delete( url, controller, action, id, tableId )
         success: function ( json ) {
             if ( json !== undefined )
             {
-                if ( json.result )
+                if ( json.result === true && json.item !== undefined )
                 {
-                    $( "table#" + tableId + " #n-" + id ).remove();
-                }
-            }
-        },
-        error: function ( xhr, status, errorThrown )
-        {
-            alert( xhr );
-            alert( errorThrown );
-        },
-        complete: function ( xhr, status )
-        {
-        }
-    } );
-}
-
-function DeletePostFile( url, controller, action, id, postid, filename )
-{
-    $.ajax( {
-        url: url + "/" + controller + "/" + action + "/format/json/filename/" + filename + "/postid/" + postid,
-        data: {
-            filename: filename,
-            postid: postid
-        },
-        type: "POST",
-        dataType: "json",
-        success: function ( json ) {
-            if ( json !== undefined )
-            {
-                if ( json.result === true )
-                {
-                    $( "#li-" + id ).empty().remove();
+                    console.log( 'added to cart' );
+                    console.log( json.item );
                 }
             }
         },
@@ -536,23 +706,83 @@ function Confirm( title, message, yesText, yesCallback )
     } ).text( message ).parent().addClass( "alert" );
 }
 
-function DeleteFile( url, controller, action, id, filename )
+function QtyDialog( stockId )
+{
+    $( "#cart-form" ).attr( { title: "Enter quantity" } ).empty();
+    var label = $( "<label>Quantity:</label>" );
+    var text = $( "<input></input>" ).attr( { "type": "text", "name": "qty" } ).css( { marginLeft: "10px", width: "70%" } );
+    var stockElem = $( "<input></input>" ).attr( { "type": "hidden", "id": "stock-id" } ).val( stockId );
+    var form = $( "<form></form>" ).append( label ).append( stockElem ).append( text );
+    $( "#cart-form" ).append( form );
+
+    $( "#cart-form" ).dialog( {
+        buttons: [ {
+                text: "Submit",
+                click: function () {
+                    var qty = $( "#cart-form :text" ).val();
+                    var stockId = $( "#cart-form #stock-id" ).val();
+                    $.ajax( {
+                        url: "/items/tocart/format/json/id/" + stockId + "/qty/" + qty,
+                        data: {
+                            id: stockId,
+                            qty: qty
+                        },
+                        type: "POST",
+                        dataType: "json",
+                        success: function ( json ) {
+                            if ( json !== undefined && json.result === true && json.items !== undefined )
+                            {
+                                new UpdateCart( json.items, { cartId: 'checkout-cart', tableId: 'checkout-cart-table', deleteButtonId: 'checkout-delcart-butt-' } );
+                                new UpdateRemoveButtonListenerInCart( json.items, { deleteButtonId: 'checkout-delcart-butt-' } );
+                                new UpdateCheckoutButton( json.items, { cartId: 'checkout-button' } );
+                            }
+                        },
+                        error: function ( xhr, status, errorThrown )
+                        {
+                            alert( xhr.responseText );
+                        },
+                        complete: function ( xhr, status )
+                        {
+                        }
+                    } );
+
+                    $( this ).dialog( "close" );
+                    $( "#cart-form" ).empty();
+                }
+            },
+            {
+                text: "Cancel",
+                click: function () {
+                    $( this ).dialog( "close" );
+                    $( "#cart-form" ).empty();
+                }
+            } ],
+        close: function ( event, ui )
+        {
+            $( this ).dialog( "close" );
+        },
+        height: 150,
+        width: 300,
+        resizable: true,
+        modal: true
+    } );
+}
+
+function DeleteItemFromCart( stockId )
 {
     $.ajax( {
-        url: url + "/" + controller + "/" + action + "/format/json/filename/" + filename,
+        url: "/items/deletefromcart/format/json/id/" + stockId,
         data: {
-            filename: filename
+            id: stockId
         },
         type: "POST",
         dataType: "json",
         success: function ( json ) {
-            if ( json !== undefined )
+            if ( json !== undefined && json.result === true && json.items !== undefined )
             {
-                if ( json.result === true )
-                {
-                    console.log( 'deleted' );
-                    $( "#li-" + id ).empty().remove();
-                }
+                new UpdateCart( json.items, { cartId: 'checkout-cart', tableId: 'checkout-cart-table', deleteButtonId: 'checkout-delcart-butt-' } );
+                new UpdateRemoveButtonListenerInCart( json.items, { deleteButtonId: 'checkout-delcart-butt-' } );
+                new UpdateCheckoutButton( json.items, { cartId: 'checkout-button' } );
             }
         },
         error: function ( xhr, status, errorThrown )
@@ -565,39 +795,126 @@ function DeleteFile( url, controller, action, id, filename )
     } );
 }
 
-function FeaturePolls( url, controller, action, id )
+function DeleteItemFromCheckoutCart( stockId )
 {
     $.ajax( {
-        url: url + "/" + controller + "/" + action + "/format/json/id/" + id,
+        url: "/items/deletefromcart/format/json/id/" + stockId,
         data: {
-            id: id
+            id: stockId
         },
         type: "POST",
         dataType: "json",
         success: function ( json ) {
-            if ( json !== undefined )
+            if ( json !== undefined && json.result === true && json.items !== undefined )
             {
-                if ( json.result && json.id === parseInt( id ) )
-                {
-                    if ( json.oldid !== undefined )
-                    {
-                        $( "table#polls #feat-mess-" + json.oldid ).removeClass( 'important' ).html( '' );
-                        $( "table#polls #feat-butt-" + json.oldid ).addClass( 'action-button' ).html( 'Set featured' );
-                    }
-
-                    $( "table#polls #feat-mess-" + json.id ).addClass( 'important' ).html( 'featured' );
-                    $( "table#polls #feat-butt-" + json.id ).removeClass( 'action-button' ).html( '' );
-                }
+                new UpdateCart( json.items, { cartId: 'checkout-cart', tableId: 'checkout-cart-table', deleteButtonId: 'checkout-delcart-butt-' } );
+                new UpdateRemoveButtonListenerInCheckoutCart( json.items, { deleteButtonId: 'checkout-delcart-butt-' } );
+                new UpdateCustomerOrderForm( json.items );
             }
         },
         error: function ( xhr, status, errorThrown )
         {
-            alert( errorThrown );
+            alert( xhr.responseText );
         },
         complete: function ( xhr, status )
         {
         }
     } );
+}
+
+function UpdateRemoveButtonListenerInCheckoutCart( itemObj, container )
+{
+    if ( !($.isArray( itemObj.items ) && itemObj.items.length === 0) )
+    {
+        $.each( itemObj.items, function ( key, item ) {
+            $.each( item, function ( key, unit ) {
+                $( "#" + container.deleteButtonId + unit.stock_id ).on( "click", { id: unit.stock_id }, function ( event ) {
+                    new Confirm( "Delete item in cart", "Are you sure you want to delete this item?", "Yes", function () {
+                        new DeleteItemFromCheckoutCart( event.data.id );
+                    } );
+                    event.preventDefault();
+                } );
+            } );
+        } );
+    }
+}
+
+function UpdateRemoveButtonListenerInCart( itemObj, container )
+{
+    if ( !($.isArray( itemObj.items ) && itemObj.items.length === 0) )
+    {
+        $.each( itemObj.items, function ( key, item ) {
+            $.each( item, function ( key, unit ) {
+                $( "#" + container.deleteButtonId + unit.stock_id ).on( "click", { id: unit.stock_id }, function ( event ) {
+                    new Confirm( "Delete item in cart", "Are you sure you want to delete this item?", "Yes", function () {
+                        new DeleteItemFromCart( event.data.id );
+                    } );
+                    event.preventDefault();
+                } );
+            } );
+        } );
+    }
+}
+
+function UpdateCheckoutButton( itemObj, container )
+{
+    if ( !($.isArray( itemObj.items ) && itemObj.items.length === 0) )
+    {
+        var checkoutButton = $( "<a>Checkout</a>" ).attr( { id: "checkout-butt", "class": "action-button", href: "/buy/index" } );
+        $( "#" + container.cartId ).empty().append( $( "<div></div>" ).attr( { "class": "block" } ).append( checkoutButton ) );
+    }
+    else
+    {
+        $( "#" + container.cartId ).empty();
+    }
+}
+
+function UpdateCustomerOrderForm( itemObj )
+{
+    if ( $.isArray( itemObj.items ) && itemObj.items.length === 0 && $( "#customer-order" ).length )
+    {
+        $( "#customer-order" ).empty().remove();
+    }
+}
+
+function UpdateCart( itemObj, container )
+{
+    if ( !($.isArray( itemObj.items ) && itemObj.items.length === 0) )
+    {
+        var cartElement = $( "#" + container.cartId ).empty();
+        var table = $( "<table></table>" ).attr( { id: container.tableId } );
+        var tbody = $( "<tbody></tbody>" );
+        var headerRow = $( "<tr></tr>" );
+        var itemHeader = $( "<th>Item</th>" );
+        var qtyHeader = $( "<th>Quantity</th>" );
+        var subtotalHeader = $( "<th>Total</th>" );
+        var nbspHeader = $( "<th>&nbsp;</th>" );
+
+        cartElement.append( table );
+        table.append( tbody ).append( headerRow.append( itemHeader ).append( qtyHeader ).append( subtotalHeader ).append( nbspHeader ) );
+        var items = itemObj.items;
+        $.each( items, function ( key, item ) {
+
+            table.append( $( "<tr/>" ).append( $( "<th/>" ).append( key ) )
+                    .append( $( "<th>&nbsp;</th>" ) )
+                    .append( $( "<th>&nbsp;</th>" ) )
+                    .append( $( "<th>&nbsp;</th>" ) ) );
+
+            $.each( item, function ( key, unit ) {
+                var title = $( "<td/>" ).append( unit.title + "(PHP" + unit.price + ")" );
+                var qty = $( "<td/>" ).append( "x" + unit.qty );
+                var lineCost = $( "<td/>" ).append( "PHP " + unit.lineCost );
+                var deleteButton = $( "<td/>" ).append( $( "<a>Remove</a>" ).attr( { id: container.deleteButtonId + unit.stock_id, "class": "action-button", href: "" } ) );
+                var row = $( "<tr/>" ).attr( { id: "n-" + unit.stock_id } ).append( title ).append( qty ).append( lineCost ).append( deleteButton );
+                table.append( row );
+            } );
+        } );
+        table.append( $( "<tr/>" ).append( $( "<td>&nbsp;</td>" ) ).append( $( "<td>&nbsp;</td>" ) ).append( $( "<td/>" ).append( "PHP " + itemObj.total ) ) );
+    }
+    else
+    {
+        $( "#" + container.cartId ).empty().append( $( "<h3>No items in cart.</h3>" ) );
+    }
 }
 
 function Populate( post )
@@ -616,512 +933,6 @@ function Populate( post )
     }
 }
 
-
-function VoteFromView( url, controller, action, questionId, radioGroupName, containerName, buttonContainerName, additionalLink )
-{
-    $.ajax( {
-        url: url + "/" + controller + "/" + action + "/format/json/qid/" + questionId + "/oid/" + $( 'input[name="' + radioGroupName + '"]:checked' ).val(),
-        type: "POST",
-        dataType: "json",
-        data: {
-            qid: questionId,
-            oid: $( 'input[name="' + radioGroupName + '"]:checked' ).val()
-        },
-        success: function ( json ) {
-            if ( json !== undefined && json.qid !== undefined && json.oid !== undefined && json.optionresults !== undefined )
-            {
-                var showAllButton = $( '<a/>', { html: "Show all polls", href: additionalLink, "class": "action-button" } );
-                $( "#" + buttonContainerName ).empty().append( 'You have already voted for this poll.' ).append( $( '<span/>' )
-                        .append( showAllButton ) );
-
-                var count = 0;
-                for ( var i = 0; i < json.optionresults.length; i++ )
-                {
-                    count += parseInt( json.optionresults[i]['votes'] );
-                    $( "#n-" + json.optionresults[i]['survey_option_id'] + " td:nth-child(2)" ).empty().text( json.optionresults[i]['votes'] );
-                }
-                $( "#t-" + json.qid ).empty().text( count + ' votes' );
-                for ( var i = 0; i < json.optionresults.length; i++ )
-                {
-                    var percentage = 0;
-                    var currentVotes = parseInt( json.optionresults[i]['votes'] );
-
-                    if ( count > 0 && currentVotes > 0 )
-                    {
-                        percentage = (currentVotes * 100) / count;
-                    }
-                    else if ( count > 0 )
-                    {
-                        percentage = 0;
-                    }
-                    else if ( currentVotes > 0 )
-                    {
-                        percentage = 100;
-                    }
-                    else
-                    {
-                        percentage = 0;
-                    }
-                    $( "#n-" + json.optionresults[i]['survey_option_id'] + " .percentbar div" ).width( percentage + "%" );
-                }
-            }
-        },
-        error: function ( xhr, status, errorThrown )
-        {
-            alert( errorThrown );
-        },
-        complete: function ( xhr, status )
-        {
-        }
-    } );
-}
-
-function Vote( url, controller, action, questionId, radioGroupName, containerName, buttonContainerName )
-{
-    $.ajax( {
-        url: url + "/" + controller + "/" + action + "/format/json/qid/" + questionId + "/oid/" + $( 'input[name="' + radioGroupName + '"]:checked' ).val(),
-        type: "POST",
-        dataType: "json",
-        data: {
-            qid: questionId,
-            oid: $( 'input[name="' + radioGroupName + '"]:checked' ).val()
-        },
-        success: function ( json ) {
-            if ( json !== undefined && json.qid !== undefined && json.oid !== undefined )
-            {
-                var resultButton = $( '<a/>', { html: "View result", href: "", "class": "action-button" } );
-                resultButton.on( 'click', { qid: questionId, container: containerName, buttonContainer: buttonContainerName }, function ( event ) {
-                    event.preventDefault();
-                    new VoteResults( '', 'polls', 'getvotes', event.data.qid, event.data.container, event.data.buttonContainer );
-                } );
-                $( "." + containerName ).empty().html( "You have already voted this survey." );
-                $( "#" + buttonContainerName ).empty().append( $( '<span/>' )
-                        .append( resultButton )
-                        );
-            }
-        },
-        error: function ( xhr, status, errorThrown )
-        {
-            alert( errorThrown );
-        },
-        complete: function ( xhr, status )
-        {
-        }
-    } );
-}
-
-function VoteResults( url, controller, action, questionId, containerName, buttonContainerName )
-{
-    $.ajax( {
-        url: url + "/" + controller + "/" + action + "/format/json/qid/" + questionId,
-        type: "POST",
-        dataType: "json",
-        data: {
-            qid: questionId
-        },
-        success: function ( json ) {
-            if ( json !== undefined && json.qid !== undefined && json.votes !== undefined )
-            {
-                var results = $( '<div/>' );
-                var options = $( '<ul/>' );
-                var totalVotes = 0;
-                for ( a = 0; a < json.votes.length; a++ )
-                {
-                    totalVotes += parseInt( json.votes[a].votes );
-                }
-
-                for ( a = 0; a < json.votes.length; a++ )
-                {
-                    var currentVotes = parseInt( json.votes[a].votes );
-                    var percentage = 0;
-                    if ( totalVotes > 0 && currentVotes > 0 )
-                    {
-                        percentage = (currentVotes * 100) / totalVotes;
-                    }
-                    else if ( totalVotes > 0 )
-                    {
-                        percentage = 0;
-                    }
-                    else if ( currentVotes > 0 )
-                    {
-                        percentage = 100;
-                    }
-                    else
-                    {
-                        percentage = 0;
-                    }
-
-                    options.append( '<li><ul><li>' + json.votes[a].option_name + '</li>' );
-
-                    var barContainer = $( '<li/>' );
-                    var bar = $( '<div/>', { 'class': 'percentbar' } ).width( '100%' );
-                    var subbar = $( '<div/>' ).width( percentage + '%' );
-                    bar.append( subbar );
-                    barContainer.append( bar );
-                    options.append( barContainer );
-                    options.append( '<li>' + json.votes[a].votes + '/' + totalVotes + '</li></ul></li>' );
-
-                    var resultButton = $( '<a/>', { html: "Next poll", href: "", "class": "action-button" } );
-                    resultButton.on( 'click', {
-                        url: '',
-                        controller: 'polls',
-                        action: 'voteoptions',
-                        questionId: json.qid,
-                        radioGroupName: 'poll-radio',
-                        containerName: containerName,
-                        buttonContainerName: buttonContainerName
-                    },
-                    function ( event ) {
-                        event.preventDefault();
-                        new VoteOptions( event.data.url, event.data.controller, event.data.action,
-                                event.data.questionId, event.data.radioGroupName,
-                                event.data.containerName, event.data.buttonContainerName );
-                    } );
-                    $( "#" + buttonContainerName ).empty().append( $( '<span/>' )
-                            .append( resultButton )
-                            );
-                }
-                results.append( options );
-                $( "." + containerName ).empty().append( results );
-            }
-        },
-        error: function ( xhr, status, errorThrown )
-        {
-            alert( errorThrown );
-        },
-        complete: function ( xhr, status )
-        {
-        }
-    } );
-}
-
-function VoteOptions( url, controller, action, questionId, radioGroupName, containerName, buttonContainerName )
-{
-    $.ajax( {
-        url: url + "/" + controller + "/" + action + "/format/json/qid/" + questionId,
-        type: "POST",
-        dataType: "json",
-        data: {
-            qid: questionId
-        },
-        success: function ( json ) {
-            if ( json !== undefined && json.qid !== undefined && json.hasVotedAll !== undefined && json.options !== undefined )
-            {
-
-                if ( json.hasVotedAll )
-                {
-                    $( "." + containerName ).remove();
-                    $( ".poll-question" ).remove();
-                    $( "#anosatinginmo" ).remove();
-                    $( '#poll-button-changer' ).empty().html( '<span>Thanks for voting on all polls!</span>' );
-                }
-                else
-                {
-                    //append options
-                    var optionsList = $( '<ul/>' );
-                    for ( a = 0; a < json.options.length; a++ )
-                    {
-                        var optionsListItem = $( '<li>' );
-                        var inputItem = $( '<input>', {
-                            type: "radio",
-                            name: "poll-radio",
-                            value: json.options[a][ 'survey_option_id' ],
-                            "class": "signup-radio"
-                        } );
-                        if ( a === 0 )
-                        {
-                            inputItem.attr( "checked", true );
-                        }
-                        optionsListItem.append( inputItem );
-                        optionsListItem.append( json.options[a][ 'survey_option' ] );
-                        optionsList.append( optionsListItem );
-                    }
-                    $( "." + containerName ).empty().append( optionsList );
-
-                    //update buttons
-                    $( '#poll-button-changer' ).empty().append( $( '<span/>' ).append( $( '<a/>', {
-                        html: "Vote",
-                        href: "",
-                        "class": "action-button"
-                    } ) ) );
-
-                    $( '#poll-button-changer' ).find( 'a' ).on( 'click', {
-                        url: '',
-                        controller: 'polls',
-                        action: 'vote',
-                        questionId: json.qid,
-                        radioGroupName: radioGroupName,
-                        containerName: containerName,
-                        buttonContainerName: buttonContainerName
-                    }, function ( event ) {
-                        event.preventDefault();
-                        new Vote( event.data.url, event.data.controller, event.data.action,
-                                event.data.questionId, event.data.radioGroupName,
-                                event.data.containerName, event.data.buttonContainerName );
-                    } );
-                }
-
-            }
-        },
-        error: function ( xhr, status, errorThrown )
-        {
-            alert( errorThrown );
-        },
-        complete: function ( xhr, status )
-        {
-        }
-    } );
-}
-
-function OrdinancePDF( data )
-{
-    var title = data['name'];
-    var logo = data['logo'];
-    var content = data['content'];
-    var councilors1 = data['councilors1'];
-    var councilors2 = data['councilors2'];
-    var admin = data['admin'];
-    var superuser = data['superuser'];
-    var superadmin = data['superadmin'];
-
-    //settings
-    var doc = new jsPDF( 'p', 'pt', [ 576, 936 ] );
-    var pageHeight = 842;
-    var pageWidth = 595;
-    var marginBottom = 50;
-    var pageMaxY = pageHeight - marginBottom;
-
-    var contentWidth = pageWidth * 0.75;
-    var gutterWidth = pageWidth * 0.25;
-
-    var contentInnerMargin = 10;
-    var firstPageStartY = 200;
-    var otherPageStartY = 50;
-
-    var district1 = function ( doc ) {
-        doc.setFontType( 'bold' );
-        doc.customText( "DISTRICT I", { align: "center",
-            relativeWidth: gutterWidth, xoffset: 0 }, 0, 130 );
-
-        for ( var i = 0; i < councilors1.length; i++ )
-        {
-            if ( councilors1[i]['datauri'].length > 0 && parseInt( councilors1[i]['datauriwidth'] ) !== 0 && parseInt( councilors1[i]['datauriheight'] ) !== 0 )
-            {
-                doc.addImage( councilors1[i]['datauri'], 'png', 10, 130 + gutterGap * i,
-                        parseInt( councilors1[i]['datauriwidth'] ), parseInt( councilors1[i]['datauriheight'] ) );
-            }
-            doc.setFontType( 'bold' );
-            doc.text( 10, 155 + gutterGap * i, 'HON. ' + councilors1[i]['name'].toUpperCase() );
-            doc.setFontType( 'normal' );
-            doc.text( 10, 165 + gutterGap * i, 'City Councilor' );
-        }
-    };
-
-    var district2 = function ( doc ) {
-        doc.setFontType( 'bold' );
-        var c2startY = 130 + gutterGap * (councilors1.length + 1);
-        doc.customText( "DISTRICT II", { align: "center",
-            relativeWidth: gutterWidth, xoffset: 0 }, 0, c2startY );
-
-        for ( var i = 0; i < councilors2.length; i++ )
-        {
-            if ( councilors2[i]['datauri'].length > 0 && parseInt( councilors2[i]['datauriwidth'] ) !== 0 && parseInt( councilors2[i]['datauriheight'] ) !== 0 )
-            {
-                doc.addImage( councilors2[i]['datauri'], 'png', 10, c2startY + gutterGap * i,
-                        parseInt( councilors2[i]['datauriwidth'] ), parseInt( councilors2[i]['datauriheight'] ) );
-            }
-            doc.setFontType( 'bold' );
-            doc.text( 10, c2startY + 25 + gutterGap * i, 'HON. ' + councilors2[i]['name'].toUpperCase() );
-            doc.setFontType( 'normal' );
-
-            var sHonTitle = 'City Councilor';
-            if ( councilors2[i]['name'].toUpperCase() === 'VICTORINO GUERRERO' )
-            {
-                sHonTitle = 'City Councilor - ABC Pres.';
-            }
-            doc.text( 10, c2startY + 35 + gutterGap * i, sHonTitle );
-        }
-    };
-
-    var printSK = function ( doc )
-    {
-        doc.setFontType( 'normal' );
-        doc.text( 10, 670, 'SK Federation President' );
-    };
-
-    var printadmin = function ( doc )
-    {
-        doc.setFontType( 'normal' );
-        doc.text( 10, 710, 'Attested by:' );
-        for ( var i = 0; i < admin.length; i++ )
-        {
-            if ( admin[i]['datauri'].length > 0 && parseInt( admin[i]['datauriwidth'] ) !== 0 && parseInt( admin[i]['datauriheight'] ) !== 0 )
-            {
-                doc.addImage( admin[i]['datauri'], 'png', 10, 710 + gutterGap * i,
-                        parseInt( admin[i]['datauriwidth'] ), parseInt( admin[i]['datauriheight'] ) );
-            }
-            doc.setFontType( 'bold' );
-            doc.text( 10, 740 + gutterGap * i, 'ATTY. ' + admin[i]['name'].toUpperCase() );
-            doc.setFontType( 'normal' );
-            doc.text( 10, 750 + gutterGap * i, 'Sangguniang Panlungsod Secretary' );
-        }
-    };
-
-    var printsuperuser = function ( doc )
-    {
-        doc.setFontType( 'normal' );
-        doc.text( 10, 790, 'Certified by:' );
-        for ( var i = 0; i < superuser.length; i++ )
-        {
-            if ( superuser[i]['datauri'].length > 0 && parseInt( superuser[i]['datauriwidth'] ) !== 0 && parseInt( superuser[i]['datauriheight'] ) !== 0 )
-            {
-                doc.addImage( superuser[i]['datauri'], 'png', 10, 790 + gutterGap * i,
-                        parseInt( superuser[i]['datauriwidth'] ), parseInt( superuser[i]['datauriheight'] ) );
-            }
-            doc.setFontType( 'bold' );
-            doc.text( 10, 820 + gutterGap * i, 'HON. ' + superuser[i]['name'].toUpperCase() );
-            doc.setFontType( 'normal' );
-            doc.text( 10, 830 + gutterGap * i, 'City Vice Mayor/Presiding Officer' );
-        }
-    };
-
-    var printsuperadmin = function ( doc )
-    {
-        doc.setFontType( 'normal' );
-        doc.text( 10, 850, 'Approved by:' );
-        for ( var i = 0; i < superadmin.length; i++ )
-        {
-            if ( superadmin[i]['datauri'].length > 0 && parseInt( superadmin[i]['datauriwidth'] ) !== 0 && parseInt( superadmin[i]['datauriheight'] ) !== 0 )
-            {
-                doc.addImage( superadmin[i]['datauri'], 'png', 10, 860 + gutterGap * i,
-                        parseInt( superadmin[i]['datauriwidth'] ), parseInt( superadmin[i]['datauriheight'] ) );
-            }
-            doc.setFontType( 'bold' );
-            doc.text( 10, 890 + gutterGap * i, 'HON. ' + superadmin[i]['name'].toUpperCase() );
-            doc.setFontType( 'normal' );
-            doc.text( 10, 900 + gutterGap * i, 'City Mayor' );
-        }
-    };
-
-    var gutterGap = 35;
-    doc.setDrawColor( 0 );
-    //logo
-    doc.addImage( logo, 38, 35, 80, 80 );
-
-    //header
-    doc.setFont( 'times' );
-    doc.setFontSize( 9 );
-    doc.customText( "Republic of the Philippines", { align: "center",
-        relativeWidth: contentWidth, xoffset: gutterWidth }, 0, 60 );
-
-    doc.setFontType( 'bold' );
-    doc.setFont( 'helvetica' );
-    doc.setFontSize( 10 );
-    doc.customText( "CITY OF BACOOR", { align: "center",
-        relativeWidth: contentWidth, xoffset: gutterWidth }, 0, 75 );
-
-    doc.setFont( 'times' );
-    doc.setFontType( 'normal' );
-    doc.setFontSize( 10 );
-    doc.customText( "Province of Cavite", { align: "center",
-        relativeWidth: contentWidth, xoffset: gutterWidth }, 0, 90 );
-
-    doc.setFontType( 'bold' );
-    doc.setFontSize( 11 );
-    doc.customText( "OFFICE OF THE SANGGUNIANG PANGLUNGSOD", { align: "center",
-        relativeWidth: contentWidth, xoffset: gutterWidth }, 0, 115 );
-
-    doc.setFont( 'helvetica' );
-    doc.setFontType( 'normal' );
-    doc.setFontSize( 11 );
-
-    //title
-    var titlelines = doc.splitTextToSize( title, 400 );
-    var titlelinegap = 12;
-    var titleIndex = 0;
-    for ( ; titleIndex < titlelines.length; titleIndex++ )
-    {
-        doc.customText( titlelines[titleIndex], { align: "center",
-            relativeWidth: contentWidth, xoffset: gutterWidth }, 0, 150 + titlelinegap * titleIndex );
-    }
-    firstPageStartY = 170 + titlelinegap * titleIndex;
-
-    doc.setFont( 'helvetica' );
-    doc.setFontSize( 6 );
-
-    district1( doc );
-    district2( doc );
-    printSK( doc );
-    printadmin( doc );
-    printsuperuser( doc );
-    printsuperadmin( doc );
-
-    doc.setFontSize( 7 );
-    doc.setFont( 'helvetica' );
-    doc.setFontType( 'normal' );
-
-    //content
-    var lines = doc.splitTextToSize( content, 400 );
-    var lineCount = 0;
-    var startY = firstPageStartY;
-    var lineGap = 10;
-
-    for ( var i = 0; i < lines.length; i++ )
-    {
-        var nextY = startY + lineGap * lineCount;
-        if ( nextY > pageMaxY )
-        {
-            lineCount = 0;
-            startY = otherPageStartY;
-            nextY = otherPageStartY;
-
-            doc.addPage();
-            doc.setDrawColor( 0 );
-
-            //logo
-            doc.addImage( logo, 38, 35, 80, 80 );
-
-            district1( doc );
-            district2( doc );
-            printSK( doc );
-            printadmin( doc );
-            printsuperuser( doc );
-            printsuperadmin( doc );
-        }
-        doc.text( gutterWidth + contentInnerMargin, nextY, lines[i] );
-        lineCount++;
-    }
-
-    return doc;
-}
-
-function PublishPolls( url, controller, action, id )
-{
-    $.ajax( {
-        url: url + "/" + controller + "/" + action + "/format/json/id/" + id,
-        data: {
-            id: id
-        },
-        type: "POST",
-        dataType: "json",
-        success: function ( json ) {
-            if ( json !== undefined )
-            {
-                if ( json.result && json.id === parseInt( id ) )
-                {
-                    $( "table#polls #n-" + json.id ).remove();
-                }
-            }
-        },
-        error: function ( xhr, status, errorThrown )
-        {
-            alert( errorThrown );
-        },
-        complete: function ( xhr, status )
-        {
-        }
-    } );
-}
 
 
 

@@ -12,5 +12,5 @@ class DB_Users extends DB_Base
         $sSql = $this->_db->quoteInto("deleted=0 AND email_add=?", $sEmail);
         return $this->fetchRow( $sSql );
     }
-
+    
 }

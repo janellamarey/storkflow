@@ -45,8 +45,8 @@ class Custom_Db_Table_Row_Observable extends Zend_Db_Table_Row_Abstract
     protected function _insert()
     {
         $this->date_created = date( "Y-m-d" );
-        $currentUser = Zend_Controller_Action_HelperBroker::getStaticHelper( 'AclHelper' )->getCurrentUserData();
-        $this->user_created = $currentUser[ 'username' ];
+        $user = Zend_Controller_Action_HelperBroker::getStaticHelper( 'AclHelper' )->getCurrentUser();
+        $this->user_created = $user->username;
     }
 
     protected function _postInsert()

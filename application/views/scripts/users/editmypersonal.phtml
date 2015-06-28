@@ -1,0 +1,46 @@
+<div id="content">
+    <div id="content-wrap">
+
+        <div class="links">
+            <ul>
+                <?php
+                echo $this->partialLoop( 'users/_linkItem.phtml' , $this->links );
+                ?>
+            </ul>
+        </div>
+
+        <div id="title-bar">
+            <h1>Edit Personal Data</h1>
+        </div>
+        <?php
+        if ( !is_null( $this->message ) && !empty( $this->message ) )
+        {
+            ?>
+            <div id="flashmessage" class="flashmessage">
+                <ul>
+                    <li><?= $this->message; ?></li>
+                </ul>
+            </div>
+            <?php
+        }
+        ?>
+
+        <div id="edit-personal-form">
+            <?php echo $this->form; ?>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $( document ).ready( function () {
+
+        $( "#save" ).on( 'click', function ( eventData )
+        {
+            new Confirm( 'Confirm', 'Are you sure you want to save the user details?', 'Yes', function () {
+                $( "#edit-personal" ).submit();
+            } );
+            eventData.preventDefault();
+        } );
+
+    } );
+</script> 

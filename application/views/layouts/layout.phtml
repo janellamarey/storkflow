@@ -12,7 +12,7 @@
     <body>
         <?php
         echo $this->partial( "_header.phtml" , array( "user" => $this->layout()->user ) );
-        echo $this->partial( "_menu.phtml" , array( "menu" => $this->layout()->menu , "useblue" => "blue" , "usecore" => "core" ));
+        echo $this->partial( "_menu.phtml" , array( "menu" => $this->layout()->menu , "useblue" => "blue" , "usecore" => "core" ) );
         echo $this->layout()->content;
         ?>        
     </body>

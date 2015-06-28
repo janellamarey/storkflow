@@ -10,7 +10,7 @@ class Custom_Controller_Action_Helper_MenuHelper extends Zend_Controller_Action_
         $menu = array();
 
         $extraMenu = array();
-        
+
         if ( $role == SiteConstants::$ADMIN_ID )
         {
             $extraMenu = array( 'title' => 'ACCOUNT' ,
@@ -29,6 +29,12 @@ class Custom_Controller_Action_Helper_MenuHelper extends Zend_Controller_Action_
                     'url' => $view->url( array( 'controller' => 'accounts' , 'action' => '' ) , null , true )
             );
         }
+        
+        if ( !empty( $extraMenu ) )
+        {
+            $menu[ 'ACCOUNT' ] = $extraMenu;
+        }
+
         return $menu;
     }
 
@@ -44,12 +50,21 @@ class Custom_Controller_Action_Helper_MenuHelper extends Zend_Controller_Action_
         {
             $menu[ $this->menuItemName ][ 'active' ] = true;
         }
+        else
+        {
+            $menu[ 'ACCOUNT' ][ 'active' ] = true;
+        }
         return $menu;
     }
 
     public function setMenuItemName( $name )
     {
         $this->menuItemName = $name;
+    }
+    
+    public function getMenuItemName()
+    {
+        return $this->menuItemName;
     }
 
     public function setMenuItemAction( $action )

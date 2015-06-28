@@ -24,10 +24,10 @@ EOT;
 
     private function initObjects()
     {
-        $this->oUsers = new Users();
-        $this->adminEmails = $this->oUsers->getActiveEmailAddresses( SiteConstants::$ADMIN_USER );
-        $this->smEmails = $this->oUsers->getActiveEmailAddresses( SiteConstants::$SM_USER );
-        $this->memberEmails = $this->oUsers->getActiveEmailAddresses( SiteConstants::$MEMBER_USER );
+        $this->users = new Users();
+        $this->adminEmails = $this->users->getActiveEmailAddresses( SiteConstants::$ADMIN_USER );
+        $this->smEmails = $this->users->getActiveEmailAddresses( SiteConstants::$SM_USER );
+        $this->memberEmails = $this->users->getActiveEmailAddresses( SiteConstants::$MEMBER_USER );
     }
 
     private function initDBObjects()

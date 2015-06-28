@@ -7,10 +7,10 @@ class IndexController extends Zend_Controller_Action
 
     public function init()
     {
-        $aUserData = $this->_helper->_aclHelper->getCurrentUserData();
-        $sRoleId = $aUserData[ 'sys_role_id' ];
+        $this->user = $this->_helper->_aclHelper->getCurrentUser();
+        $roleId = $this->user->sysRoleId;
 
-        if ( $sRoleId === SiteConstants::$GUEST_ID )
+        if ( $roleId === SiteConstants::$GUEST_ID )
         {
             $this->_helper->_aclHelper->deny( SiteConstants::$GUEST_USER , array( 'index' ) );
         }
@@ -19,14 +19,12 @@ class IndexController extends Zend_Controller_Action
             $this->_helper->_aclHelper->allow( SiteConstants::$GUEST_USER , array( 'index' ) );
         }
 
-        $this->_helper->_menuHelper->setMenuItemName( SiteConstants::$HOME_MENUITEM );
+        $this->_helper->_menuHelper->setMenuItemName( SiteConstants::$ACCOUNT_MENUITEM );
     }
 
     public function indexAction()
     {
-        $aUserData = $this->_helper->_aclHelper->getCurrentUserData();
-        $sRoleId = $aUserData[ 'sys_role_id' ];
-        $this->view->is_logged = $sRoleId === SiteConstants::$GUEST_ID ? false : true;
+        $this->view->is_logged = $this->user->sysRoleId === SiteConstants::$GUEST_ID ? false : true;
     }
 
 }

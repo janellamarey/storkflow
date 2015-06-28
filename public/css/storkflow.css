@@ -1,0 +1,629 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,300);
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+.clear
+{
+    clear:both;
+}
+
+
+body {
+    margin:0;
+    padding:0;
+    width:100%;
+    height: 100%
+    background:#fff;
+    min-width:600px; /* Minimum width of layout - remove line if not required */
+    /* The min-width property does not work in old versions of Internet Explorer */
+    font-family: Arial;
+    font-size: 12px;
+}
+
+table
+{
+    margin: 5px 0; 
+}
+
+table td
+{
+    color: #000000;
+    padding: 5px 0px;
+    font: 12px Georgia;
+
+}
+
+a {
+    color:#660099;
+    text-decoration: none;
+}
+
+a img{
+    border:0;
+}
+
+a:hover {
+    color:#345;
+    text-decoration:none;
+}
+
+h1, h3 {
+    margin:.8em 0 .2em 0;
+    padding:0;
+    font-family: Georgia;
+}
+
+h2 {
+    margin:.8em 0 .8em 0;
+    padding:0;
+    font-family: Georgia;
+}
+
+p {
+    margin:.8em 0;
+    padding:0;
+}
+
+
+/**header**/
+#header {
+    clear:both;
+    float:left;
+    width:100%;
+}
+
+#header p,
+#header h1,
+#header h2 {
+    padding:.4em 15px 0 15px;
+    margin:0;
+}
+
+#header ul {
+    clear:left;
+    float:left;
+    width:100%;
+    list-style:none;
+    margin:10px 0 0 0;
+    padding:0;
+}
+
+#header ul li {
+    display:inline;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+#header ul li a {
+    display:block;
+    float:left;
+    margin:0 0 0 1px;
+    padding:3px 10px;
+    text-align:center;
+    background:#eee;
+    color:#000;
+    text-decoration:none;
+    position:relative;
+    left:15px;
+    line-height:1.3em;
+}
+
+#header ul li a:hover {
+    background:#660099;
+    color:#fff;
+}
+
+#header ul li a.active,
+#header ul li a.active:hover {
+    color:#fff;
+    background:#000;
+    font-weight:bold;
+}
+
+#header ul li a span {
+    display:block;
+}
+
+#header-wrap
+{
+    width: 90%;
+    margin: 0 auto;
+}
+
+#header_left {
+    float:left;
+    width:65%;
+}
+
+#header_right {
+    float:right;
+    width:35%;
+}
+
+#layoutdims {
+    clear:both;
+    background:#eee;
+    border-top:4px solid #000;
+    margin:0;
+    padding:6px 15px !important;
+    text-align:right;
+}
+
+.colmask {
+    position:relative;	
+    clear:both;
+    float:left;
+    width:100%;			
+    overflow:hidden;		
+}
+
+
+.colright,
+.colmid,
+.colleft {
+    float:left;
+    width:100%;			
+    position:relative;
+}
+
+.col1,
+.col2,
+.col3 {
+    float:left;
+    position:relative;
+    padding:0 0 1em 0;	/* no left and right padding on columns, we just make them narrower instead 
+                                    only padding top and bottom is included here, make it whatever value you need */
+    overflow:hidden;
+}
+
+.fullpage .col1 {
+    width:94%;			/* page width minus left and right padding */
+    left:3%;			/* page left padding */
+}
+
+#logo-img
+{
+    margin: 0;
+    display:block;
+}
+
+.register
+{
+    float: right !important;
+}
+
+.content-wrap
+{
+    margin: 0 auto;
+    width: 90%;
+}
+
+/**footer**/
+#footer {
+    clear:both;
+    float:left;
+    width:100%;
+    background:#039;
+    padding:5px 0;
+}
+
+#footer p {
+    margin:0;
+    padding-left: 30px;
+    color: #fff;
+}
+
+#footer-top {
+    clear:both;
+    color:#FFF;
+}
+
+#footer-bottom
+{
+    clear: both;
+    background: #039;
+    color: white;
+    font: 12px arial, serif;
+    float: right;
+}
+
+.footer-column {
+    float:left;
+}
+
+.footer-column h3 {
+    color:#FFF200;
+    font:12px arial;
+    padding-left: 30px;
+}
+
+/**user dashboard**/
+.user-dash .form-block{
+    float: left;
+}
+
+.user-dash .login-form-block{
+    float: left;
+    width: 140px;
+}
+
+.user-dash .form-block .errors, .user-dash .login-form-block .errors{
+    color: #FFF;
+    list-style: none;
+    padding: 0;
+    margin:0;
+    text-align: center;
+}
+
+.user-dash input[type="text"], .user-dash input[type="password"]
+{
+    text-align: center;
+    border: 1px solid blue;
+    font-size: 16px;
+    font-family:arial;
+    color: #999999;
+    padding: 5px;
+    margin: 3px;
+    width: 120px;
+}
+
+.user-dash .form-div{
+    text-align: center;
+    color: #000;
+}
+
+.user-dash .form-div a{
+    text-decoration: underline;
+    color: #000;
+}
+
+.user-dash .search_btn
+{
+    background: #000;
+    border: none;
+    font-family: arial;
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFFFFF;
+    padding: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    cursor: pointer;
+}   
+
+/**search **/
+.search-dash
+{
+    float: right;
+    margin: 0;
+    padding: 10px 0px;
+}
+
+.searchform
+{
+    overflow: hidden;
+}
+
+.searchform .q
+{
+    color: #999999;
+    font: 15px Arial,Helvetica,sans-serif;
+    padding: 2px 10px 3px 8px;
+    width: 150px;
+    border: 1px solid #E0E2E1;
+    height: 20px;
+}
+
+.search-dash .search_btn
+{
+    background:url(../img/grad_signup.png) repeat-x center center;
+    border: none;
+    font-family: Arial, Verdana;
+    font-size: 13px;
+    color: #FFFFFF;
+    padding: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+}
+
+.search-dash .search_arrow_btn
+{
+    background:url(../img/right-arrow.png) no-repeat center center;
+    border: none;
+}
+
+.search-dash .search_arrow_btn:hover
+{
+    cursor: pointer;
+}
+.search-dash .search_btn:hover
+{
+    color: black;
+    cursor: pointer;
+}
+
+.selectable
+{
+    border: 1px solid #E0E2E1;
+    color: #0000FF;
+    font-family: georgia;
+    font-size: 18px;
+    padding: 5px;
+    vertical-align: middle;
+}
+
+/**menu**/
+.menu
+{
+    height: 40px;
+    background: #660099;
+    clear: both;
+    width: 100%;
+}
+
+.menu-wrap
+{
+    margin: 0 auto;
+    width: 90%;
+}
+
+.menu ul {
+    clear:left;
+    width:100%;
+    list-style:none;
+    padding:0;
+}
+.menu ul li {
+    list-style:none;
+    display:inline-block;
+    position:relative;
+    margin:0;
+    padding:0;
+}
+.menu ul li a {
+    color: #fff;
+    display: block;
+    float: left;
+    font-family: georgia;
+    font-size: 12px;
+    height: 12px;
+    line-height: 1.3em;
+    padding: 14px 10px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+}
+.menu ul li a:hover {
+    background:#660099;
+    color:#fff;
+}
+.menu ul li a.active,
+.menu ul li a.active:hover {
+    color:#fff;
+    background:#000;
+    font-weight:bold;
+}
+.menu ul li a span {
+    display:block;
+}
+
+/**widget**/
+.widget ul a
+{
+    background: none;
+    color: #FFFFFF;
+}
+
+.widget ul a:hover
+{
+    background: none;
+    color: #FFF200;
+}
+
+/**links**/
+.links-fullpadding 
+{
+    padding:10px 0;
+}
+
+.links
+{
+    margin: 10px 0;
+}
+
+.links ul
+{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.links ul li
+{
+    display: inline;
+    padding: 5px 5px 0 0;
+}
+
+.display-pic
+{
+    margin: 5px 0;
+}
+
+.widget ul
+{
+    list-style: none;
+    padding: 0;
+}
+
+.widget
+{
+    font: 13px Georgia, serif;
+}
+
+/**forms**/
+.form
+{
+    font: 12px Georgia;
+}
+
+.form ul
+{
+    padding: 0;
+}
+
+.form ul li
+{
+    list-style: none;
+}
+
+.form ul li a
+{
+    color: #000;
+}
+
+.form ul li
+{
+    color: #000;
+    padding: 0 0 5px;
+}
+
+.form ul li h1
+{
+    color: #000;
+}
+
+.form ul li input[type="text"], 
+.form ul li input[type="password"]
+{
+    border: 1px solid #E0E2E1;
+    color: #000;
+    height: 20px;
+    padding: 2px 10px 3px 8px;
+    width: 200px;
+}
+
+.form ul li #title
+{
+    padding: 5px;
+    width: 97%;
+}
+
+.form ul li textarea
+{
+    border: 1px solid #E0E2E1;
+    color: #000;
+    height: 300px;
+    width: 97%;
+    font: 10pt Arial;
+}
+
+.form ul li #body
+{
+    padding: 5px;
+}
+
+.form ul li #message
+{
+    border: 1px solid #E0E2E1;
+    color: #000;
+    height: 150px;
+    padding: 5px;
+    width: 97.5%;
+    margin: 0;
+    font: 10pt Arial;
+}
+
+.form ul li select
+{
+    border: 1px solid #E0E2E1;
+    color: #000;
+    height: 25px;
+    width: 222px;
+}
+
+.form #name, .simpleForm #title
+{
+    border: 1px solid #E0E2E1;
+    color: #000;
+    height: 20px;
+    padding: 5px;
+    width: 100%;
+}
+
+.form ul li ul
+{
+    padding: 5px 0 0 0;
+    margin: 0;
+}
+
+.form ul li ul li
+{
+    padding:0;
+    color: #fe0000;
+}
+
+.login-form
+{
+    padding-top: 10px;
+}
+
+.flashmessage ul
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.form #save, .form #send
+{
+    background: none repeat scroll 0 0 #000;
+    border: medium none;
+    border-radius: 8px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font: 14px Georgia,serif;
+    padding: 7px;
+}
+
+#Login:hover,#Reset:hover
+{
+    color: #000000;
+}
+
+.important{
+    background: #ff0000;
+    padding: 2px;
+    color: white;
+}
+
+.grouped_lists
+{
+    display: inline;
+    float : left;
+    margin: 10px 10px 10px 0;
+}
+
+.wrapword
+{
+    white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    white-space: pre-wrap;       /* css-3 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    word-break: break-all;
+    white-space: normal;
+    text-align: justify;
+}
+

@@ -1,0 +1,26 @@
+<div id="content">
+    <div id="content-wrap">
+        
+        <div class="links">
+            <ul>
+                <?php
+                echo $this->partialLoop( 'users/_linkItem.phtml' , $this->links );
+                ?>
+            </ul>
+        </div>
+        
+        <div id="title-bar">
+            <h1>Registered users</h1>
+        </div>
+        <div>
+            <table class="block-list" id="users">
+
+                <?php
+                echo $this->partialLoop( 'users/_userItem.phtml' , $this->users );
+                ?>
+
+            </table>
+        </div>
+
+    </div>   
+</div>

@@ -13,11 +13,12 @@ class SiteConstants
     public static $MEMBER_ID = 3;
     public static $GUEST_ID = 4;
     public static $HOME_MENUITEM = 'HOME';
-    public static $ACCOUNT_MENUITEM = 'ACCOUNT';
     public static $BY_DAY = 86400;
     public static $BY_WEEK = 604800;
     public static $NEW = "NEW";
     public static $REG = "REG";
+    public static $ACCOUNT_MENUITEM = 'ACCOUNT';
+    public static $ROLE = 'role';
 
     public static function createName( $firstname , $lastname , $mi , $designation )
     {
@@ -44,5 +45,4 @@ class SiteConstants
                 Administrator
                 www.lambsmarketing.com
 EOT;
-
 }
