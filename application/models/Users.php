@@ -134,7 +134,7 @@ class Users
         return array();
     }
 
-    private function getStructuredArray( $users , $isEditAllowed = false , $isEditAllowed = false , $isApproveAllowed = false , $isDenyAllowed = false )
+    private function getStructuredArray( $users , $isEditAllowed = false , $isDeleteAllowed = false , $isApproveAllowed = false , $isDenyAllowed = false )
     {
         $finalUsers = array();
         for ( $i = 0 , $count = count( $users ); $i < $count; $i++ )
@@ -151,7 +151,7 @@ class Users
             $item[ 'date_modified' ] = $users[ $i ][ 'date_last_modified' ];
             $item[ 'user_modified' ] = $users[ $i ][ 'user_last_modified' ];
             $item[ 'edit' ] = $isEditAllowed;
-            $item[ 'delete' ] = $isEditAllowed;
+            $item[ 'delete' ] = $isDeleteAllowed;
             $item[ 'approve' ] = $isApproveAllowed;
             $item[ 'deny' ] = $isDenyAllowed;
             $item[ 'alreadyapproved' ] = $users[ $i ][ 'status' ] === SiteConstants::$REG;

@@ -505,7 +505,8 @@ p {
 }
 
 .form ul li input[type="text"], 
-.form ul li input[type="password"]
+.form ul li input[type="password"],
+.form ul li textarea
 {
     border: 1px solid #E0E2E1;
     color: #000;

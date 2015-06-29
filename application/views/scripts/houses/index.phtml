@@ -1,0 +1,18 @@
+<div id="content">
+    <div id="content-wrap">
+               
+        <div id="title-bar">
+            <h1>Houses</h1>
+        </div>
+        <div>
+            <table class="block-list" id="houses">
+
+                <?php
+                echo $this->partialLoop( 'houses/_houseItem.phtml' , $this->houses );
+                ?>
+
+            </table>
+        </div>
+
+    </div>   
+</div>

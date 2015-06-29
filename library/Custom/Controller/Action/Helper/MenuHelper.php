@@ -9,30 +9,15 @@ class Custom_Controller_Action_Helper_MenuHelper extends Zend_Controller_Action_
     {
         $menu = array();
 
-        $extraMenu = array();
-
-        if ( $role == SiteConstants::$ADMIN_ID )
+        if ( ( int ) $role != SiteConstants::$GUEST_ID )
         {
-            $extraMenu = array( 'title' => 'ACCOUNT' ,
-                    'url' => $view->url( array( 'controller' => 'accounts' , 'action' => '' ) , null , true )
+            $menu = array(
+                    'STORIES' => array( 'title' => 'STORIES' , 'url' => $view->url( array( 'controller' => 'stories' , 'action' => 'index' ) , null , true ) ) ,
+                    'TASKS' => array( 'title' => 'TASKS' , 'url' => $view->url( array( 'controller' => 'tasks' , 'action' => 'index' ) , null , true ) ) ,
+                    'TEAMS' => array( 'title' => 'TEAMS' , 'url' => $view->url( array( 'controller' => 'teams' , 'action' => 'index' ) , null , true ) ) ,
+                    'HOUSES' => array( 'title' => 'HOUSES' , 'url' => $view->url( array( 'controller' => 'houses' , 'action' => 'index' ) , null , true ) ) ,
+                    'ACCOUNT' => array( 'title' => 'ACCOUNT' , 'url' => $view->url( array( 'controller' => 'accounts' , 'action' => '' ) , null , true ) )
             );
-        }
-        else if ( $role == SiteConstants::$SM_ID )
-        {
-            $extraMenu = array( 'title' => 'ACCOUNT' ,
-                    'url' => $view->url( array( 'controller' => 'accounts' , 'action' => '' ) , null , true )
-            );
-        }
-        else if ( $role == SiteConstants::$MEMBER_ID )
-        {
-            $extraMenu = array( 'title' => 'ACCOUNT' ,
-                    'url' => $view->url( array( 'controller' => 'accounts' , 'action' => '' ) , null , true )
-            );
-        }
-        
-        if ( !empty( $extraMenu ) )
-        {
-            $menu[ 'ACCOUNT' ] = $extraMenu;
         }
 
         return $menu;
@@ -61,7 +46,7 @@ class Custom_Controller_Action_Helper_MenuHelper extends Zend_Controller_Action_
     {
         $this->menuItemName = $name;
     }
-    
+
     public function getMenuItemName()
     {
         return $this->menuItemName;

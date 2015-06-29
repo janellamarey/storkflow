@@ -14,10 +14,8 @@ class UsersController extends Zend_Controller_Action
         $this->_helper->_aclHelper->allow( SiteConstants::$ADMIN_USER , array( 'add' , 'registered' , 'delete' , 'view' , 'editmyprivilege' ) );
         $this->_helper->_aclHelper->allow( SiteConstants::$MEMBER_USER , array( 'changepass' , 'editmypersonal' , 'editmyaccount' ) );
 
-
         $ajaxContext = $this->_helper->getHelper( 'AjaxContext' );
         $ajaxContext->addActionContext( 'delete' , 'json' );
-
         $ajaxContext->initContext();
 
         $this->users = new Users();

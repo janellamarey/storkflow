@@ -17,9 +17,8 @@ class IndexController extends Zend_Controller_Action
         else
         {
             $this->_helper->_aclHelper->allow( SiteConstants::$GUEST_USER , array( 'index' ) );
+            $this->_helper->_menuHelper->setMenuItemName( SiteConstants::$ACCOUNT_MENUITEM );
         }
-
-        $this->_helper->_menuHelper->setMenuItemName( SiteConstants::$ACCOUNT_MENUITEM );
     }
 
     public function indexAction()

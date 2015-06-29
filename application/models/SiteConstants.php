@@ -18,6 +18,10 @@ class SiteConstants
     public static $NEW = "NEW";
     public static $REG = "REG";
     public static $ACCOUNT_MENUITEM = 'ACCOUNT';
+    public static $TEAMS_MENUITEM = 'TEAMS';
+    public static $TASKS_MENUITEM = 'TASKS';
+    public static $STORIES_MENUITEM = 'STORIES';
+    public static $HOUSES_MENUITEM = 'HOUSES';
     public static $ROLE = 'role';
 
     public static function createName( $firstname , $lastname , $mi , $designation )
