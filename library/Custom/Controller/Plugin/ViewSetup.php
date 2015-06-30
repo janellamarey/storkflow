@@ -78,6 +78,7 @@ class Custom_Controller_Plugin_ViewSetup extends Zend_Controller_Plugin_Abstract
         $this->initBXSlider();
         $this->initFlexSlider();
         $this->initFancyBox();
+        $this->initBootstrap();
         $this->initJSPDF();
         $this->initCustomJS();
         $this->initLinks();
@@ -176,6 +177,14 @@ class Custom_Controller_Plugin_ViewSetup extends Zend_Controller_Plugin_Abstract
     {
         $view = $this->getView();
         $view->headScript()->appendFile( '/js/fancybox/jquery.fancybox.pack.js' );
+    }
+    
+    public function initBootstrap()
+    {
+        $view = $this->getView();
+        $view->headLink()->appendStylesheet( $view->baseUrl() . '/css/bootstrap/css/bootstrap.css' );
+        $view->headLink()->appendStylesheet( $view->baseUrl() . '/css/bootstrap/css/bootstrap-responsive.css' );
+        $view->headScript()->appendFile( $view->baseUrl() . '/css/bootstrap/css/bootstrap.js' );
     }
 
     public function initJSPDF()

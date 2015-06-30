@@ -32,7 +32,7 @@
     font-family: georgia;
     font-size: 12px;
     float: left;
-    height: 12px;
+    height: 40px;
     line-height: 1.3em;
     padding: 14px 10px;
     position: relative;
@@ -128,4 +128,10 @@
 {
     font: 15px georgia;
     color: #fff200;
+}
+
+#header-glyph
+{
+    float:left; 
+    position:relative; 
 }

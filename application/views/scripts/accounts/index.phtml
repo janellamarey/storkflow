@@ -9,11 +9,12 @@
             </ul>
         </div>
 
-        <div>
-            <h2>Personal Information</h2> 
-            <a class="action-button" href="<?php echo $this->url( array( 'controller' => 'users' , 'action' => 'editmypersonal' ) , null , true ); ?>">
-                Edit
+        <div class="header-div">
+            <a class="action-button btn btn-default btn-sm header-glyph" href="<?php echo $this->url( array( 'controller' => 'users' , 'action' => 'editmypersonal' ) , null , true ); ?>">
+                <span class="glyphicon glyphicon-pencil"></span>
             </a>
+            <h2 class="header-glyph" >Personal Information</h2> 
+            
         </div>
         <div>
             <table>
@@ -35,11 +36,11 @@
                 </tr>
             </table>
         </div>
-        <div>
-            <h2>Account Information</h2>
-            <a class="action-button" href="<?php echo $this->url( array( 'controller' => 'users' , 'action' => 'editmyaccount' ) , null , true ); ?>">
-                Edit
+        <div class="header-div" >
+            <a class="action-button btn btn-default btn-sm header-glyph" href="<?php echo $this->url( array( 'controller' => 'users' , 'action' => 'editmyaccount' ) , null , true ); ?>">
+                <span class="glyphicon glyphicon-pencil"></span>
             </a>
+            <h2 class="header-glyph" >Account Information</h2>
         </div>
         <div>
             <table>
@@ -50,19 +51,18 @@
             </table>
         </div>
 
-        <div>
-            <h2>Privilege Information</h2>
+        <div class="header-div" >
             <?php
             if ( $this->canEditOwnPrivilege )
             {
                 ?>
-                <a class="action-button" href="<?php echo $this->url( array( 'controller' => 'users' , 'action' => 'editmyprivilege' ) , null , true ); ?>">
-                    Edit
+                <a class="action-button btn btn-default btn-sm header-glyph" href="<?php echo $this->url( array( 'controller' => 'users' , 'action' => 'editmyprivilege' ) , null , true ); ?>">
+                    <span class="glyphicon glyphicon-pencil"></span>
                 </a>
                 <?php
             }
             ?>
-
+            <h2 class="header-glyph">Privilege Information</h2>
         </div>
         <div>
             <table>
@@ -72,90 +72,5 @@
                 </tr>
             </table>
         </div>
-
-        <?php
-        if ( $this->hassignature )
-        {
-            ?>
-            <h2>Signature</h2>
-            <a class="action-button" href="<?php echo $this->url( array( 'controller' => 'users' , 'action' => 'addsignature' ) , null , true ); ?>">
-                Edit
-            </a>
-            <div>     
-                <table>
-                    <tr>
-                        <td>
-                            Signature (small):
-                        </td>
-                        <td>
-                            <?php
-                            if ( !is_null( $this->user->signature ) && !empty( $this->user->signature ) )
-                            {
-                                ?>
-                                <img src="<?php echo $this->baseUrl( '/img/users/' . $this->user->id . '/small/' . $this->user->signature ); ?>" alt="No signature" />                                    
-
-                                <?php
-                            }
-                            else
-                            {
-                                ?>
-                                No signature at the moment. Please upload.
-                                <?php
-                            }
-                            ?> 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Signature (tiny):
-                        </td>
-                        <td>
-                            <?php
-                            if ( !is_null( $this->user->signature ) && !empty( $this->user->signature ) )
-                            {
-                                ?>
-
-                                <img src="<?php echo $this->baseUrl( '/img/users/' . $this->user->id . '/tiny/' . $this->user->signature ); ?>" alt="No signature" />                                    
-                                <?php
-                            }
-                            else
-                            {
-                                ?>
-                                No signature at the moment. Please upload.
-                                <?php
-                            }
-                            ?> 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Signature (very tiny):
-                        </td>
-                        <td>
-                            <?php
-                            if ( !is_null( $this->user->signature ) && !empty( $this->user->signature ) )
-                            {
-                                ?>
-
-                                <img src="<?php echo $this->baseUrl( '/img/users/' . $this->user->id . '/verytiny/' . $this->user->signature ); ?>" alt="No signature" />                                    
-                                <?php
-                            }
-                            else
-                            {
-                                ?>
-                                No signature at the moment. Please upload.
-                                <?php
-                            }
-                            ?> 
-                        </td>
-                    </tr>
-
-                </table>                
-            </div>
-            <?php
-        }
-        ?>
-
-
     </div>   
 </div>

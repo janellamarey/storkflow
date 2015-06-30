@@ -33,6 +33,25 @@
     font: 13px/1.5em Georgia,serif;
 }
 
+
+#content-wrap .header-glyph
+{
+    float:left; 
+    position:relative; 
+}
+
+#content-wrap .header-div
+{
+    height:40px;
+}
+
+#content-wrap .header-div h2
+{
+    height: 40px;
+    margin: 0px;
+    padding-left: 5px;
+}
+
 .action-button, #submit-butt
 {
     background: none repeat scroll 0 0 #000000;

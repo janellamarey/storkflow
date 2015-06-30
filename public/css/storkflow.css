@@ -21,8 +21,8 @@ body {
     margin:0;
     padding:0;
     width:100%;
-    height: 100%
-    background:#fff;
+    height: 100%;
+    background-color:#fff;
     min-width:600px; /* Minimum width of layout - remove line if not required */
     /* The min-width property does not work in old versions of Internet Explorer */
     font-family: Arial;
@@ -148,6 +148,12 @@ p {
 #header_right {
     float:right;
     width:35%;
+}
+
+#header-glyph
+{
+    float:left; 
+    position:relative; 
 }
 
 #layoutdims {
@@ -368,7 +374,7 @@ p {
 .menu
 {
     height: 40px;
-    background: #660099;
+    background: #337AB7;
     clear: both;
     width: 100%;
 }
@@ -398,7 +404,7 @@ p {
     float: left;
     font-family: georgia;
     font-size: 12px;
-    height: 12px;
+    height: 40px;
     line-height: 1.3em;
     padding: 14px 10px;
     position: relative;

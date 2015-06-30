@@ -30,7 +30,7 @@ class Form_LogoutInHeader extends Zend_Form
         $this->addElement( 'submit' , 'logout' );
         $this->getElement( 'logout' )
                 ->setLabel( 'LOG OUT' )
-                ->setAttrib( "class" , "search_btn" )
+                ->setAttrib( "class" , "btn btn-default btn-sm" )
                 ->setDecorators( $buttonDecorators );
 
 
